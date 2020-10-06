@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
+
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -15,8 +17,13 @@ import modelo.Fichero;
 public class LeerFicheroCsv {
 
 	public static void LeerCSV() throws IOException {
-
-		String csvFile = "prueba1.csv";
+		
+		Scanner sc = new Scanner(System.in);
+		String nombreFichero = "";
+		
+		System.out.println("Introduzca el nombre del CSV sin extension :");
+		nombreFichero = sc.next();
+		String csvFile = nombreFichero +".csv";
 		BufferedReader br = null;
 		String line = "";
 		// Se define separador ","
@@ -29,7 +36,7 @@ public class LeerFicheroCsv {
 				String[] datos = line.split(cvsSplitBy);
 
 				// Imprime datos formateados para que se puedan leer bien
-				System.out.println(Visualizacion.textoEspacios(30, datos[0]) + Visualizacion.textoEspacios(15, datos[1])
+				System.out.println("\n"+Visualizacion.textoEspacios(30, datos[0]) + Visualizacion.textoEspacios(15, datos[1])
 						+ Visualizacion.textoEspacios(15, datos[2]) + Visualizacion.textoEspacios(15, datos[3])
 						+ Visualizacion.textoEspacios(15, datos[4]) + Visualizacion.textoEspacios(30, datos[5])
 						+ Visualizacion.textoEspacios(30, datos[6]));
