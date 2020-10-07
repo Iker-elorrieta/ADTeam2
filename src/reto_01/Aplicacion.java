@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import leerFicheros.LeerFicheroCsv;
+import leerFicheros.LeerFicheroTxt;
 import metodosComunes.Validacion;
 
 public class Aplicacion {
@@ -78,6 +79,9 @@ public class Aplicacion {
 					case 2:
 						// Aqui ira las demas acciones del submenu
 						break;
+					case 3:
+						LeerFicheroTxt.LeerTxt("fichero.txt");//Le pasamos el nombre del fichero que queremos leer
+						break;// final de la accion elegida del submenu
 					}
 
 				} while (opcionSubMenu != 4);
