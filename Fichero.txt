@@ -1,0 +1,33 @@
+*******************************
+Titulo : Callejon sin salida
+Editorial : Acantilado
+Paginas : 158
+Altura : 4
+Notas : 10
+Isbn : 978-987-1565-25-2
+Materias : a
+*******************************
+Titulo : El Gigante Amapolas
+Editorial : Alba
+Paginas : 250
+Altura : 5
+Notas : 5
+Isbn : 978-987-1565-26-9
+Materias : b
+*******************************
+Titulo : Los libros sagrados
+Editorial : Alianza
+Paginas : 100
+Altura : 3
+Notas : 6
+Isbn : 978-987-1565-34-4
+Materias : c
+*******************************
+Titulo : Los relatos del tiempo
+Editorial : Almada
+Paginas : 4
+Altura : 6
+Notas : 4
+Isbn : 8978-987-1565-35-1
+Materias : d
+*******************************
