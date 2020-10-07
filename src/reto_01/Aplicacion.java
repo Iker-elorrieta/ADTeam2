@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import metodosComunes.LeerFicheroCsv;
+import metodosComunes.Validacion;
 
 public class Aplicacion {
 
@@ -14,17 +15,21 @@ public class Aplicacion {
 		int opcion = 0;
 		int opcionSubMenu = 0;
 		boolean error = true;
+		boolean prueba;
 
 		// Menu principal para preguntar si quiero leer, escribir y futuras opciones
 		// bucle para la opcion de terminar del programa
 		do {
+			opcion = 0;
 			do {
 				// try catch para comprobar que me introduce un numero valido
 				try {
-					System.out.println("Bienvenido al Menu principal:\n\n 1.- Leer ficheros \n 2.----------\n 3.----------\n 4.- Salir");
+					System.out.println(
+							"Bienvenido al Menu principal:\n\n 1.- Leer ficheros \n 2.----------\n 3.----------\n 4.- Salir");
 					opcion = sc.nextInt();
+
 					System.out.println();
-					
+
 					if (opcion < 1 || opcion > 4) {
 						System.out.println("\n NUMERO INEXISTENTE\n");
 						System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
@@ -37,6 +42,7 @@ public class Aplicacion {
 							"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 					sc.nextLine();
 				}
+
 			} while (error);
 			// switch con la opcion elegida del menu principal
 			switch (opcion) {
@@ -44,7 +50,9 @@ public class Aplicacion {
 				do {
 					do {
 						try {
-							System.out.println("Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
+							opcionSubMenu = 0;
+							System.out.println(
+									"Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
 							opcionSubMenu = sc.nextInt();
 							System.out.println();
 							// comprobacion de que se introduce un numero valido
