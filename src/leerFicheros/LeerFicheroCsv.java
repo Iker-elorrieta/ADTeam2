@@ -19,11 +19,12 @@ public class LeerFicheroCsv {
 
 	public static void LeerCSV() throws IOException {
 		
+		
 		Scanner sc = new Scanner(System.in);
 		String nombreFichero = "";
 		
 		System.out.println("Introduzca el nombre del CSV con extension :");
-		nombreFichero = sc.next();
+		
 		String csvFile = nombreFichero;
 		BufferedReader br = null;
 		String line = "";

@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import leerFicheros.LeerFicheroCsv;
+<<<<<<< HEAD
 import leerFicheros.LeerFicheroXml;
+=======
+import leerFicheros.LeerFicheroTxt;
+>>>>>>> branch 'Desarrollo' of https://github.com/Iker-elorrieta/ADTeam2.git
 import metodosComunes.Validacion;
 
 public class Aplicacion {
@@ -81,6 +85,9 @@ public class Aplicacion {
 						System.out.println();
 						// Aqui ira las demas acciones del submenu
 						break;
+					case 3:
+						LeerFicheroTxt.LeerTxt("fichero.txt");//Le pasamos el nombre del fichero que queremos leer
+						break;// final de la accion elegida del submenu
 					}
 
 				} while (opcionSubMenu != 4);
