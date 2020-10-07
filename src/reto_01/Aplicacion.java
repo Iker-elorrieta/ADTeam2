@@ -3,7 +3,7 @@ package reto_01;
 import java.io.IOException;
 import java.util.Scanner;
 
-import metodosComunes.LeerFicheroCsv;
+import leerFicheros.LeerFicheroCsv;
 import metodosComunes.Validacion;
 
 public class Aplicacion {

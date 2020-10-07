@@ -1,4 +1,4 @@
-package metodosComunes;
+package leerFicheros;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,6 +12,7 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
+import metodosComunes.Visualizacion;
 import modelo.Fichero;
 
 public class LeerFicheroCsv {
@@ -28,6 +29,7 @@ public class LeerFicheroCsv {
 		String line = "";
 		// Se define separador ","
 		String cvsSplitBy = ",";
+		
 		try {
 			// cargamos en el bufer el fichero
 			br = new BufferedReader(new FileReader(csvFile));
