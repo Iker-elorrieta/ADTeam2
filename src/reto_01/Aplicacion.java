@@ -21,6 +21,7 @@ public class Aplicacion {
 		// Menu principal para preguntar si quiero leer, escribir y futuras opciones
 		// bucle para la opcion de terminar del programa
 		do {
+			error = true;
 			opcion = "";
 			do {
 				// try catch para comprobar que me introduce un numero valido
