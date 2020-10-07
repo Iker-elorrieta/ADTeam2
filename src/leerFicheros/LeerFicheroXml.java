@@ -10,7 +10,7 @@ import org.w3c.dom.*;
 public class LeerFicheroXml {
 
 	public static void leerXml() {
-// leer xml
+		// leer xml
 		File file = new File("prueba.xml");
 
 		try {
