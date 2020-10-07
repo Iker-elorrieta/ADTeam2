@@ -13,25 +13,25 @@ public class Aplicacion {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		int opcion = 0;
-		int opcionSubMenu = 0;
+		String opcion = "";
+		String opcionSubMenu = "";
 		boolean error = true;
 		boolean prueba;
 
 		// Menu principal para preguntar si quiero leer, escribir y futuras opciones
 		// bucle para la opcion de terminar del programa
 		do {
-			opcion = 0;
+			opcion = "";
 			do {
 				// try catch para comprobar que me introduce un numero valido
 				try {
 					System.out.println(
 							"Bienvenido al Menu principal:\n\n 1.- Leer ficheros \n 2.----------\n 3.----------\n 4.- Salir");
-					opcion = sc.nextInt();
+					opcion = sc.nextLine();
 
 					System.out.println();
 
-					if (!Validacion.mValidar(Integer.toString(opcion), "[1-4]{1,1}")) {
+					if (!Validacion.mValidar(opcion, "[1-4]{1,1}")) {
 						System.out.println("\n NUMERO INEXISTENTE\n");
 						System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 					} else {
@@ -46,18 +46,19 @@ public class Aplicacion {
 
 			} while (error);
 			// switch con la opcion elegida del menu principal
-			switch (opcion) {
+			switch (Integer.parseInt(opcion)) {
 			case 1:
 				do {
+					error=true;
 					do {
 						try {
-							opcionSubMenu = 0;
+							opcionSubMenu = "";
 							System.out.println(
 									"Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
-							opcionSubMenu = sc.nextInt();
+							opcionSubMenu = sc.nextLine();
 							System.out.println();
 							// comprobacion de que se introduce un numero valido
-							if (opcion < 1 || opcion > 4) {
+							if (!Validacion.mValidar(opcionSubMenu, "[1-4]{1,1}")) {
 								System.out.println("\n NUMERO INEXISTENTE\n");
 								System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 							} else {
@@ -71,7 +72,7 @@ public class Aplicacion {
 						}
 					} while (error);
 					// switch con la ejecucion del submenu
-					switch (opcionSubMenu) {
+					switch (Integer.parseInt(opcionSubMenu)) {
 					case 1:
 
 						LeerFicheroCsv.LeerCSV();
@@ -84,7 +85,7 @@ public class Aplicacion {
 						break;// final de la accion elegida del submenu
 					}
 
-				} while (opcionSubMenu != 4);
+				} while (Integer.parseInt(opcionSubMenu) != 4);
 
 				break;// terminacion de la elecion del primer menu
 			// otras opciones del menu principal
@@ -96,7 +97,7 @@ public class Aplicacion {
 				break;
 			}
 
-		} while (opcion != 4);
+		} while (Integer.parseInt(opcion) != 4);
 
 	}
 
