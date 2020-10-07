@@ -24,7 +24,7 @@ public class LeerFicheroCsv {
 		String nombreFichero = "";
 		
 		System.out.println("Introduzca el nombre del CSV con extension :");
-		
+		nombreFichero = sc.nextLine();
 		String csvFile = nombreFichero;
 		BufferedReader br = null;
 		String line = "";
