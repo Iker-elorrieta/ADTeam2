@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import leerFicheros.LeerFicheroCsv;
+import leerFicheros.LeerFicheroXml;
 import metodosComunes.Validacion;
 
 public class Aplicacion {
@@ -76,6 +77,8 @@ public class Aplicacion {
 						LeerFicheroCsv.LeerCSV();
 						break;// final de la accion elegida del submenu
 					case 2:
+						LeerFicheroXml.leerXml();
+						System.out.println();
 						// Aqui ira las demas acciones del submenu
 						break;
 					}
