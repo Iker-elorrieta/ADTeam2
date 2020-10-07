@@ -12,7 +12,6 @@ public class Aplicacion {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-
 		String opcion = "";
 		String opcionSubMenu = "";
 		boolean error = true;
