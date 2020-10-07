@@ -36,7 +36,17 @@ public class Validacion {
 	}
 	
 	
-	
+	public static boolean mValidar(CharSequence cadena , String patronAvalidar) {
+		boolean control=false;
+		
+		Pattern patron = Pattern.compile(patronAvalidar);
+		Matcher buscar = patron.matcher(cadena);
+		if(buscar.matches()) {
+			control=true;
+		}
+		
+		return control;
+	}
 
 	
 

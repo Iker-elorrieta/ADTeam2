@@ -30,7 +30,7 @@ public class Aplicacion {
 
 					System.out.println();
 
-					if (opcion < 1 || opcion > 4) {
+					if (!Validacion.mValidar(Integer.toString(opcion), "[1-4]{1,1}")) {
 						System.out.println("\n NUMERO INEXISTENTE\n");
 						System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 					} else {
