@@ -7,6 +7,11 @@ import java.io.IOException;
 
 public class LeerFicheroTxt {
 
+
+	/**
+	 * Esta clase contiene el metodo para leer el fichero txt
+	 * @author Ibai Bugedo
+	 */
 	public static void LeerTxt(String Fichero) throws IOException {
 	      File archivo = null;
 	      FileReader fr = null;

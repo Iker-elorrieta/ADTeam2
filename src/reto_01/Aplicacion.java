@@ -2,8 +2,8 @@ package reto_01;
 
 import java.io.IOException;
 import java.util.Scanner;
-
 import leerFicheros.LeerFicheroCsv;
+import leerFicheros.LeerFicheroXml;
 import leerFicheros.LeerFicheroTxt;
 import metodosComunes.Validacion;
 
@@ -41,7 +41,7 @@ public class Aplicacion {
 					// Excepcion de que se introduce un numero valido
 				} catch (Exception e) {
 					System.out.println(
-							"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+							"\n Â¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 					sc.nextLine();
 				}
 
@@ -68,7 +68,7 @@ public class Aplicacion {
 							// Excepcion de que se introduce un numero valido
 						} catch (Exception e) {
 							System.out.println(
-									"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+									"\n Â¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 							sc.nextLine();
 						}
 					} while (error);
@@ -79,6 +79,8 @@ public class Aplicacion {
 						LeerFicheroCsv.LeerCSV();
 						break;// final de la accion elegida del submenu
 					case 2:
+						LeerFicheroXml.leerXml();
+						System.out.println();
 						// Aqui ira las demas acciones del submenu
 						break;
 					case 3:
