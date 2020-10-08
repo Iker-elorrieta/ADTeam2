@@ -1,23 +1,23 @@
 <biblioteca>
 	
   <libro id="1">
-	  <titulo>Pesadilla antes de navidad</titulo>
-	  <editorial>ni idea</editorial>
-	  <paginas>200</paginas>
-	  <altura>25</altura>
-	  <notas>no</notas>
-	  <isbn>no se que es</isbn>
-	  <materias>materia</materias>
+	  <titulo>Callejon sin salida</titulo>
+	  <editorial>Acantilado</editorial>
+	  <paginas>158</paginas>
+	  <altura>4</altura>
+	  <notas>10</notas>
+	  <isbn>978-987-1565-25-2</isbn>
+	  <materias>a</materias>
   </libro>
 
 	<libro id="2">
-		<titulo>Otro libro</titulo>
-		<editorial>elkar</editorial>
-		<paginas>150</paginas>
+		<titulo>El Gigante Amapolas</titulo>
+		<editorial>Alba</editorial>
+		<paginas>250</paginas>
 		<altura>25</altura>
-		<notas>si</notas>
-		<isbn>no se que es</isbn>
-		<materias>safdsaf</materias>
+		<notas>5</notas>
+		<isbn>978-987-1565-26-9</isbn>
+		<materias>b</materias>
 	</libro>
 
 
