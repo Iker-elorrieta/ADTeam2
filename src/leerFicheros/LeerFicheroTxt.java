@@ -38,49 +38,49 @@ public class LeerFicheroTxt {
 	         while((linea=br.readLine())!=null)
 	        	 if (linea.contains("Titulo")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Titulo = cortarString[1];
 
 	             }
 	        	 else if (linea.contains("Editorial")) {
 
-                 cortarString = linea.split(":");
+                 cortarString = linea.split(": ");
 
                  Editorial = cortarString[1];
 
 	         	}
 	        	 else if (linea.contains("Paginas")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Paginas = cortarString[1];
 
 	             }
 	         	 else if (linea.contains("Altura")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Altura = cortarString[1];
 
 	             }
 	         	 else if (linea.contains("Notas")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Notas = cortarString[1];
 
 	             }
 	         	 else if (linea.contains("Isbn")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Isbn = cortarString[1];
 
 	             }
 	         	 else if (linea.contains("Materias")) {
 
-	                 cortarString = linea.split(":");
+	                 cortarString = linea.split(": ");
 
 	                 Materias = cortarString[1];
 
