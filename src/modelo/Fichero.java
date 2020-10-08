@@ -23,6 +23,10 @@ public class Fichero {
 		this.materias = materias;
 	}
 
+	public Fichero() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTitulo() {
 		return Titulo;
 	}

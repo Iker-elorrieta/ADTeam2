@@ -17,26 +17,26 @@ import modelo.Fichero;
 
 public class LeerFicheroCsv {
 
-	public static void LeerCSV() throws IOException {
+	public static Fichero LeerCSV() throws IOException {
 		
 		
 		Scanner sc = new Scanner(System.in);
 		String nombreFichero = "";
-		
+
 		System.out.println("Introduzca el nombre del CSV con extension :");
 		nombreFichero = sc.nextLine();
 		String csvFile = nombreFichero;
 		BufferedReader br = null;
-		String line = "";
+		String linea = "";
 		// Se define separador ","
 		String cvsSplitBy = ",";
-		
+		Fichero fichero = new Fichero();
 		try {
 			// cargamos en el bufer el fichero
 			br = new BufferedReader(new FileReader(csvFile));
 			// Leemos liena a linea el fichero csv
-			while ((line = br.readLine()) != null) {
-				String[] datos = line.split(cvsSplitBy);
+			while ((linea = br.readLine()) != null) {
+				String[] datos = linea.split(cvsSplitBy);
 
 				// Imprime datos formateados para que se puedan leer bien
 				System.out.println("\n"+Visualizacion.textoEspacios(30, datos[0]) + Visualizacion.textoEspacios(15, datos[1])
@@ -44,16 +44,17 @@ public class LeerFicheroCsv {
 						+ Visualizacion.textoEspacios(15, datos[4]) + Visualizacion.textoEspacios(30, datos[5])
 						+ Visualizacion.textoEspacios(30, datos[6]));
 
-				/*
-				 * Para cuando tenga que tratar los datos ya lo tengo creado en un objeto String
-				 * titulo = datos[0]; String editorial = datos[1]; int paginas =
-				 * Integer.valueOf(datos[2]); int altura = Integer.valueOf(datos[3]); double
-				 * notas = Double.valueOf(datos[4]); int isbn =Integer.valueOf(datos[5]); String
-				 * materias = datos[6];
-				 * 
-				 * Fichero fichero = new Fichero(titulo, editorial, paginas, altura, notas,
-				 * isbn, materias);
-				 */
+				
+				  //Para cuando tenga que tratar los datos ya lo tengo creado en un objeto String
+//				  String titulo = datos[0]; 
+//				  String editorial = datos[1]; 
+//				  int paginas = Integer.valueOf(datos[2]); 
+//				  int altura = Integer.valueOf(datos[3]); 
+//				  double notas = Double.valueOf(datos[4]); int isbn =Integer.valueOf(datos[5]); String
+//				  materias = datos[6];
+//				  
+//				  fichero = new Fichero(titulo, editorial, paginas, altura, notas,isbn, materias);
+				 
 			}
 
 		} catch (FileNotFoundException e) {
@@ -72,6 +73,7 @@ public class LeerFicheroCsv {
 				}
 			}
 		}
+		return fichero;
 	}
 }
 
