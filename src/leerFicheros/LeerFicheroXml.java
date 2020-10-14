@@ -7,13 +7,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
 
+import escribirFicheros.Libro;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
 
 	public static Boolean leerXml(String nombreFichero) {
 		// leer xml
-
+		
+		
 		File file = new File(nombreFichero);
 
 		try {
@@ -56,6 +58,7 @@ public class LeerFicheroXml {
 							+ Visualizacion.textoEspacios(30,
 									eElement.getElementsByTagName("materias").item(0).getTextContent()));
 					
+				//	Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),eElement.getElementsByTagName("editorial").item(0).getTextContent(),eElement.getElementsByTagName("paginas").item(0).getTextContent(),);
 				}
 			}
 			return true;
