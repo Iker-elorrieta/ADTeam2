@@ -18,14 +18,12 @@ public class LeerFicheroTxt {
 	public static Boolean LeerTxt(String Fichero) throws IOException {
 		String[] cortarString;
 		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
+		String CabeceraTitulo = "", CabeceraEditorial = "", CabeceraPaginas = "", CabeceraAltura = "", CabeceraNotas = "", CabeceraIsbn = "", CabeceraMaterias = "";
+		Boolean RepetirCabezera=true;
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
-		System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
-				+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Paginas")
-				+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
-				+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
-
+		
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
@@ -39,51 +37,60 @@ public class LeerFicheroTxt {
 				if (linea.contains("Titulo")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraTitulo = cortarString[0];
 					Titulo = cortarString[1];
 
 				} else if (linea.contains("Editorial")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraEditorial = cortarString[0];
 					Editorial = cortarString[1];
 
 				} else if (linea.contains("Paginas")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraPaginas = cortarString[0];
 					Paginas = cortarString[1];
 
 				} else if (linea.contains("Altura")) {
 
 					cortarString = linea.split(": ");
 
+					CabeceraAltura = cortarString[0];
 					Altura = cortarString[1];
 
 				} else if (linea.contains("Notas")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraNotas = cortarString[0];
 					Notas = cortarString[1];
 
 				} else if (linea.contains("Isbn")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraIsbn = cortarString[0];
 					Isbn = cortarString[1];
 
 				} else if (linea.contains("Materias")) {
 
 					cortarString = linea.split(": ");
-
+					CabeceraMaterias = cortarString[0];
 					Materias = cortarString[1];
 
 				} else if (linea.contains("***************")) {
+					if (RepetirCabezera) {
+						System.out.println("\n" + Visualizacion.textoEspacios(30, CabeceraTitulo)
+						+ Visualizacion.textoEspacios(15, CabeceraEditorial) + Visualizacion.textoEspacios(15, CabeceraPaginas)
+						+ Visualizacion.textoEspacios(15, CabeceraAltura) + Visualizacion.textoEspacios(15, CabeceraNotas)
+						+ Visualizacion.textoEspacios(30, CabeceraIsbn) + Visualizacion.textoEspacios(30, CabeceraMaterias));
+
+						RepetirCabezera=false;
+					}
 					System.out.println("\n" + Visualizacion.textoEspacios(30, Titulo)
 							+ Visualizacion.textoEspacios(15, Editorial) + Visualizacion.textoEspacios(15, Paginas)
 							+ Visualizacion.textoEspacios(15, Altura) + Visualizacion.textoEspacios(15, Notas)
 							+ Visualizacion.textoEspacios(30, Isbn) + Visualizacion.textoEspacios(30, Materias));
-
+					
 				}
 
 		} catch (Exception e) {
