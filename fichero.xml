@@ -19,7 +19,7 @@
 		<isbn>978-987-1565-26-9</isbn>
 		<materias>b</materias>
 	</libro>
-	<libro></libro>
+	
 	<libro id="3">
 		<titulo>Los libros sagrados</titulo>
 		<editorial>Alianza</editorial>
@@ -29,7 +29,7 @@
 		<isbn>978-987-1565-34-4</isbn>
 		<materias>c</materias>
 	</libro>
-	<libro></libro>
+	
 	<libro id="4">
 		<titulo>Los relatos del tiempo</titulo>
 		<editorial>Almada</editorial>
@@ -39,7 +39,7 @@
 		<isbn>8978-987-1565-35-1</isbn>
 		<materias>d</materias>
 	</libro>
-	<libro></libro>
+	
 
 
 </biblioteca>

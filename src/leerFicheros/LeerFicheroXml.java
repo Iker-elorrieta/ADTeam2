@@ -55,16 +55,16 @@ public class LeerFicheroXml {
 									eElement.getElementsByTagName("isbn").item(0).getTextContent())
 							+ Visualizacion.textoEspacios(30,
 									eElement.getElementsByTagName("materias").item(0).getTextContent()));
-
+					
 				}
 			}
-
+			return true;
 		} catch (Exception e) {
 
 			System.out.println("El fichero no se encuentra en el sistema");
 			return false;
 		}
-		return true;
+		
 
 	}
 
