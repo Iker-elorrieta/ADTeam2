@@ -11,7 +11,7 @@ public class controladorMenus {
 	
 	static Scanner sc = new Scanner(System.in);
 
-	public static int menu() {
+	public static int menu(Scanner sc) {
 		int opcion = 0;
 		boolean error = true;
 		do {
@@ -19,15 +19,14 @@ public class controladorMenus {
 				System.out.println(
 						"Bienvenido al Menu principal:\n\n 1.-Leer ficheros \n 2.-Escribir Fichero\n 3.----------\n 4.- Salir");
 				opcion = sc.nextInt();
-
 				System.out.println();
-
-				if (opcion < 1 || opcion > 4) {
+				if (opcion < 1 || opcion > 4)   {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 				} else {
 					error = false;
 				}
+				
 				// Excepcion de que se introduce un numero valido
 			} catch (Exception e) {
 				System.out.println(
@@ -39,8 +38,7 @@ public class controladorMenus {
 
 		return opcion;
 	}
-
-	public static int subMenuLeerFicheros() {
+	public static int subMenuLeerFicheros(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
@@ -66,33 +64,47 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static boolean opcionElegida() throws IOException {
-		int opcion;
-		int opcionSubMenu;
+	public static int opcionElegida(Scanner sc) throws IOException {
+		int opcion = 0;
+		int opcionSubMenu = 0;
+		String nombreFichero = "";
 		do {
-			opcion = controladorMenus.menu();
+			opcion = controladorMenus.menu(sc);
 			if (opcion != 4) {
 
-				opcionSubMenu = controladorMenus.subMenuLeerFicheros();
+				opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
 				if (opcionSubMenu != 4) {
 
 					switch (opcionSubMenu) {
 					case 1:
-						LeerFicheroCsv.LeerCSV();
-						break;
+						
+						System.out.println("Introduzca el nombre del CSV con extension :");
+						nombreFichero = sc.next();
+						LeerFicheroCsv.LeerCSV(nombreFichero);
+						System.out.println();
+						break;// final de la accion elegida del submenu
 					case 2:
-						LeerFicheroXml.leerXml();
+
+						System.out.println("Introduzca el nombre del XML con extension :");
+						nombreFichero = sc.next();
+						LeerFicheroXml.leerXml(nombreFichero);
+						System.out.println();
+						// Aqui ira las demas acciones del submenu
 						break;
 					case 3:
-						LeerFicheroTxt.LeerTxt();
-						break;
+
+						System.out.println("Introduzca el nombre del TXT con extension :");
+						nombreFichero = sc.next();
+						LeerFicheroTxt.LeerTxt(nombreFichero);// Le pasamos el nombre del fichero que queremos leer
+						System.out.println();
+						break;// final de la accion elegida del submenu
 					}
 
 				}
 			}
 			
 		} while (opcion != 4);
-		return true;
+		return 1;
 
 	}
 

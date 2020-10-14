@@ -13,8 +13,9 @@ public class LeerFicheroTxt {
 	 * Esta clase contiene el metodo para leer el fichero txt
 	 * 
 	 * @author Ibai Bugedo
+	 * @return 
 	 */
-	public static void LeerTxt() throws IOException {
+	public static Boolean LeerTxt(String Fichero) throws IOException {
 		String[] cortarString;
 		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
 		File archivo = null;
@@ -28,11 +29,10 @@ public class LeerFicheroTxt {
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
-			archivo = new File("fichero.txt");
+			archivo = new File(Fichero);
 			// Le pasamos la variable del Fichero que queremos leer
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
-
 			// Lectura del fichero
 			String linea;
 			while ((linea = br.readLine()) != null)
@@ -87,7 +87,8 @@ public class LeerFicheroTxt {
 				}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("El fichero no se encuentra en el sistema");
+			return false;
 		} finally {
 			// En el finally cerramos el fichero, para asegurarnos
 			// que se cierra tanto si todo va bien como si salta
@@ -100,6 +101,7 @@ public class LeerFicheroTxt {
 				e2.printStackTrace();
 			}
 		}
+		return true;
 	}
 
 }

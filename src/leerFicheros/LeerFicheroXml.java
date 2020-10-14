@@ -11,9 +11,10 @@ import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
 
-	public static boolean leerXml() {
+	public static Boolean leerXml(String nombreFichero) {
 		// leer xml
-		File file = new File("fichero.xml");
+
+		File file = new File(nombreFichero);
 
 		try {
 
@@ -57,13 +58,13 @@ public class LeerFicheroXml {
 
 				}
 			}
-			return true;
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
 
+			System.out.println("El fichero no se encuentra en el sistema");
+			return false;
 		}
+		return true;
 
 	}
 
