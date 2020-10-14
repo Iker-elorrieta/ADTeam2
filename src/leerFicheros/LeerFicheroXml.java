@@ -11,7 +11,7 @@ import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
 
-	public static void leerXml() {
+	public static boolean leerXml() {
 		// leer xml
 		File file = new File("fichero.xml");
 
@@ -57,10 +57,12 @@ public class LeerFicheroXml {
 
 				}
 			}
+			return true;
 
 		} catch (Exception e) {
-
 			e.printStackTrace();
+			return false;
+
 		}
 
 	}
