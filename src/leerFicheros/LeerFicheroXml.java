@@ -1,6 +1,7 @@
 package leerFicheros;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,11 +13,11 @@ import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
 
-	public static Boolean leerXml(String nombreFichero) {
+	public static ArrayList<Libro> leerXml(String nombreFichero) {
 		// leer xml
-		
-		
+
 		File file = new File(nombreFichero);
+		ArrayList<Libro> libros = new ArrayList<>();
 
 		try {
 
@@ -57,17 +58,26 @@ public class LeerFicheroXml {
 									eElement.getElementsByTagName("isbn").item(0).getTextContent())
 							+ Visualizacion.textoEspacios(30,
 									eElement.getElementsByTagName("materias").item(0).getTextContent()));
-					
-				//	Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),eElement.getElementsByTagName("editorial").item(0).getTextContent(),eElement.getElementsByTagName("paginas").item(0).getTextContent(),);
+
+					Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),
+							eElement.getElementsByTagName("editorial").item(0).getTextContent(),
+							eElement.getElementsByTagName("paginas").item(0).getTextContent(),
+							eElement.getElementsByTagName("altura").item(0).getTextContent(),
+							eElement.getElementsByTagName("notas").item(0).getTextContent(),
+							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
+							eElement.getElementsByTagName("materias").item(0).getTextContent());
+					libros.add(libro);
 				}
 			}
-			return true;
+			return libros;
 		} catch (Exception e) {
 
 			System.out.println("El fichero no se encuentra en el sistema");
-			return false;
+			// Hago NULL el array de libros para poder comprobar en JUnit que no ha
+			// terminado correctamente este metodo.
+			libros = null;
+			return libros;
 		}
-		
 
 	}
 

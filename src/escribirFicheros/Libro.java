@@ -3,13 +3,14 @@ package escribirFicheros;
 public class Libro {
 	private String titulo;
 	private String editorial;
-	private int paginas;
-	private double altura;
-	private int notas;
+	private String paginas;
+	private String altura;
+	private String notas;
 	private String isbn;
 	private String materias;
 
-	public Libro(String titulo, String editorial, int paginas, double altura, int notas, String isbn, String materias) {
+	public Libro(String titulo, String editorial, String paginas, String altura, String notas, String isbn,
+			String materias) {
 
 		this.titulo = titulo;
 		this.editorial = editorial;
@@ -28,15 +29,15 @@ public class Libro {
 		return editorial;
 	}
 
-	public int getPaginas() {
+	public String getPaginas() {
 		return paginas;
 	}
 
-	public double getAltura() {
+	public String getAltura() {
 		return altura;
 	}
 
-	public int getNotas() {
+	public String getNotas() {
 		return notas;
 	}
 
@@ -56,15 +57,15 @@ public class Libro {
 		this.editorial = editorial;
 	}
 
-	public void setPaginas(int paginas) {
+	public void setPaginas(String paginas) {
 		this.paginas = paginas;
 	}
 
-	public void setAltura(double altura) {
+	public void setAltura(String altura) {
 		this.altura = altura;
 	}
 
-	public void setNotas(int notas) {
+	public void setNotas(String notas) {
 		this.notas = notas;
 	}
 
