@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
 import com.opencsv.CSVParser;
@@ -14,7 +15,14 @@ import metodosComunes.Visualizacion;
 
 
 public class LeerFicheroCsv {
-
+	/**
+	 * Esta clase contiene el metodo de leer Fichero Csv 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Fran 
+	 * @return Retorna un booleano true para saber si se ha temrinado de leer el fichero
+	 * 
+	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
+	 */
 	public static boolean LeerCSV(String  nombreFichero) throws IOException {
 		
 	

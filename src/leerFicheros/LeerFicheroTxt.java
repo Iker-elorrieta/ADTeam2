@@ -10,12 +10,14 @@ import metodosComunes.Visualizacion;
 public class LeerFicheroTxt {
 
 	/**
-	 * Esta clase contiene el metodo para leer el fichero txt
+	 * Esta clase contiene el metodo de leer Fichero txt 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Ibai 
+	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
 	 * 
-	 * @author Ibai Bugedo
-	 * @return 
+	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	public static Boolean LeerTxt(String Fichero) throws IOException {
+	public static Boolean LeerTxt(String nombreFichero) throws IOException {
 		String[] cortarString;
 		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
 		String CabeceraTitulo = "", CabeceraEditorial = "", CabeceraPaginas = "", CabeceraAltura = "", CabeceraNotas = "", CabeceraIsbn = "", CabeceraMaterias = "";
@@ -27,7 +29,7 @@ public class LeerFicheroTxt {
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
-			archivo = new File(Fichero);
+			archivo = new File(nombreFichero);
 			// Le pasamos la variable del Fichero que queremos leer
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);

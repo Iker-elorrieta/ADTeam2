@@ -10,9 +10,14 @@ import org.w3c.dom.*;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
-
+	/**
+	 * Esta clase contiene el metodo de leer Fichero xml 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro 
+	 * @author Ibai 
+	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
+	 */
 	public static Boolean leerXml(String nombreFichero) {
-		// leer xml
+		
 
 		File file = new File(nombreFichero);
 
