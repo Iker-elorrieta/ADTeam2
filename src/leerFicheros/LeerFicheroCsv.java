@@ -22,7 +22,7 @@ public class LeerFicheroCsv {
 		Scanner sc = new Scanner(System.in);
 		String nombreFichero = "";
 
-		String csvFile = "ficher.csv";
+		String csvFile = "fichero.csv";
 		BufferedReader br = null;
 		String linea = "";
 		// Se define separador ","
