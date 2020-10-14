@@ -20,6 +20,7 @@ public class controladorMenus {
 						"Bienvenido al Menu principal:\n\n 1.-Leer ficheros \n 2.-Escribir Fichero\n 3.----------\n 4.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 4 
 				if (opcion < 1 || opcion > 4)   {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
@@ -48,6 +49,7 @@ public class controladorMenus {
 						"Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
 				opcion = sc.nextInt();
 				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 4 
 				if (opcion < 1 || opcion > 4) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
@@ -55,6 +57,7 @@ public class controladorMenus {
 					error = false;
 				}
 			} catch (Exception e) {
+				// Mensaje de error si el usuario introduce letras
 				System.out.println(
 						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 				sc.nextLine();
@@ -70,9 +73,11 @@ public class controladorMenus {
 		String nombreFichero = "";
 		do {
 			opcion = controladorMenus.menu(sc);
+			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 			if (opcion != 4) {
 
 				opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
+				// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 				if (opcionSubMenu != 4) {
 
 					switch (opcionSubMenu) {

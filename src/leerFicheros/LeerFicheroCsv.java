@@ -38,12 +38,14 @@ public class LeerFicheroCsv {
 			}
 
 		} catch (FileNotFoundException e) {
+			// Error en el nombre del fichero
 			System.out.println("");
 			System.out.println("El fichero no se encuentra en el sistema");
 			return false;
 			// e.printStackTrace();
 		} finally {
 			System.out.println();
+			// Cerramos el bufferedReader independientemente de que haya excepcion o no
 			if (br != null) {
 				try {
 					br.close();
