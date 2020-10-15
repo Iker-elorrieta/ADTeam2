@@ -23,11 +23,11 @@ public class controladorMenus {
 		do {
 			try {
 				System.out.println(
-						"Bienvenido al Menu principal:\n\n 1.-Leer ficheros \n 2.-Escribir Fichero\n 3.----------\n 4.- Salir");
+						"Bienvenido al Menu principal:\n\n 1.-Leer ficheros \n 2.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 4
-				if (opcion < 1 || opcion > 4) {
+				if (opcion < 1 || opcion > 2) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 				} else {
@@ -96,7 +96,7 @@ public class controladorMenus {
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-			if (opcion != 4) {
+			if (opcion != 2) {
 
 				opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
 				// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
@@ -130,7 +130,7 @@ public class controladorMenus {
 				}
 			}
 
-		} while (opcion != 4);
+		} while (opcion != 2);
 		return 1;
 
 	}

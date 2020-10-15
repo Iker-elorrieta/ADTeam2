@@ -1,5 +1,6 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
@@ -15,22 +16,6 @@ import metodosComunes.Visualizacion;
 import reto_01.Aplicacion;
 
 class Test {
-
-	@org.junit.jupiter.api.Test
-	public void tesAplicaicon() throws IOException {
-
-		String[] args = null;
-		String input = "4";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		Scanner reader = new Scanner(System.in);
-		controladorMenus controladormenu = new controladorMenus();
-
-		Aplicacion apli = new Aplicacion();
-		Boolean opcion = apli.main(args);
-		assertEquals(true, opcion);
-
-	}
 
 	@org.junit.jupiter.api.Test
 	public void tesVisualicacion() throws IOException {
