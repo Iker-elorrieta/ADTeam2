@@ -29,7 +29,7 @@ public class LeerFicheroTxt {
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
-			archivo = new File(nombreFichero);
+			archivo = new File(nombreFichero+".txt");
 			// Le pasamos la variable del Fichero que queremos leer
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
@@ -96,7 +96,7 @@ public class LeerFicheroTxt {
 				}
 
 		} catch (Exception e) {
-			System.out.println("El fichero no se encuentra en el sistema");
+			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 		} finally {
 			// En el finally cerramos el fichero, para asegurarnos

@@ -32,7 +32,7 @@ public class LeerFicheroCsv {
 		String cvsSplitBy = ",";
 		try {
 			// cargamos en el bufer el fichero
-			br = new BufferedReader(new FileReader(nombreFichero));
+			br = new BufferedReader(new FileReader(nombreFichero+".csv"));
 			// Leemos liena a linea el fichero csv
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(cvsSplitBy);
@@ -48,7 +48,7 @@ public class LeerFicheroCsv {
 		} catch (FileNotFoundException e) {
 			// Error en el nombre del fichero
 			System.out.println("");
-			System.out.println("El fichero no se encuentra en el sistema");
+			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 			// e.printStackTrace();
 		} finally {

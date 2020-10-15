@@ -71,7 +71,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testLeerCsv() throws IOException {
 
-		String input = "fichero.csv";
+		String input = "fichero1";
 		LeerFicheroCsv ficherocsv = new LeerFicheroCsv();
 
 		Boolean opcion = ficherocsv.LeerCSV(input);
@@ -92,7 +92,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testLeerTxt() throws IOException {
 
-		String input = "fichero.txt";
+		String input = "fichero2";
 
 		LeerFicheroTxt ficherotxt = new LeerFicheroTxt();
 
@@ -114,7 +114,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testLeerXml() throws IOException {
 
-		String input = "fichero.xml";
+		String input = "fichero3";
 
 		LeerFicheroXml ficheroxml = new LeerFicheroXml();
 

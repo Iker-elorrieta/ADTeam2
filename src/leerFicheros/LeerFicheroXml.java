@@ -19,7 +19,7 @@ public class LeerFicheroXml {
 	public static Boolean leerXml(String nombreFichero) {
 		
 
-		File file = new File(nombreFichero);
+		File file = new File(nombreFichero+".xml");
 
 		try {
 
@@ -66,7 +66,7 @@ public class LeerFicheroXml {
 			return true;
 		} catch (Exception e) {
 
-			System.out.println("El fichero no se encuentra en el sistema");
+			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 		}
 		
