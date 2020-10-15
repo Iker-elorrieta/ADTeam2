@@ -1,29 +1,24 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-
 import controlador.controladorMenus;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.Visualizacion;
-import reto_01.Aplicacion;
+
 
 class Test {
 
 	@org.junit.jupiter.api.Test
 	public void tesVisualicacion() throws IOException {
-
 		String[] args = null;
 		int longuitud = 10;
 		String miString = "hola";
-
 		Visualizacion visu = new Visualizacion();
 		String opcion = visu.textoEspacios(longuitud, miString);
 		assertEquals("hola     ", opcion);
@@ -92,7 +87,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testLeerTxt() throws IOException {
 
-		String input = "fichero2";
+		String input = "fichero3";
 
 		LeerFicheroTxt ficherotxt = new LeerFicheroTxt();
 
@@ -114,12 +109,9 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testLeerXml() throws IOException {
 
-		String input = "fichero3";
-
+		String input = "fichero2";
 		LeerFicheroXml ficheroxml = new LeerFicheroXml();
-
 		Boolean opcion = ficheroxml.leerXml(input);
-
 		assertEquals(true, opcion);
 	}
 

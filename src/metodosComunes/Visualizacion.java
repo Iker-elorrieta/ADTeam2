@@ -1,7 +1,5 @@
 package metodosComunes;
 
-import java.sql.SQLException;
-
 public class Visualizacion {
 
 	/**
@@ -17,16 +15,16 @@ public class Visualizacion {
 		int numespacios = longuitud - miString.length();
 
 		StringBuilder textoConEspacios = new StringBuilder();
-		// Creamos un StringBuilder al que le añadimos el String anterior
+		// Creamos un StringBuilder al que le aï¿½adimos el String anterior
 		textoConEspacios.append(miString);
 		
 		int i = 0;
-		// Añadimos espacios que sean necesarios
+		// Aï¿½adimos espacios que sean necesarios
 		for (i = 1; i < numespacios; i++) {
 			textoConEspacios.append(" ");
 
 		}
-		// devolvemos el texto del String original, solo que con los espacios añadidos
+		// devolvemos el texto del String original, solo que con los espacios aï¿½adidos
 		return textoConEspacios.toString();
 	}
 	

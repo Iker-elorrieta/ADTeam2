@@ -4,13 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Scanner;
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
 import metodosComunes.Visualizacion;
 
 

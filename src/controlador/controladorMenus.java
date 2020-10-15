@@ -1,7 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Scanner;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
@@ -37,7 +36,7 @@ public class controladorMenus {
 				// Excepcion de que se introduce un numero valido
 			} catch (Exception e) {
 				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 				sc.nextLine();
 			}
 
@@ -72,7 +71,7 @@ public class controladorMenus {
 			} catch (Exception e) {
 				// Mensaje de error si el usuario introduce letras
 				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 				sc.nextLine();
 			}
 		} while (error);

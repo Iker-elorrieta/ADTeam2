@@ -30,10 +30,10 @@ public class LeerFicheroXml {
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("libro");
-			System.out.println("Número de libros: " + nList.getLength());
+			System.out.println("Numero de libros: " + nList.getLength());
 
-			System.out.println("\n" + Visualizacion.textoEspacios(30, "Título")
-					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Páginas")
+			System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
+					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Paginas")
 					+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
 					+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
 
