@@ -21,7 +21,7 @@ public class LeerFicheroCsv {
 		BufferedReader br = null;
 		String linea = "";
 		// Se define separador ","
-		String cvsSplitBy = ",";
+		final String cvsSplitBy = ",";
 		try {
 			// cargamos en el bufer el fichero
 			br = new BufferedReader(new FileReader(nombreFichero));

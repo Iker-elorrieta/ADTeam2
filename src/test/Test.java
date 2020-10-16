@@ -14,6 +14,7 @@ import leerFicheros.LeerFicheroXml;
 
 class Test {
 
+	Scanner reader = new Scanner(System.in);
 	@org.junit.jupiter.api.Test
 	public void testLeerCsv() throws IOException{
 		
@@ -84,7 +85,7 @@ class Test {
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		Scanner reader = new Scanner(System.in);
+		
 		int opcion = controladorMenus.menu(reader);
 		
 		assertEquals(1, opcion);
@@ -96,7 +97,7 @@ class Test {
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		Scanner reader = new Scanner(System.in);
+		
 		int opcion = controladorMenus.subMenuLeerFicheros(reader);
 		
 		assertEquals(1, opcion);
@@ -108,7 +109,7 @@ class Test {
 		String input = "1 \n 1 \n 4 \n  2\n 2\n 4\n 3\n 3\n 4\n 4\n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		Scanner reader = new Scanner(System.in);
+		
 		int opcion = controladorMenus.opcionElegida(reader);
 		
 		assertEquals(1, opcion);
