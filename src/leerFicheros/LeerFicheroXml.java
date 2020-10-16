@@ -8,7 +8,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
 
-import escribirFicheros.Libro;
+import Objetos.Libro;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {

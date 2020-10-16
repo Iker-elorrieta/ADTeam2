@@ -1,4 +1,4 @@
-package escribirFicheros;
+package Objetos;
 
 public class Libro {
 	private String titulo;

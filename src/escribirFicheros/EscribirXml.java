@@ -14,6 +14,8 @@ import org.junit.platform.commons.function.Try.Transformer;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import Objetos.Libro;
 import leerFicheros.LeerFicheroXml;
 
 public class EscribirXml {
@@ -82,7 +84,7 @@ public class EscribirXml {
 
 	}
 	
-	 private boolean generarXml(String name) throws Exception{
+	 private boolean generarXml(String name) {
 
 	        ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
 	        Libro nuevoLibro = new Libro(titulo, editorial, paginas, altura, notas, isbn, materias);

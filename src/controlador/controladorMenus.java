@@ -95,7 +95,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int opcionElegida(Scanner sc) throws IOException {
+	public static int opcionElegida(Scanner sc) {
 		int opcion = 0;
 		int opcionSubMenu = 0;
 		String nombreFichero = "";

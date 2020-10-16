@@ -15,7 +15,7 @@ import metodosComunes.Visualizacion;
 
 public class LeerFicheroCsv {
 
-	public static boolean LeerCSV(String  nombreFichero) throws IOException {
+	public static boolean LeerCSV(String  nombreFichero) {
 		
 	
 		BufferedReader br = null;
@@ -43,6 +43,9 @@ public class LeerFicheroCsv {
 			System.out.println("El fichero no se encuentra en el sistema");
 			return false;
 			// e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			System.out.println();
 			// Cerramos el bufferedReader independientemente de que haya excepcion o no

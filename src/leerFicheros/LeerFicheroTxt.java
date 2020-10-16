@@ -15,7 +15,7 @@ public class LeerFicheroTxt {
 	 * @author Ibai Bugedo
 	 * @return 
 	 */
-	public static Boolean LeerTxt(String Fichero) throws IOException {
+	public static Boolean LeerTxt(String Fichero){
 		String[] cortarString;
 		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
 		String CabeceraTitulo = "", CabeceraEditorial = "", CabeceraPaginas = "", CabeceraAltura = "", CabeceraNotas = "", CabeceraIsbn = "", CabeceraMaterias = "";
