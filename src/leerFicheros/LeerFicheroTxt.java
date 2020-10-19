@@ -17,7 +17,7 @@ public class LeerFicheroTxt {
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	public static Boolean LeerTxt(String nombreFichero) throws IOException {
+	public static Boolean LeerTxt(String nombreFichero) {
 		String[] cortarString;
 		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
 		String CabeceraTitulo = "", CabeceraEditorial = "", CabeceraPaginas = "", CabeceraAltura = "", CabeceraNotas = "", CabeceraIsbn = "", CabeceraMaterias = "";

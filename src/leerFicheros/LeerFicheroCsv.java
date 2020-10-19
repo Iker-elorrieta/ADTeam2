@@ -16,7 +16,7 @@ public class LeerFicheroCsv {
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	public static boolean LeerCSV(String  nombreFichero) throws IOException {
+	public static boolean LeerCSV(String  nombreFichero) {
 		
 	
 		BufferedReader br = null;
@@ -38,7 +38,7 @@ public class LeerFicheroCsv {
 
 			}
 
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");

@@ -15,7 +15,7 @@ import metodosComunes.Visualizacion;
 class Test {
 
 	@org.junit.jupiter.api.Test
-	public void tesVisualicacion() throws IOException {
+	public void tesVisualicacion() {
 		String[] args = null;
 		int longuitud = 10;
 		String miString = "hola";
@@ -26,7 +26,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testControladorMenu() throws IOException {
+	public void testControladorMenu() {
 
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -40,7 +40,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testControladorSubMenus() throws IOException {
+	public void testControladorSubMenus() {
 
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -52,7 +52,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testControladorOpcionElegida() throws IOException {
+	public void testControladorOpcionElegida() {
 
 		String input = "1 \n 1 \n 2 \n  1\n 2\n 4\n 1\n 3\n 4\n 2\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -64,7 +64,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerCsv() throws IOException {
+	public void testLeerCsv(){
 
 		String input = "fichero1";
 		LeerFicheroCsv ficherocsv = new LeerFicheroCsv();
@@ -75,7 +75,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerCsvError() throws IOException {
+	public void testLeerCsvError(){
 
 		String input = "aaa.txt";
 
@@ -85,7 +85,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerTxt() throws IOException {
+	public void testLeerTxt() {
 
 		String input = "fichero3";
 
@@ -97,7 +97,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerTxtError() throws IOException {
+	public void testLeerTxtError(){
 
 		String input = "aaa.txt";
 
@@ -107,7 +107,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerXml() throws IOException {
+	public void testLeerXml(){
 
 		String input = "fichero2";
 		LeerFicheroXml ficheroxml = new LeerFicheroXml();
@@ -116,7 +116,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerXmlError() throws IOException {
+	public void testLeerXmlError() {
 
 		String input = "aaa.xml";
 
