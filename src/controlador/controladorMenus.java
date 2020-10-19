@@ -1,7 +1,11 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import Objetos.Libro;
+import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
@@ -118,7 +122,7 @@ public class controladorMenus {
 						System.out.println();
 						break;// final de la accion elegida del submenu
 					case 2:
-
+						
 						System.out.println("Introduzca el nombre del XML con extension :");
 						nombreFichero = sc.next();
 						LeerFicheroXml.leerXml(nombreFichero);
@@ -150,11 +154,13 @@ public class controladorMenus {
 						System.out.println();*/
 						break;// final de la accion elegida del submenu
 					case 2:
-
-						/*System.out.println("Introduzca el nombre del XML con extension :");
+						
+						System.out.println("Introduzca el nombre del XML con extension :");
 						nombreFichero = sc.next();
-						LeerFicheroXml.leerXml(nombreFichero);
+						EscribirXml xml = new EscribirXml(nombreFichero);
 						System.out.println();
+						LeerFicheroXml.leerXml(nombreFichero);
+						
 						// Aqui ira las demas acciones del submenu*/
 						break;
 					case 3:
