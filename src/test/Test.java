@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import Objetos.Libro;
 import controlador.controladorMenus;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
@@ -69,7 +72,7 @@ class Test {
 		String input = "fichero1";
 		LeerFicheroCsv ficherocsv = new LeerFicheroCsv();
 
-		Boolean opcion = ficherocsv.LeerCSV(input);
+		ArrayList<Libro> opcion = ficherocsv.LeerCSV(input);
 
 		assertEquals(true, opcion);
 	}
@@ -79,7 +82,7 @@ class Test {
 
 		String input = "aaa.txt";
 
-		Boolean opcion = LeerFicheroCsv.LeerCSV(input);
+		ArrayList<Libro> opcion = LeerFicheroCsv.LeerCSV(input);
 
 		assertEquals(false, opcion);
 	}

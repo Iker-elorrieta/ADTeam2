@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import Objetos.Libro;
 import metodosComunes.Visualizacion;
 
 
@@ -12,17 +15,25 @@ public class LeerFicheroCsv {
 	 * Esta clase contiene el metodo de leer Fichero Csv 
 	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
 	 * @author Fran 
+	 * @return 
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el fichero
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	public static boolean LeerCSV(String  nombreFichero) {
-		
+	public static  ArrayList<Libro> LeerCSV(String  nombreFichero) {
 	
+		String titulo = "";
+		String Editorial= "";
+		String Paginas= "";
+		String Altura= "";
+		String Notas= "";
+		String Isbn= "";
+		String Materias= "";
+		ArrayList<Libro> libros = new ArrayList<Libro>();
 		BufferedReader br = null;
 		String linea = "";
 		// Se define separador ","
-		String cvsSplitBy = ",";
+		final String cvsSplitBy = ",";
 		try {
 			// cargamos en el bufer el fichero
 			br = new BufferedReader(new FileReader(nombreFichero+".csv"));
@@ -30,6 +41,17 @@ public class LeerFicheroCsv {
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(cvsSplitBy);
 				
+				titulo = datos[0];
+				Editorial = datos[1];
+				Paginas = datos[2];
+				Altura = datos[3];
+				Notas = datos[4];
+				Isbn = datos[5];
+				Materias = datos[6];
+				
+				Libro libro = new Libro(titulo, Editorial, Paginas, Altura, Notas, Isbn, Materias);
+				libros.add(libro);
+
 				// Imprime datos formateados para que se puedan leer bien
 				System.out.println("\n"+Visualizacion.textoEspacios(30, datos[0]) + Visualizacion.textoEspacios(15, datos[1])
 						+ Visualizacion.textoEspacios(15, datos[2]) + Visualizacion.textoEspacios(15, datos[3])
@@ -42,7 +64,7 @@ public class LeerFicheroCsv {
 			// Error en el nombre del fichero
 			System.out.println("");
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
-			return false;
+			
 			// e.printStackTrace();
 		} finally {
 			System.out.println();
@@ -55,7 +77,7 @@ public class LeerFicheroCsv {
 				}
 			}
 		}
-		return true;
+		return libros;
 	}
 }
 
