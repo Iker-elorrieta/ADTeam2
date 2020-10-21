@@ -35,9 +35,7 @@ class Test {
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		
-		
-		
+	
 		int opcion = controladorMenus.menu(reader);
 
 		assertEquals(1, opcion);
@@ -115,7 +113,7 @@ class Test {
 
 		String input = "fichero2";
 		
-		Boolean opcion = LeerFicheroXml.leerXml(input);
+		ArrayList<Libro> opcion = LeerFicheroXml.leerXml(input);
 		assertEquals(true, opcion);
 	}
 
@@ -124,7 +122,7 @@ class Test {
 
 		String input = "aaa.xml";
 
-		Boolean opcion = LeerFicheroXml.leerXml(input);
+		ArrayList<Libro> opcion = LeerFicheroXml.leerXml(input);
 
 		assertEquals(false, opcion);
 	}
