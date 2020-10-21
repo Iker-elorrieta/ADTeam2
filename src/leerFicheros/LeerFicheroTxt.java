@@ -20,7 +20,7 @@ public class LeerFicheroTxt {
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	public static Boolean LeerTxt(String nombreFichero) {
-		String[] cortarString;
+		
 		String cortar1;
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		Libro libro = new Libro();
@@ -44,31 +44,29 @@ public class LeerFicheroTxt {
 					libros.add(libro);
 					libro=new Libro();
 				}else {
-					cortarString = linea.split(": ");
-					cortar1=cortarString[1];
-					
-				if (linea.contains("Titulo")) {
+					cortar1 = linea.split(": ")[1];
+				if (linea.contains("Titulo")) 
 					libro.setTitulo(cortar1);
 					
-				} else if (linea.contains("Editorial")) {
+				 else if (linea.contains("Editorial")) 
 					libro.setEditorial(cortar1);
 
-				} else if (linea.contains("Paginas")) {
+				 else if (linea.contains("Paginas")) 
 					libro.setPaginas(cortar1);
 
-				} else if (linea.contains("Altura")) {
+				 else if (linea.contains("Altura")) 
 					libro.setAltura(cortar1);
 
-				} else if (linea.contains("Notas")) {
+				 else if (linea.contains("Notas")) 
 					libro.setNotas(cortar1);
 
-				} else if (linea.contains("Isbn")) {
+				 else if (linea.contains("Isbn")) 
 					libro.setIsbn(cortar1);
 
-				} else if (linea.contains("Materias")) {
+				 else if (linea.contains("Materias")) 
 					libro.setMaterias(cortar1);
 
-				} 
+				 
 				}
 			metodosComunes.EscribirPantalla.escribirLibro(libros);
 			
