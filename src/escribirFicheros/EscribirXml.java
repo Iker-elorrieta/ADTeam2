@@ -2,7 +2,6 @@ package escribirFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,20 +17,14 @@ import org.w3c.dom.Element;
 
 import Objetos.Libro;
 import leerFicheros.LeerFicheroXml;
+import metodosComunes.*;
 
 public class EscribirXml {
 
-	private String titulo;
-	private String editorial;
-	private String paginas;
-	private String altura;
-	private String notas;
-	private String isbn;
-	private String materias;
+	
 
 	public EscribirXml(String nombre) {
 
-		xmlData();
 
 		try {
 
@@ -43,59 +36,15 @@ public class EscribirXml {
 		}
 	}
 
-	private boolean xmlData() {
-
-		Scanner sc = new Scanner(System.in);
-
-		boolean salir = false;
-
-		System.out.println("Introduzca el título del libro: ");
-		this.titulo = sc.next();
-
-		System.out.println("Introdusca la editorial: ");
-		this.editorial = sc.next();
-
-		while (salir == false) {
-			System.out.println("Introduzca altura: ");
-			try {
-				String sAltura = sc.next();
-				Double dAltura = Double.parseDouble(sAltura);
-				this.altura = sAltura;
-				salir = true;
-			} catch (Exception e) {
-				System.out.println("¿Dato incorrecto!");
-			}
-		}
-		salir = false;
-		while (salir == false) {
-			System.out.println("Introduzca notas: ");
-			try {
-
-				String sNotas = sc.next();
-				int iNotas = Integer.parseInt(sNotas);
-				this.altura = sNotas;
-				salir = true;
-			} catch (Exception e) {
-				System.out.println("¿Dato incorrecto!");
-			}
-
-		}
-		System.out.println("Introduzca la Isbn: ");
-		this.isbn = sc.next();
-
-		System.out.println("Introdusca la materias: ");
-		this.materias = sc.next();
-
-		return true;
-
-	}
+	
 
 	public ArrayList<Libro> generarXml(String name) {
-
+		
+		
+		
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
-		Libro nuevoLibro = new Libro(titulo, editorial, paginas, altura, notas, isbn, materias);
-
-		libros.add(nuevoLibro);
+	
+		libros.add(RellenarLibro.rellenarLibro());
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
