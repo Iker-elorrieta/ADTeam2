@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
 
 import Objetos.Libro;
+import metodosComunes.EscribirPantalla;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
@@ -16,7 +17,7 @@ public class LeerFicheroXml {
 	public static ArrayList<Libro> leerXml(String nombreFichero) {
 		// leer xml
 
-		File file = new File(nombreFichero);
+		File file = new File(nombreFichero + ".xml");
 		ArrayList<Libro> libros = new ArrayList<>();
 
 		try {
@@ -43,22 +44,6 @@ public class LeerFicheroXml {
 
 					Element eElement = (Element) nNode;
 
-					System.out.println("\n"
-							+ Visualizacion.textoEspacios(30,
-									eElement.getElementsByTagName("titulo").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(15,
-									eElement.getElementsByTagName("editorial").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(15,
-									eElement.getElementsByTagName("paginas").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(15,
-									eElement.getElementsByTagName("altura").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(15,
-									eElement.getElementsByTagName("notas").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(30,
-									eElement.getElementsByTagName("isbn").item(0).getTextContent())
-							+ Visualizacion.textoEspacios(30,
-									eElement.getElementsByTagName("materias").item(0).getTextContent()));
-
 					Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),
 							eElement.getElementsByTagName("editorial").item(0).getTextContent(),
 							eElement.getElementsByTagName("paginas").item(0).getTextContent(),
@@ -67,8 +52,11 @@ public class LeerFicheroXml {
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());
 					libros.add(libro);
+					
+					
 				}
 			}
+			EscribirPantalla.escribirLibro(libros,false);
 			return libros;
 		} catch (Exception e) {
 
@@ -78,7 +66,6 @@ public class LeerFicheroXml {
 			libros = null;
 			return libros;
 		}
-
 	}
-
+	
 }

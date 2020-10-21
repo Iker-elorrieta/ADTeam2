@@ -28,6 +28,10 @@ public class Libro {
 		
 	}
 
+	public Libro() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
