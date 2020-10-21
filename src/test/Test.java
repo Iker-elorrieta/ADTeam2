@@ -15,15 +15,13 @@ import metodosComunes.Visualizacion;
 
 
 class Test {
-	
-	Scanner reader = new Scanner(System.in);
+	 Scanner reader = new Scanner(System.in);
 	
 	@org.junit.jupiter.api.Test
 	public void tesVisualicacion() {
 		String[] args = null;
 		int longuitud = 10;
 		String miString = "hola";
-		
 		String opcion = Visualizacion.textoEspacios(longuitud, miString);
 		assertEquals("hola     ", opcion);
 
@@ -35,9 +33,9 @@ class Test {
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	
-		int opcion = controladorMenus.menu(reader);
+		reader = new Scanner(System.in);
 
+		int opcion = controladorMenus.menu(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -47,21 +45,19 @@ class Test {
 		String input = "r \n 5 \n 1";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		
+		reader = new Scanner(System.in);
 		int opcion = controladorMenus.subMenuLeerFicheros(reader);
-
 		assertEquals(1, opcion);
 	}
 
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegida() {
 
-		String input = "1 \n 1 \n 2 \n  1\n 2\n 4\n 1\n 3\n 4\n 2\n ";
+		String input = "1 \n 1 \n 2 \n  1\n 2\n 2\n 1\n 3\n 2\n 2\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-	
+		reader = new Scanner(System.in);
 		int opcion = controladorMenus.opcionElegida(reader);
-
 		assertEquals(1, opcion);
 	}
 
@@ -69,10 +65,7 @@ class Test {
 	public void testLeerCsv(){
 
 		String input = "fichero1";
-		
-
-		ArrayList<Libro> opcion = LeerFicheroCsv.LeerCSV(input);
-
+		Boolean opcion = LeerFicheroCsv.LeerCSV(input);
 		assertEquals(true, opcion);
 	}
 
@@ -80,9 +73,9 @@ class Test {
 	public void testLeerCsvError(){
 
 		String input = "aaa.txt";
-
-		ArrayList<Libro> opcion = LeerFicheroCsv.LeerCSV(input);
-
+		LeerFicheroCsv ficheroCsv = new LeerFicheroCsv();
+		
+		Boolean opcion = ficheroCsv.LeerCSV(input);
 		assertEquals(false, opcion);
 	}
 
@@ -90,11 +83,8 @@ class Test {
 	public void testLeerTxt() {
 
 		String input = "fichero3";
-
-		
-
-		Boolean opcion = LeerFicheroTxt.LeerTxt(input);
-
+		LeerFicheroTxt ficheroTxt = new LeerFicheroTxt();
+		Boolean opcion = ficheroTxt.LeerTxt(input);
 		assertEquals(true, opcion);
 	}
 
@@ -102,9 +92,7 @@ class Test {
 	public void testLeerTxtError(){
 
 		String input = "aaa.txt";
-
 		Boolean opcion = LeerFicheroTxt.LeerTxt(input);
-
 		assertEquals(false, opcion);
 	}
 
@@ -112,7 +100,10 @@ class Test {
 	public void testLeerXml(){
 
 		String input = "fichero2";
-		
+
+		LeerFicheroXml ficheroXml = new LeerFicheroXml();
+		boolean opcion = ficheroXml.leerXml(input);
+
 		ArrayList<Libro> opcion = LeerFicheroXml.leerXml(input);
 		assertEquals(true, opcion);
 	}
@@ -121,9 +112,8 @@ class Test {
 	public void testLeerXmlError() {
 
 		String input = "aaa.xml";
-
+		Boolean opcion = LeerFicheroXml.leerXml(input);
 		ArrayList<Libro> opcion = LeerFicheroXml.leerXml(input);
-
 		assertEquals(false, opcion);
 	}
 

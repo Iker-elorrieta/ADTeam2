@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import Objetos.Libro;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroTxt {
@@ -18,9 +20,10 @@ public class LeerFicheroTxt {
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	public static Boolean LeerTxt(String nombreFichero) {
-		String[] cortarString;
-		String Titulo = "", Editorial = "", Paginas = "", Altura = "", Notas = "", Isbn = "", Materias = "";
-		String CabeceraTitulo = "", CabeceraEditorial = "", CabeceraPaginas = "", CabeceraAltura = "", CabeceraNotas = "", CabeceraIsbn = "", CabeceraMaterias = "";
+		
+		String cortar1;
+		ArrayList<Libro> libros = new ArrayList<Libro>();
+		Libro libro = new Libro();
 		Boolean RepetirCabezera=true;
 		File archivo = null;
 		FileReader fr = null;
@@ -36,73 +39,38 @@ public class LeerFicheroTxt {
 			// Lectura del fichero
 			String linea;
 			while ((linea = br.readLine()) != null)
-				if (linea.contains("***************")) {
-					if (RepetirCabezera) {
-						System.out.println("\n" + Visualizacion.textoEspacios(30, CabeceraTitulo)
-								+ Visualizacion.textoEspacios(15, CabeceraEditorial)
-								+ Visualizacion.textoEspacios(15, CabeceraPaginas)
-								+ Visualizacion.textoEspacios(15, CabeceraAltura)
-								+ Visualizacion.textoEspacios(15, CabeceraNotas)
-								+ Visualizacion.textoEspacios(30, CabeceraIsbn)
-								+ Visualizacion.textoEspacios(30, CabeceraMaterias));
-
-						RepetirCabezera = false;
-					}
-					System.out.println("\n" + Visualizacion.textoEspacios(30, Titulo)
-							+ Visualizacion.textoEspacios(15, Editorial) + Visualizacion.textoEspacios(15, Paginas)
-							+ Visualizacion.textoEspacios(15, Altura) + Visualizacion.textoEspacios(15, Notas)
-							+ Visualizacion.textoEspacios(30, Isbn) + Visualizacion.textoEspacios(30, Materias));
-
+				if (linea.contains("***********")) {
+					
+					libros.add(libro);
+					libro=new Libro();
 				}else {
-					cortarString = linea.split(": ");
-				if (linea.contains("Titulo")) {
-
+					cortar1 = linea.split(": ")[1];
+				if (linea.contains("Titulo")) 
+					libro.setTitulo(cortar1);
 					
-					CabeceraTitulo = cortarString[0];
-					Titulo = cortarString[1];
+				 else if (linea.contains("Editorial")) 
+					libro.setEditorial(cortar1);
 
-				} else if (linea.contains("Editorial")) {
+				 else if (linea.contains("Paginas")) 
+					libro.setPaginas(cortar1);
 
-					
-					CabeceraEditorial = cortarString[0];
-					Editorial = cortarString[1];
+				 else if (linea.contains("Altura")) 
+					libro.setAltura(cortar1);
 
-				} else if (linea.contains("Paginas")) {
+				 else if (linea.contains("Notas")) 
+					libro.setNotas(cortar1);
 
-					
-					CabeceraPaginas = cortarString[0];
-					Paginas = cortarString[1];
+				 else if (linea.contains("Isbn")) 
+					libro.setIsbn(cortar1);
 
-				} else if (linea.contains("Altura")) {
+				 else if (linea.contains("Materias")) 
+					libro.setMaterias(cortar1);
 
-					
-
-					CabeceraAltura = cortarString[0];
-					Altura = cortarString[1];
-
-				} else if (linea.contains("Notas")) {
-
-					
-					CabeceraNotas = cortarString[0];
-					Notas = cortarString[1];
-
-				} else if (linea.contains("Isbn")) {
-
-			
-					CabeceraIsbn = cortarString[0];
-					Isbn = cortarString[1];
-
-				} else if (linea.contains("Materias")) {
-
-
-					CabeceraMaterias = cortarString[0];
-					Materias = cortarString[1];
-
-				} 
+				 
 				}
-			}
-
-		 catch (Exception e) {
+			metodosComunes.EscribirPantalla.escribirLibro(libros,true);
+			
+		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 		} finally {
