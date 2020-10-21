@@ -1,25 +1,23 @@
 package leerFicheros;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
 
+import Objetos.Libro;
 import metodosComunes.Visualizacion;
 
 public class LeerFicheroXml {
-	/**
-	 * Esta clase contiene el metodo de leer Fichero xml 
-	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro 
-	 * @author Ibai 
-	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
-	 */
-	public static Boolean leerXml(String nombreFichero) {
-		
 
-		File file = new File(nombreFichero+".xml");
+	public static ArrayList<Libro> leerXml(String nombreFichero) {
+		// leer xml
+
+		File file = new File(nombreFichero);
+		ArrayList<Libro> libros = new ArrayList<>();
 
 		try {
 
@@ -30,10 +28,10 @@ public class LeerFicheroXml {
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("libro");
-			System.out.println("Numero de libros: " + nList.getLength());
+			System.out.println("Número de libros: " + nList.getLength());
 
-			System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
-					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Paginas")
+			System.out.println("\n" + Visualizacion.textoEspacios(30, "Título")
+					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Páginas")
 					+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
 					+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
 
@@ -60,16 +58,26 @@ public class LeerFicheroXml {
 									eElement.getElementsByTagName("isbn").item(0).getTextContent())
 							+ Visualizacion.textoEspacios(30,
 									eElement.getElementsByTagName("materias").item(0).getTextContent()));
-					
+
+					Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),
+							eElement.getElementsByTagName("editorial").item(0).getTextContent(),
+							eElement.getElementsByTagName("paginas").item(0).getTextContent(),
+							eElement.getElementsByTagName("altura").item(0).getTextContent(),
+							eElement.getElementsByTagName("notas").item(0).getTextContent(),
+							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
+							eElement.getElementsByTagName("materias").item(0).getTextContent());
+					libros.add(libro);
 				}
 			}
-			return true;
+			return libros;
 		} catch (Exception e) {
 
-			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
-			return false;
+			System.out.println("El fichero no se encuentra en el sistema");
+			// Hago NULL el array de libros para poder comprobar en JUnit que no ha
+			// terminado correctamente este metodo.
+			libros = null;
+			return libros;
 		}
-		
 
 	}
 

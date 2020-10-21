@@ -28,21 +28,21 @@ public class controladorMenus {
 		do {
 			try {
 				System.out.println(
-						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.- Salir");
+						"Bienvenido al Menu principal:\n\n 1.-Leer ficheros \n 2.-Escribir Fichero\n 3.----------\n 4.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 2) {
+				// Comprobacion de que se intoduce un numero del 1 al 4 
+				if (opcion < 1 || opcion > 4)   {
 					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
 				} else {
 					error = false;
 				}
-
+				
 				// Excepcion de que se introduce un numero valido
 			} catch (Exception e) {
 				System.out.println(
-						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 				sc.nextLine();
 			}
 
