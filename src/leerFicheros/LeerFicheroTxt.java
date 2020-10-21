@@ -36,50 +36,7 @@ public class LeerFicheroTxt {
 			// Lectura del fichero
 			String linea;
 			while ((linea = br.readLine()) != null)
-				if (linea.contains("Titulo")) {
-
-					cortarString = linea.split(": ");
-					CabeceraTitulo = cortarString[0];
-					Titulo = cortarString[1];
-
-				} else if (linea.contains("Editorial")) {
-
-					cortarString = linea.split(": ");
-					CabeceraEditorial = cortarString[0];
-					Editorial = cortarString[1];
-
-				} else if (linea.contains("Paginas")) {
-
-					cortarString = linea.split(": ");
-					CabeceraPaginas = cortarString[0];
-					Paginas = cortarString[1];
-
-				} else if (linea.contains("Altura")) {
-
-					cortarString = linea.split(": ");
-
-					CabeceraAltura = cortarString[0];
-					Altura = cortarString[1];
-
-				} else if (linea.contains("Notas")) {
-
-					cortarString = linea.split(": ");
-					CabeceraNotas = cortarString[0];
-					Notas = cortarString[1];
-
-				} else if (linea.contains("Isbn")) {
-
-					cortarString = linea.split(": ");
-					CabeceraIsbn = cortarString[0];
-					Isbn = cortarString[1];
-
-				} else if (linea.contains("Materias")) {
-
-					cortarString = linea.split(": ");
-					CabeceraMaterias = cortarString[0];
-					Materias = cortarString[1];
-
-				} else if (linea.contains("***************")) {
+				if (linea.contains("***************")) {
 					if (RepetirCabezera) {
 						System.out.println("\n" + Visualizacion.textoEspacios(30, CabeceraTitulo)
 								+ Visualizacion.textoEspacios(15, CabeceraEditorial)
@@ -96,9 +53,56 @@ public class LeerFicheroTxt {
 							+ Visualizacion.textoEspacios(15, Altura) + Visualizacion.textoEspacios(15, Notas)
 							+ Visualizacion.textoEspacios(30, Isbn) + Visualizacion.textoEspacios(30, Materias));
 
-				}
+				}else {
+					cortarString = linea.split(": ");
+				if (linea.contains("Titulo")) {
 
-		} catch (Exception e) {
+					
+					CabeceraTitulo = cortarString[0];
+					Titulo = cortarString[1];
+
+				} else if (linea.contains("Editorial")) {
+
+					
+					CabeceraEditorial = cortarString[0];
+					Editorial = cortarString[1];
+
+				} else if (linea.contains("Paginas")) {
+
+					
+					CabeceraPaginas = cortarString[0];
+					Paginas = cortarString[1];
+
+				} else if (linea.contains("Altura")) {
+
+					
+
+					CabeceraAltura = cortarString[0];
+					Altura = cortarString[1];
+
+				} else if (linea.contains("Notas")) {
+
+					
+					CabeceraNotas = cortarString[0];
+					Notas = cortarString[1];
+
+				} else if (linea.contains("Isbn")) {
+
+			
+					CabeceraIsbn = cortarString[0];
+					Isbn = cortarString[1];
+
+				} else if (linea.contains("Materias")) {
+
+
+					CabeceraMaterias = cortarString[0];
+					Materias = cortarString[1];
+
+				} 
+				}
+			}
+
+		 catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 		} finally {
