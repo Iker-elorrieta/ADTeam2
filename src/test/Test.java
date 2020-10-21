@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import Objetos.Libro;
 import controlador.controladorMenus;
 import leerFicheros.LeerFicheroCsv;
@@ -16,6 +15,7 @@ import metodosComunes.Visualizacion;
 
 
 class Test {
+	
 	Scanner reader = new Scanner(System.in);
 	
 	@org.junit.jupiter.api.Test
@@ -23,8 +23,8 @@ class Test {
 		String[] args = null;
 		int longuitud = 10;
 		String miString = "hola";
-		Visualizacion visu = new Visualizacion();
-		String opcion = visu.textoEspacios(longuitud, miString);
+		
+		String opcion = Visualizacion.textoEspacios(longuitud, miString);
 		assertEquals("hola     ", opcion);
 
 	}
@@ -36,9 +36,9 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		
-		controladorMenus controladormenu = new controladorMenus();
-
-		int opcion = controladormenu.menu(reader);
+		
+		
+		int opcion = controladorMenus.menu(reader);
 
 		assertEquals(1, opcion);
 	}
@@ -61,7 +61,7 @@ class Test {
 		String input = "1 \n 1 \n 2 \n  1\n 2\n 4\n 1\n 3\n 4\n 2\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
-		
+	
 		int opcion = controladorMenus.opcionElegida(reader);
 
 		assertEquals(1, opcion);
@@ -71,9 +71,9 @@ class Test {
 	public void testLeerCsv(){
 
 		String input = "fichero1";
-		LeerFicheroCsv ficherocsv = new LeerFicheroCsv();
+		
 
-		ArrayList<Libro> opcion = ficherocsv.LeerCSV(input);
+		ArrayList<Libro> opcion = LeerFicheroCsv.LeerCSV(input);
 
 		assertEquals(true, opcion);
 	}
@@ -93,9 +93,9 @@ class Test {
 
 		String input = "fichero3";
 
-		LeerFicheroTxt ficherotxt = new LeerFicheroTxt();
+		
 
-		Boolean opcion = ficherotxt.LeerTxt(input);
+		Boolean opcion = LeerFicheroTxt.LeerTxt(input);
 
 		assertEquals(true, opcion);
 	}
@@ -114,8 +114,8 @@ class Test {
 	public void testLeerXml(){
 
 		String input = "fichero2";
-		LeerFicheroXml ficheroxml = new LeerFicheroXml();
-		Boolean opcion = ficheroxml.leerXml(input);
+		
+		Boolean opcion = LeerFicheroXml.leerXml(input);
 		assertEquals(true, opcion);
 	}
 
