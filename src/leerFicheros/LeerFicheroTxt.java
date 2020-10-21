@@ -68,7 +68,7 @@ public class LeerFicheroTxt {
 
 				 
 				}
-			metodosComunes.EscribirPantalla.escribirLibro(libros);
+			metodosComunes.EscribirPantalla.escribirLibro(libros,true);
 			
 		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");

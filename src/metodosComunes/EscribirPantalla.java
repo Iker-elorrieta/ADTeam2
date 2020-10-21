@@ -6,9 +6,9 @@ import Objetos.Libro;
 
 public class EscribirPantalla {
 
-	public static void escribirLibro(ArrayList<Libro> libros) {
+	public static void escribirLibro(ArrayList<Libro> libros ,boolean cabezera) {
 		
-		
+		if(cabezera)
 		System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
 		+ Visualizacion.textoEspacios(15, "Editorial")
 		+ Visualizacion.textoEspacios(15, "Paginas")
