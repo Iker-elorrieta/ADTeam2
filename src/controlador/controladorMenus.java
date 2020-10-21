@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Objetos.Libro;
+import escribirFicheros.EscribirCsv;
 import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
@@ -148,10 +149,10 @@ public class controladorMenus {
 					switch (opcionSubMenu) {
 					case 1:
 						
-						/*System.out.println("Introduzca el nombre del CSV con extension :");
+						System.out.println("Introduzca el nombre del CSV con extension :");
 						nombreFichero = sc.next();
-						LeerFicheroCsv.LeerCSV(nombreFichero);
-						System.out.println();*/
+						EscribirCsv.EscribeFichero(nombreFichero);
+						System.out.println();
 						break;// final de la accion elegida del submenu
 					case 2:
 						
