@@ -82,17 +82,20 @@ public class LeerFicheroTxt {
 				} else if (linea.contains("***************")) {
 					if (RepetirCabezera) {
 						System.out.println("\n" + Visualizacion.textoEspacios(30, CabeceraTitulo)
-						+ Visualizacion.textoEspacios(15, CabeceraEditorial) + Visualizacion.textoEspacios(15, CabeceraPaginas)
-						+ Visualizacion.textoEspacios(15, CabeceraAltura) + Visualizacion.textoEspacios(15, CabeceraNotas)
-						+ Visualizacion.textoEspacios(30, CabeceraIsbn) + Visualizacion.textoEspacios(30, CabeceraMaterias));
+								+ Visualizacion.textoEspacios(15, CabeceraEditorial)
+								+ Visualizacion.textoEspacios(15, CabeceraPaginas)
+								+ Visualizacion.textoEspacios(15, CabeceraAltura)
+								+ Visualizacion.textoEspacios(15, CabeceraNotas)
+								+ Visualizacion.textoEspacios(30, CabeceraIsbn)
+								+ Visualizacion.textoEspacios(30, CabeceraMaterias));
 
-						RepetirCabezera=false;
+						RepetirCabezera = false;
 					}
 					System.out.println("\n" + Visualizacion.textoEspacios(30, Titulo)
 							+ Visualizacion.textoEspacios(15, Editorial) + Visualizacion.textoEspacios(15, Paginas)
 							+ Visualizacion.textoEspacios(15, Altura) + Visualizacion.textoEspacios(15, Notas)
 							+ Visualizacion.textoEspacios(30, Isbn) + Visualizacion.textoEspacios(30, Materias));
-					
+
 				}
 
 		} catch (Exception e) {

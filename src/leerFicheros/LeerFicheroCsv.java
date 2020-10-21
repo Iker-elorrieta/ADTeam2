@@ -20,15 +20,15 @@ public class LeerFicheroCsv {
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	public static  ArrayList<Libro> LeerCSV(String  nombreFichero) {
-	
+	public static ArrayList<Libro> LeerCSV(String nombreFichero) {
+
 		String titulo = "";
-		String Editorial= "";
-		String Paginas= "";
-		String Altura= "";
-		String Notas= "";
-		String Isbn= "";
-		String Materias= "";
+		String Editorial = "";
+		String Paginas = "";
+		String Altura = "";
+		String Notas = "";
+		String Isbn = "";
+		String Materias = "";
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		BufferedReader br = null;
 		String linea = "";
@@ -36,11 +36,11 @@ public class LeerFicheroCsv {
 		final String cvsSplitBy = ",";
 		try {
 			// cargamos en el bufer el fichero
-			br = new BufferedReader(new FileReader(nombreFichero+".csv"));
+			br = new BufferedReader(new FileReader(nombreFichero + ".csv"));
 			// Leemos liena a linea el fichero csv
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(cvsSplitBy);
-				
+
 				titulo = datos[0];
 				Editorial = datos[1];
 				Paginas = datos[2];
@@ -48,15 +48,15 @@ public class LeerFicheroCsv {
 				Notas = datos[4];
 				Isbn = datos[5];
 				Materias = datos[6];
-				
+
 				Libro libro = new Libro(titulo, Editorial, Paginas, Altura, Notas, Isbn, Materias);
 				libros.add(libro);
 
 				// Imprime datos formateados para que se puedan leer bien
-				System.out.println("\n"+Visualizacion.textoEspacios(30, datos[0]) + Visualizacion.textoEspacios(15, datos[1])
-						+ Visualizacion.textoEspacios(15, datos[2]) + Visualizacion.textoEspacios(15, datos[3])
-						+ Visualizacion.textoEspacios(15, datos[4]) + Visualizacion.textoEspacios(30, datos[5])
-						+ Visualizacion.textoEspacios(30, datos[6]));
+				System.out.println("\n" + Visualizacion.textoEspacios(30, datos[0])
+						+ Visualizacion.textoEspacios(15, datos[1]) + Visualizacion.textoEspacios(15, datos[2])
+						+ Visualizacion.textoEspacios(15, datos[3]) + Visualizacion.textoEspacios(15, datos[4])
+						+ Visualizacion.textoEspacios(30, datos[5]) + Visualizacion.textoEspacios(30, datos[6]));
 
 			}
 
@@ -64,7 +64,7 @@ public class LeerFicheroCsv {
 			// Error en el nombre del fichero
 			System.out.println("");
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
-			
+
 			// e.printStackTrace();
 		} finally {
 			System.out.println();
@@ -80,4 +80,3 @@ public class LeerFicheroCsv {
 		return libros;
 	}
 }
-

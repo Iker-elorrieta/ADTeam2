@@ -31,7 +31,7 @@ public class controladorMenus {
 				// Comprobacion de que se intoduce un numero del 1 al 2
 				if (opcion < 1 || opcion > 2) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
 				} else {
 					error = false;
 				}
