@@ -11,15 +11,16 @@ import metodosComunes.RellenarLibro;
 
 public class EscribirCsv {
 	final static String cvsSplitBy = ",";
+
 	public static ArrayList EscribeFichero(String nombreFichero) {
 
-		File fichero = new File(nombreFichero); // Inicializamos el objeto fichero con su ruta.
+		File fichero = new File(nombreFichero + ".csv"); // Inicializamos el objeto fichero con su ruta.
 
 		// Si no existe un fichero en esa ruta, lo creamos.
 		if (!fichero.exists()) {
 			try {
 				fichero.createNewFile();
-				
+
 				try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
 						BufferedWriter bw = new BufferedWriter(fw);) {
 
@@ -27,15 +28,17 @@ public class EscribirCsv {
 					StringBuilder sbTexto = new StringBuilder();
 					ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
 					arrayLibro.add(libros);
-					
+
 					if (arrayLibro.size() != 0) {
 
 						for (Libro a : arrayLibro) {
 
-						sbTexto.append("Titulo"+cvsSplitBy +"Editorial"+cvsSplitBy +"Paginas"+cvsSplitBy +"Altura"+cvsSplitBy +"Notas"+cvsSplitBy +"Isbn"+cvsSplitBy +"Materias");
-						
+							sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy
+									+ "Altura" + cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias");
 
-							sbTexto.append("\n"+a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy + a.getPaginas() + cvsSplitBy+ a.getAltura() + cvsSplitBy + a.getNotas() + cvsSplitBy + a.getIsbn() + cvsSplitBy + a.getMaterias());
+							sbTexto.append("\n" + a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy
+									+ a.getPaginas() + cvsSplitBy + a.getAltura() + cvsSplitBy + a.getNotas()
+									+ cvsSplitBy + a.getIsbn() + cvsSplitBy + a.getMaterias());
 							sbTexto.append("\n");
 						}
 
@@ -52,7 +55,7 @@ public class EscribirCsv {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,13 +68,15 @@ public class EscribirCsv {
 				StringBuilder sbTexto = new StringBuilder();
 				ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
 				arrayLibro.add(libros);
-				
+
 				if (arrayLibro.size() != 0) {
 
 					for (Libro a : arrayLibro) {
-						
-						sbTexto.append(a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy + a.getPaginas() + cvsSplitBy+ a.getAltura() + cvsSplitBy + a.getNotas() + cvsSplitBy + a.getIsbn() + cvsSplitBy + a.getMaterias()+"\n");
-						
+
+						sbTexto.append(a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy + a.getPaginas()
+								+ cvsSplitBy + a.getAltura() + cvsSplitBy + a.getNotas() + cvsSplitBy + a.getIsbn()
+								+ cvsSplitBy + a.getMaterias() + "\n");
+
 					}
 
 					bw.write(sbTexto.toString());
@@ -87,7 +92,7 @@ public class EscribirCsv {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 
 		return null;
