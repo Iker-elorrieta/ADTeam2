@@ -53,7 +53,7 @@ public class LeerFicheroXml {
 			return true;
 		} catch (Exception e) {
 
-			System.out.println("El fichero no se encuentra en el sistema");
+			
 			// Hago NULL el array de libros para poder comprobar en JUnit que no ha
 			// terminado correctamente este metodo.
 			libros = null;
