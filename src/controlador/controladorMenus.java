@@ -197,10 +197,10 @@ public class controladorMenus {
 						break;
 					case 3:
 
-						/*System.out.println("Introduzca el nombre del TXT con extension :");
+						System.out.println("Introduzca el nombre del TXT con extension :");
 						nombreFichero = sc.next();
-						LeerFicheroTxt.LeerTxt(nombreFichero);// Le pasamos el nombre del fichero que queremos leer
-						System.out.println();*/
+						escribirFicheros.EscribirTxt.añadirTxt(nombreFichero);// Le pasamos el nombre del fichero que queremos leer
+						System.out.println();
 						break;// final de la accion elegida del submenu
 					}
 
