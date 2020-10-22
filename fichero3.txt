@@ -30,11 +30,3 @@ Notas : 4
 Isbn : 8978-987-1565-35-1
 Materias : d
 *******************************
-Titulo : Don Quijote de la Mancha
-Editorial : Francisco de Robles
-Paginas : 1560
-Altura : 25
-Notas : es una gran novela
-Isbn : 9788420689531
-Materias : Novela
-*******************************
