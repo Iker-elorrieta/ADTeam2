@@ -29,12 +29,6 @@ public class LeerFicheroXml {
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("libro");
-			System.out.println("Número de libros: " + nList.getLength());
-
-			System.out.println("\n" + Visualizacion.textoEspacios(30, "Título")
-					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Páginas")
-					+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
-					+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
 
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -52,11 +46,10 @@ public class LeerFicheroXml {
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());
 					libros.add(libro);
-					
-					
+
 				}
 			}
-			EscribirPantalla.escribirLibro(libros,false);
+			EscribirPantalla.escribirLibro(libros, false);
 			return true;
 		} catch (Exception e) {
 
@@ -67,5 +60,5 @@ public class LeerFicheroXml {
 			return false;
 		}
 	}
-	
+
 }
