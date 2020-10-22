@@ -26,31 +26,18 @@ public class EscribirCsv {
 
 					Libro libros = RellenarLibro.rellenarLibro();
 					StringBuilder sbTexto = new StringBuilder();
-					ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
-					arrayLibro.add(libros);
 
-					if (arrayLibro.size() != 0) {
+					sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
+							+ cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias"+"\n");
 
-						for (Libro a : arrayLibro) {
+					sbTexto.append(libros.getTitulo() + cvsSplitBy + libros.getEditorial() + cvsSplitBy
+							+ libros.getPaginas() + cvsSplitBy + libros.getAltura() + cvsSplitBy + libros.getNotas()
+							+ cvsSplitBy + libros.getIsbn() + cvsSplitBy + libros.getMaterias()+"\n" );
+					
 
-							sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy
-									+ "Altura" + cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias");
+					bw.write(sbTexto.toString());
 
-							sbTexto.append("\n" + a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy
-									+ a.getPaginas() + cvsSplitBy + a.getAltura() + cvsSplitBy + a.getNotas()
-									+ cvsSplitBy + a.getIsbn() + cvsSplitBy + a.getMaterias());
-							sbTexto.append("\n");
-						}
-
-						bw.write(sbTexto.toString());
-
-						System.out.println("Libro creado");
-
-					} else {
-						JOptionPane.showMessageDialog(null, "No hay mensajes en memoria!", null,
-								JOptionPane.INFORMATION_MESSAGE, null);
-
-					}
+					System.out.println("Libro creado");
 
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -69,25 +56,14 @@ public class EscribirCsv {
 				ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
 				arrayLibro.add(libros);
 
-				if (arrayLibro.size() != 0) {
+				sbTexto.append(libros.getTitulo() + cvsSplitBy + libros.getEditorial() + cvsSplitBy
+						+ libros.getPaginas() + cvsSplitBy + libros.getAltura() + cvsSplitBy + libros.getNotas()
+						+ cvsSplitBy + libros.getIsbn() + cvsSplitBy + libros.getMaterias());
+				
 
-					for (Libro a : arrayLibro) {
+				bw.write(sbTexto.toString());
 
-						sbTexto.append(a.getTitulo() + cvsSplitBy + a.getEditorial() + cvsSplitBy + a.getPaginas()
-								+ cvsSplitBy + a.getAltura() + cvsSplitBy + a.getNotas() + cvsSplitBy + a.getIsbn()
-								+ cvsSplitBy + a.getMaterias() + "\n");
-
-					}
-
-					bw.write(sbTexto.toString());
-
-					System.out.println("Libro creado");
-
-				} else {
-					JOptionPane.showMessageDialog(null, "No hay mensajes en memoria!", null,
-							JOptionPane.INFORMATION_MESSAGE, null);
-
-				}
+				System.out.println("Libro Añadido");
 
 			} catch (IOException e) {
 				e.printStackTrace();
