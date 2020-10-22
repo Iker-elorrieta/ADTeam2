@@ -15,7 +15,7 @@ import metodosComunes.Visualizacion;
 public class LeerFicheroXml {
 
 	public static ArrayList<Libro> leerXml(String nombreFichero) {
-		// leer xml
+		
 
 		File file = new File(nombreFichero + ".xml");
 		ArrayList<Libro> libros = new ArrayList<>();
@@ -29,12 +29,6 @@ public class LeerFicheroXml {
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("libro");
-			System.out.println("Número de libros: " + nList.getLength());
-
-			System.out.println("\n" + Visualizacion.textoEspacios(30, "Título")
-					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Páginas")
-					+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
-					+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
 
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -52,20 +46,15 @@ public class LeerFicheroXml {
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());
 					libros.add(libro);
-					
-					
+
 				}
 			}
-			EscribirPantalla.escribirLibro(libros,false);
+			EscribirPantalla.escribirLibro(libros, false);
 			return libros;
 		} catch (Exception e) {
 
-			System.out.println("El fichero no se encuentra en el sistema");
-			// Hago NULL el array de libros para poder comprobar en JUnit que no ha
-			// terminado correctamente este metodo.
-			libros = null;
 			return libros;
 		}
 	}
-	
+
 }

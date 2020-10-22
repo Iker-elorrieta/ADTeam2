@@ -98,7 +98,7 @@ public class EscribirXml {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = (Transformer) transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(name));
+			StreamResult result = new StreamResult(new File(name+".xml"));
 
 
 

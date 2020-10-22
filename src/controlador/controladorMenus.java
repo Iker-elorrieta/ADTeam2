@@ -148,14 +148,14 @@ public class controladorMenus {
 					switch (opcionSubMenu) {
 					case 1:
 						
-						System.out.println("Introduzca el nombre del CSV con extension :");
+						System.out.println("Introduzca el nombre del CSV :");
 						nombreFichero = sc.next();
 						LeerFicheroCsv.LeerCSV(nombreFichero);
 						System.out.println();
 						break;// final de la accion elegida del submenu
 					case 2:
 						
-						System.out.println("Introduzca el nombre del XML con extension :");
+						System.out.println("Introduzca el nombre del XML :");
 						nombreFichero = sc.next();
 						LeerFicheroXml.leerXml(nombreFichero);
 						System.out.println();
@@ -163,7 +163,7 @@ public class controladorMenus {
 						break;
 					case 3:
 
-						System.out.println("Introduzca el nombre del TXT con extension :");
+						System.out.println("Introduzca el nombre del TXT :");
 						nombreFichero = sc.next();
 						LeerFicheroTxt.LeerTxt(nombreFichero);// Le pasamos el nombre del fichero que queremos leer
 						System.out.println();
@@ -180,14 +180,14 @@ public class controladorMenus {
 					switch (opcionSubMenu) {
 					case 1:
 						
-						System.out.println("Introduzca el nombre del CSV con extension :");
+						System.out.println("Introduzca el nombre del CSV :");
 						nombreFichero = sc.next();
 						EscribirCsv.EscribeFichero(nombreFichero);
 						System.out.println();
 						break;// final de la accion elegida del submenu
 					case 2:
 						
-						System.out.println("Introduzca el nombre del XML con extension :");
+						System.out.println("Introduzca el nombre del XML :");
 						nombreFichero = sc.next();
 						EscribirXml xml = new EscribirXml(nombreFichero);
 						System.out.println();
