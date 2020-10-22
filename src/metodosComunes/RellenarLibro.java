@@ -18,55 +18,49 @@ public class RellenarLibro {
 		String isbn = null;;
 		String materias = null;;
 		 
-		Boolean seguir=false;
 		
-		while (seguir == false ) {
+		
+		
 			
 		System.out.println("Introduce un titulo de libro ");
 		titulo = sc.nextLine();
 	
-		seguir = true ;
-		}
 		
-		while (seguir == false ) {
+		
 			
 			System.out.println("Introduce una editorial ");
 			titulo = sc.nextLine();
-			seguir =true ;
 			
-			}
+			
+			
 		
-		while (seguir == false) {
+		
 			
 			System.out.println("Introduce un numero de paginas ");
 			titulo = sc.nextLine();
-			seguir =true ;
 			
-			}
+			
+			
 		
-		while (seguir == false ) {
+	
 			
 			System.out.println("Introduce un libro ");
 			titulo = sc.nextLine();
-			seguir =true ;
 			
-			}
+			
+			
 		
-		while (seguir == false ) {
+		
 			
 			System.out.println("Introduce un libro ");
 			titulo = sc.nextLine();
-			seguir =true ;
 			
-			}
 		
-		while (seguir == false ) {
+		
 			
 			System.out.println("Introduce una materia ");
 			titulo = sc.nextLine();
-			seguir =true ;
 			
-			}
 	
 		Libro libro = new Libro (titulo, editorial, paginas, altura, notas, isbn, materias);
 		return libro ;
