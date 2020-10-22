@@ -3,6 +3,7 @@ package controlador;
 import java.io.IOException;
 import java.util.Scanner;
 
+import escribirFicheros.EscribirCsv;
 //import escribirFicheros.EscribirCsv;
 import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
@@ -28,11 +29,11 @@ public class controladorMenus {
 		do {
 			try {
 				System.out.println(
-						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.- Salir");
+						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros\n 3.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 2) {
+				if (opcion < 1 || opcion > 3) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
 				} else {
@@ -181,7 +182,7 @@ public class controladorMenus {
 						
 						System.out.println("Introduzca el nombre del CSV con extension :");
 						nombreFichero = sc.next();
-						//EscribirCsv.EscribeFichero(nombreFichero);
+						EscribirCsv.EscribeFichero(nombreFichero);
 						System.out.println();
 						break;// final de la accion elegida del submenu
 					case 2:

@@ -21,10 +21,7 @@ import metodosComunes.*;
 
 public class EscribirXml {
 
-	
-
 	public EscribirXml(String nombre) {
-
 
 		try {
 
@@ -35,7 +32,6 @@ public class EscribirXml {
 			e.printStackTrace();
 		}
 	}
-
 	
 
 	public ArrayList<Libro> generarXml(String name) {
