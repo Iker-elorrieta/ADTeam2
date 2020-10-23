@@ -56,7 +56,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegida() {
 
-		String input = "1 \n 1 \n 2 \n  1\n 2\n 2\n 1\n 3\n 2\n 2\n ";
+		String input = "1 \n 1 \n 2\n  1\n 2\n 2\n  1\n 3\n 2\n 2\n 5\n 2\n  2\n 1\n 4\n  2\n 2\n 4\n 2\n 3\n 4\n 2\n ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);

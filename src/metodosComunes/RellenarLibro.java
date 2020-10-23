@@ -36,7 +36,7 @@ public class RellenarLibro {
 				System.out.println("Introduce una editorial ");
 				editorial = sc.nextLine();
 			}
-
+			
 			System.out.println("Introduce un numero de paginas ");
 			paginas = sc.nextLine();
 			while (v.validarPaginas(paginas) == false) {

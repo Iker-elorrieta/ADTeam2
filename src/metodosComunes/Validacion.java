@@ -70,7 +70,7 @@ public class Validacion {
 		final String isbnSplitBy = "-";
 
 		String[] datos = isbn.split(isbnSplitBy);
-
+		
 		for (int i = 0; i < datos.length - 1; i++) {
 			control = isNumeric(datos[i]);
 		}
