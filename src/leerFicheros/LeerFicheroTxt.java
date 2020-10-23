@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Objetos.Libro;
 import metodosComunes.Visualizacion;
+import objetos.Libro;
 
 public class LeerFicheroTxt {
 

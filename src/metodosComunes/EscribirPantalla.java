@@ -2,7 +2,7 @@ package metodosComunes;
 
 import java.util.ArrayList;
 
-import Objetos.Libro;
+import objetos.Libro;
 
 public class EscribirPantalla {
 

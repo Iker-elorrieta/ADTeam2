@@ -1,11 +1,8 @@
-package Objetos;
+package objetos;
 
-import java.util.ArrayList;
 
 public class Libro {
-	
-	
-	
+
 	private String titulo;
 	private String editorial;
 	private String paginas;
@@ -24,8 +21,7 @@ public class Libro {
 		this.notas = notas;
 		this.isbn = isbn;
 		this.materias = materias;
-		
-		
+
 	}
 
 	public Libro() {
@@ -59,8 +55,6 @@ public class Libro {
 	public String getMaterias() {
 		return materias;
 	}
-	
-	
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;

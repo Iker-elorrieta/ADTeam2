@@ -1,6 +1,6 @@
 package metodosComunes;
 
-import Objetos.Libro;
+import objetos.Libro;
 
 public class Validacion {
 

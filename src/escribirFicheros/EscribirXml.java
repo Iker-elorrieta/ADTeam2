@@ -15,17 +15,17 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import Objetos.Libro;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.*;
+import objetos.Libro;
 
 public class EscribirXml {
 
-	public EscribirXml(String nombre) {
+	public EscribirXml(String nombre, boolean automatico) {
 
 		try {
 
-			generarXml(nombre);
+			generarXml(nombre, automatico);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,13 +34,13 @@ public class EscribirXml {
 	}
 	
 
-	public ArrayList<Libro> generarXml(String name) {
+	public ArrayList<Libro> generarXml(String name, boolean automatico) {
 		
 		
 		
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
 	
-		libros.add(RellenarLibro.rellenarLibro());
+		libros.add(RellenarLibro.rellenarLibro(automatico));
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

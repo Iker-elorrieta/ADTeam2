@@ -6,18 +6,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Objetos.Libro;
+
 import controlador.controladorMenus;
+import escribirFicheros.EscribirCsv;
+import escribirFicheros.EscribirTxt;
 import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.Visualizacion;
-
+import objetos.Libro;
 
 class Test {
-	 Scanner reader = new Scanner(System.in);
-	
+	Scanner reader = new Scanner(System.in);
+
 	@org.junit.jupiter.api.Test
 	public void tesVisualicacion() {
 		String[] args = null;
@@ -63,7 +65,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerCsv(){
+	public void testLeerCsv() {
 
 		String input = "fichero1";
 		Boolean opcion = LeerFicheroCsv.LeerCSV(input);
@@ -71,11 +73,11 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerCsvError(){
+	public void testLeerCsvError() {
 
 		String input = "aaa.txt";
 		LeerFicheroCsv ficheroCsv = new LeerFicheroCsv();
-		
+
 		Boolean opcion = ficheroCsv.LeerCSV(input);
 		assertEquals(false, opcion);
 	}
@@ -90,7 +92,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerTxtError(){
+	public void testLeerTxtError() {
 
 		String input = "aaa.txt";
 		Boolean opcion = LeerFicheroTxt.LeerTxt(input);
@@ -98,7 +100,7 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
-	public void testLeerXml(){
+	public void testLeerXml() {
 
 		String input = "fichero2";
 
@@ -106,7 +108,6 @@ class Test {
 		ArrayList<Libro> libros = ficheroXml.leerXml(input);
 		ArrayList<Libro> pruebaLibros = new ArrayList<>();
 
-		
 		assertEquals(pruebaLibros.getClass(), libros.getClass());
 	}
 
@@ -114,24 +115,50 @@ class Test {
 	public void testLeerXmlError() {
 
 		String input = "aaa.xml";
-		
+
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
 		assertEquals(0, libros.size());
 	}
+
+	@org.junit.jupiter.api.Test
+	public void testEscribirXml() {
+
+		String input = "fichero2";
+
+		EscribirXml xml = new EscribirXml(input, true);
+		ArrayList<Libro> libros = xml.generarXml(input, true);
+		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+
+		assertEquals(pruebaLibros.getClass(), libros.getClass());
+	}
+	@org.junit.jupiter.api.Test
+	public void testEscribirTxt() {
+
+		String input = "fichero2";
+
+		EscribirTxt txt = new EscribirTxt();
+		boolean prueba = txt.añadirTxt(input, true);
+		
+
+		assertEquals(true, prueba);
+	}
+	
+	@org.junit.jupiter.api.Test
+	public void testEscribirCsv() {
+
+		String input = "fichero2";
+
+		EscribirCsv csv = new EscribirCsv();
+		ArrayList<Libro> libros = csv.EscribeFichero(input, true);
+		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+
+
+		assertEquals(pruebaLibros.getClass(), libros.getClass());
+
+	}
 	
 	
-//	@org.junit.jupiter.api.Test
-//	public void testEscribirXml(){
-//
-//		String input = "fichero2";
-//
-//		EscribirXml xml = new EscribirXml(input);
-//		ArrayList<Libro> libros = xml.generarXml(input);
-//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
-//
-//		
-//		assertEquals(pruebaLibros.getClass(), libros.getClass());
-//	}
+	// NO TENGO CLARO QUE TENGAMOS AUE COMPROBAR ERROR AL ESCRIBIR YA QUE SIEMPRE NOS CREARA UN NUEVO DOCUMENTO //
 
 //	@org.junit.jupiter.api.Test
 //	public void testEscribirXmlError() {
@@ -141,5 +168,5 @@ class Test {
 //		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
 //		assertEquals(0, libros.size());
 //	}
-	
+
 }

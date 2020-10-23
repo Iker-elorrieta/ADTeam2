@@ -6,25 +6,30 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import Objetos.Libro;
+
 import metodosComunes.RellenarLibro;
+import objetos.Libro;
 
 public class EscribirCsv {
 	final static String cvsSplitBy = ",";
 
-	public static ArrayList EscribeFichero(String nombreFichero) {
+	public static ArrayList<Libro> EscribeFichero(String nombreFichero, boolean automatico) {
 
 		File fichero = new File(nombreFichero + ".csv"); // Inicializamos el objeto fichero con su ruta.
 
 		// Si no existe un fichero en esa ruta, lo creamos.
+		
+		ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
+		
 		if (!fichero.exists()) {
+			
 			try {
 				fichero.createNewFile();
 
 				try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
 						BufferedWriter bw = new BufferedWriter(fw);) {
 
-					Libro libros = RellenarLibro.rellenarLibro();
+					Libro libros = RellenarLibro.rellenarLibro(automatico);
 					StringBuilder sbTexto = new StringBuilder();
 
 					sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
@@ -47,13 +52,16 @@ public class EscribirCsv {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {
+		} 
+		
+		else {
+			
 			try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
 					BufferedWriter bw = new BufferedWriter(fw);) {
 
-				Libro libros = RellenarLibro.rellenarLibro();
+				Libro libros = RellenarLibro.rellenarLibro(automatico);
 				StringBuilder sbTexto = new StringBuilder();
-				ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
+				
 				arrayLibro.add(libros);
 
 				sbTexto.append(libros.getTitulo() + cvsSplitBy + libros.getEditorial() + cvsSplitBy
@@ -64,14 +72,16 @@ public class EscribirCsv {
 				bw.write(sbTexto.toString());
 
 				System.out.println("Libro Añadido");
+				
+				return arrayLibro;
 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
 		}
-
-		return null;
+		return arrayLibro;
+		
 
 	}
 }

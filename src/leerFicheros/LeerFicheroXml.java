@@ -8,9 +8,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
 
-import Objetos.Libro;
 import metodosComunes.EscribirPantalla;
 import metodosComunes.Visualizacion;
+import objetos.Libro;
 
 public class LeerFicheroXml {
 
