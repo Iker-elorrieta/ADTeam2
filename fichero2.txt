@@ -1,0 +1,24 @@
+Titulo : null
+Editorial : null
+Paginas : null
+Altura : null
+Notas : null
+Isbn : null
+Materias : null
+*******************************
+Titulo : null
+Editorial : null
+Paginas : null
+Altura : null
+Notas : null
+Isbn : null
+Materias : null
+*******************************
+Titulo : null
+Editorial : null
+Paginas : null
+Altura : null
+Notas : null
+Isbn : null
+Materias : null
+*******************************

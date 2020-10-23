@@ -21,11 +21,11 @@ import objetos.Libro;
 
 public class EscribirXml {
 
-	public EscribirXml(String nombre, boolean automatico) {
+	public EscribirXml(String nombre) {
 
 		try {
 
-			generarXml(nombre, automatico);
+			generarXml(nombre);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,13 +34,13 @@ public class EscribirXml {
 	}
 	
 
-	public ArrayList<Libro> generarXml(String name, boolean automatico) {
+	public ArrayList<Libro> generarXml(String name) {
 		
 		
 		
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
 	
-		libros.add(RellenarLibro.rellenarLibro(automatico));
+		libros.add(RellenarLibro.rellenarLibro());
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

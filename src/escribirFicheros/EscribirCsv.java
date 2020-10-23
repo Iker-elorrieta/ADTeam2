@@ -13,7 +13,7 @@ import objetos.Libro;
 public class EscribirCsv {
 	final static String cvsSplitBy = ",";
 
-	public static ArrayList<Libro> EscribeFichero(String nombreFichero, boolean automatico) {
+	public static ArrayList<Libro> EscribeFichero(String nombreFichero) {
 
 		File fichero = new File(nombreFichero + ".csv"); // Inicializamos el objeto fichero con su ruta.
 
@@ -33,7 +33,7 @@ public class EscribirCsv {
 			try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
 					BufferedWriter bw = new BufferedWriter(fw);) {
 
-				Libro libros = RellenarLibro.rellenarLibro(automatico);
+				Libro libros = RellenarLibro.rellenarLibro();
 				StringBuilder sbTexto = new StringBuilder();
 
 				sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
@@ -58,7 +58,7 @@ public class EscribirCsv {
 			try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
 					BufferedWriter bw = new BufferedWriter(fw);) {
 
-				Libro libros = RellenarLibro.rellenarLibro(automatico);
+				Libro libros = RellenarLibro.rellenarLibro();
 				StringBuilder sbTexto = new StringBuilder();
 				
 				arrayLibro.add(libros);

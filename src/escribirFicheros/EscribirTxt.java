@@ -9,7 +9,7 @@ import objetos.Libro;
 
 public class EscribirTxt {
 
-	public static boolean añadirTxt(String nombreArchivo, boolean automatico) {
+	public static boolean añadirTxt(String nombreArchivo) {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		Libro libro = new Libro();
@@ -23,7 +23,7 @@ public class EscribirTxt {
 			// flag true, indica adjuntar información al archivo.
 			fw = new FileWriter(file.getAbsoluteFile(), true);
 			bw = new BufferedWriter(fw);
-			libro = metodosComunes.RellenarLibro.rellenarLibro(automatico);
+			libro = metodosComunes.RellenarLibro.rellenarLibro();
 			bw.write("Titulo : " + libro.getTitulo() + "\n");
 			bw.write("Editorial : " + libro.getEditorial() + "\n");
 			bw.write("Paginas : " + libro.getPaginas() + "\n");

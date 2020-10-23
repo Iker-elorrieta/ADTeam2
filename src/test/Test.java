@@ -125,8 +125,8 @@ class Test {
 
 		String input = "fichero2";
 
-		EscribirXml xml = new EscribirXml(input, true);
-		ArrayList<Libro> libros = xml.generarXml(input, true);
+		EscribirXml xml = new EscribirXml(input);
+		ArrayList<Libro> libros = xml.generarXml(input);
 		ArrayList<Libro> pruebaLibros = new ArrayList<>();
 
 		assertEquals(pruebaLibros.getClass(), libros.getClass());
@@ -137,7 +137,7 @@ class Test {
 		String input = "fichero2";
 
 		EscribirTxt txt = new EscribirTxt();
-		boolean prueba = txt.añadirTxt(input, true);
+		boolean prueba = txt.añadirTxt(input);
 		
 
 		assertEquals(true, prueba);
@@ -149,7 +149,7 @@ class Test {
 		String input = "fichero2";
 
 		EscribirCsv csv = new EscribirCsv();
-		ArrayList<Libro> libros = csv.EscribeFichero(input, true);
+		ArrayList<Libro> libros = csv.EscribeFichero(input);
 		ArrayList<Libro> pruebaLibros = new ArrayList<>();
 
 
