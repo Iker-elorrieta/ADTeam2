@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import Objetos.Libro;
 import controlador.controladorMenus;
+import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
@@ -103,9 +104,10 @@ class Test {
 
 		LeerFicheroXml ficheroXml = new LeerFicheroXml();
 		ArrayList<Libro> libros = ficheroXml.leerXml(input);
+		ArrayList<Libro> pruebaLibros = new ArrayList<>();
 
 		
-		assertEquals(true, libros);
+		assertEquals(pruebaLibros.getClass(), libros.getClass());
 	}
 
 	@org.junit.jupiter.api.Test
@@ -114,7 +116,30 @@ class Test {
 		String input = "aaa.xml";
 		
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
-		assertEquals(null, libros);
+		assertEquals(0, libros.size());
 	}
+	
+	
+//	@org.junit.jupiter.api.Test
+//	public void testEscribirXml(){
+//
+//		String input = "fichero2";
+//
+//		EscribirXml xml = new EscribirXml(input);
+//		ArrayList<Libro> libros = xml.generarXml(input);
+//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+//
+//		
+//		assertEquals(pruebaLibros.getClass(), libros.getClass());
+//	}
 
+//	@org.junit.jupiter.api.Test
+//	public void testEscribirXmlError() {
+//
+//		String input = "aaa.xml";
+//		
+//		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
+//		assertEquals(0, libros.size());
+//	}
+	
 }
