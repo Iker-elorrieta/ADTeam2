@@ -60,10 +60,10 @@ public class RellenarLibro {
 
 		System.out.println("Introduce una isbn ");
 		isbn = sc.nextLine();
-		while (v.validarIsbn(isbn) == false) {
-			System.out.println("Introduce una isbn ");
-			isbn = sc.nextLine();
-		}
+//		while (v.validarIsbn(isbn) == false) {
+//			System.out.println("Introduce una isbn ");
+//			isbn = sc.nextLine();
+//		}
 
 		System.out.println("Introduce una materias ");
 		materias = sc.nextLine();

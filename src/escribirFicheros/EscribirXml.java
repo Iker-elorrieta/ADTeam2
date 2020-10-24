@@ -10,7 +10,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -32,14 +31,11 @@ public class EscribirXml {
 			e.printStackTrace();
 		}
 	}
-	
 
 	public ArrayList<Libro> generarXml(String name) {
-		
-		
-		
+
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
-	
+
 		libros.add(RellenarLibro.rellenarLibro());
 
 		try {
@@ -94,16 +90,18 @@ public class EscribirXml {
 			}
 
 			// clases necesarias finalizar la creación del archivo XML
-			
+
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = (Transformer) transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(name+".xml"));
+			StreamResult result = new StreamResult(new File(name + ".xml"));
 
-
+			System.out.println("");
+			System.out.println("DOCUMENTO CREADO CON ÉXITO: " + name + ".xml");
 
 			((javax.xml.transform.Transformer) transformer).transform(source, result);
 		} catch (Exception e) {
+			System.out.println("!ERROR AL CREAR DOCUMENTO¡");
 			e.printStackTrace();
 		}
 		return libros;
