@@ -2,6 +2,7 @@ package escribirFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,7 +20,7 @@ import metodosComunes.*;
 import objetos.Libro;
 
 public class EscribirXml {
-
+	static Scanner sc = new Scanner(System.in);
 	public EscribirXml(String nombre) {
 
 		try {
@@ -36,7 +37,7 @@ public class EscribirXml {
 
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
 
-		libros.add(RellenarLibro.rellenarLibro());
+		libros.add(RellenarLibro.rellenarLibro(sc));
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

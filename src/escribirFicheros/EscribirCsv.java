@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import metodosComunes.RellenarLibro;
@@ -12,75 +14,51 @@ import objetos.Libro;
 
 public class EscribirCsv {
 	final static String cvsSplitBy = ",";
+	static Scanner sc = new Scanner(System.in);
+	public static boolean EscribeFichero(String nombreFichero) {
 
-	public static ArrayList<Libro> EscribeFichero(String nombreFichero) {
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		Libro libro = new Libro();
+		try {
 
-		File fichero = new File(nombreFichero + ".csv"); // Inicializamos el objeto fichero con su ruta.
+			File file = new File(nombreFichero + ".csv");
+			// Si el archivo no existe, se crea!
+			if (!file.exists()) {
+				fw = new FileWriter(file.getAbsoluteFile(), true);
+				bw = new BufferedWriter(fw);
 
-		// Si no existe un fichero en esa ruta, lo creamos.
-
-		ArrayList<Libro> arrayLibro = new ArrayList<Libro>();
-
-		if (!fichero.exists()) {
-
-			try {
-				fichero.createNewFile();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
-			try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
-					BufferedWriter bw = new BufferedWriter(fw);) {
-
-				Libro libros = RellenarLibro.rellenarLibro();
-				StringBuilder sbTexto = new StringBuilder();
-
-				sbTexto.append("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
+				libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
+				bw.write("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
 						+ cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias" + "\n");
-
-				sbTexto.append(libros.getTitulo() + cvsSplitBy + libros.getEditorial() + cvsSplitBy
-						+ libros.getPaginas() + cvsSplitBy + libros.getAltura() + cvsSplitBy + libros.getNotas()
-						+ cvsSplitBy + libros.getIsbn() + cvsSplitBy + libros.getMaterias() + "\n");
-
-				bw.write(sbTexto.toString());
-
-				System.out.println("Libro creado");
-
-			} catch (IOException e) {
-				e.printStackTrace();
+				file.createNewFile();
 			}
+			fw = new FileWriter(file.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+			libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
 
-		}
-		
-		else {
+			bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
+					+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
+					+ cvsSplitBy + libro.getMaterias() + "\n");
+
+			return true;
 			
-			try (FileWriter fw = new FileWriter(fichero.getAbsoluteFile(), true);
-					BufferedWriter bw = new BufferedWriter(fw);) {
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// Cierra instancias de FileWriter y BufferedWriter
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+				return false;
 
-				Libro libros = RellenarLibro.rellenarLibro();
-				StringBuilder sbTexto = new StringBuilder();
-				
-				arrayLibro.add(libros);
-
-				sbTexto.append(libros.getTitulo() + cvsSplitBy + libros.getEditorial() + cvsSplitBy
-						+ libros.getPaginas() + cvsSplitBy + libros.getAltura() + cvsSplitBy + libros.getNotas()
-						+ cvsSplitBy + libros.getIsbn() + cvsSplitBy + libros.getMaterias());
-				
-
-				bw.write(sbTexto.toString());
-
-				System.out.println("Libro Añadido");
-				
-				return arrayLibro;
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
-
 		}
-		return arrayLibro;
+		return true;
 		
-
 	}
 }

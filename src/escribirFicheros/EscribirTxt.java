@@ -4,11 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import objetos.Libro;
 
 public class EscribirTxt {
-
+	static Scanner sc = new Scanner(System.in);
 	public static boolean añadirTxt(String nombreArchivo) {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
@@ -23,7 +24,7 @@ public class EscribirTxt {
 			// flag true, indica adjuntar información al archivo.
 			fw = new FileWriter(file.getAbsoluteFile(), true);
 			bw = new BufferedWriter(fw);
-			libro = metodosComunes.RellenarLibro.rellenarLibro();
+			libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
 			bw.write("Titulo : " + libro.getTitulo() + "\n");
 			bw.write("Editorial : " + libro.getEditorial() + "\n");
 			bw.write("Paginas : " + libro.getPaginas() + "\n");
@@ -38,6 +39,7 @@ public class EscribirTxt {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+
 		} finally {
 			try {
 				// Cierra instancias de FileWriter y BufferedWriter
@@ -47,10 +49,8 @@ public class EscribirTxt {
 					fw.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
-				return false;
-
 			}
 		}
-		return false;
+		return true;
 	}
 }

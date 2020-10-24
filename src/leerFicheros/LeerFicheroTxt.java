@@ -69,7 +69,7 @@ public class LeerFicheroTxt {
 				 
 				}
 			metodosComunes.EscribirPantalla.escribirLibro(libros,true);
-			
+			return true;
 		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
@@ -85,7 +85,7 @@ public class LeerFicheroTxt {
 				e2.printStackTrace();
 			}
 		}
-		return true;
+	
 	}
 
 }
