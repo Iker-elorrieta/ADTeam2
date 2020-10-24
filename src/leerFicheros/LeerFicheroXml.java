@@ -49,7 +49,7 @@ public class LeerFicheroXml {
 
 				}
 			}
-			EscribirPantalla.escribirLibro(libros, false);
+			
 			return libros;
 		} catch (Exception e) {
 

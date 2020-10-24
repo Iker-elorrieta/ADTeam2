@@ -9,6 +9,7 @@ import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
+import metodosComunes.EscribirPantalla;
 
 public class controladorMenus {
 
@@ -105,7 +106,8 @@ public class controladorMenus {
 				}
 			} catch (Exception e) {
 				// Mensaje de error si el usuario introduce letras
-				System.out.println("\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				System.out.println(
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
 				sc.nextLine();
 			}
 		} while (error);
@@ -151,7 +153,9 @@ public class controladorMenus {
 
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							LeerFicheroXml.leerXml(nombreFichero);
+
+							EscribirPantalla.escribirLibro(LeerFicheroXml.leerXml(nombreFichero), false);
+
 							System.out.println();
 							// Aqui ira las demas acciones del submenu
 							break;
@@ -194,7 +198,7 @@ public class controladorMenus {
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
 							escribirFicheros.EscribirTxt.añadirTxt(nombreFichero);// Le pasamos el nombre del
-																							// fichero que queremos leer
+																					// fichero que queremos leer
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						}
