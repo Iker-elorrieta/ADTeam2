@@ -144,6 +144,10 @@ class Test {
 	public void testEscribirXml() {
 
 		String input = "fichero3";
+		String input2 = "r \n aa \n 2 \n 2 \n 2 \n 2 \n aa";
+		InputStream in = new ByteArrayInputStream(input2.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
 		EscribirXml xml = new EscribirXml(input);
 		
 	}
