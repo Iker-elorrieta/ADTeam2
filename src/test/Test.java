@@ -66,25 +66,14 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaLeer() {
 
-		String input = " 1\n 1\n  fichero1\n 1\n 2\n fichero2\n  1\n 3\n fichero3 \n 3\n";
+		String input = " 1 \n 1 \n fichero1 \n 1 \n 2 \n fichero2 \n  1 \n 3 \n fichero3 \n 3\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
 		int opcion = controladorMenus.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
-	
-	@org.junit.jupiter.api.Test
-	public void testControladorOpcionElegidaEscribir() {
 
-		String input = " 2\n 1\n  fichero1\n 2\n 2\n fichero2\n 2\n 3\n fichero3\n 3\n";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
-		assertEquals(1, opcion);
-	}
-	
 	@org.junit.jupiter.api.Test
 	public void testLeerCsv() {
 
@@ -141,10 +130,22 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
+	public void testEscribirCsv() {
+		String input = "fichero1";
+		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
+		InputStream in = new ByteArrayInputStream(input2.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		boolean correcto = EscribirCsv.EscribeFichero(input);
+		assertEquals(true,correcto);
+
+	}
+	
+	@org.junit.jupiter.api.Test
 	public void testEscribirXml() {
 
-		String input = "fichero3";
-		String input2 = "r \n aa \n 2 \n 2 \n 2 \n 2 \n aa";
+		String input = "fichero2";
+		String input2 = "Xml \n Xml \n 2 \n 2 \n 2 \n 2 \n Xml";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -156,18 +157,7 @@ class Test {
 	public void testEscribirTxt() {
 		String input = "fichero3";
 	
-		String input2 = "r \n aa \n 2 \n 2 \n 2 \n 2 \n aa";
-		InputStream in = new ByteArrayInputStream(input2.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		boolean correcto = EscribirTxt.añadirTxt(input);
-		assertEquals(true,correcto);
-
-	}
-	@org.junit.jupiter.api.Test
-	public void testEscribirTxtNoExiste() {
-		String input = "txtNoExiste";
-		String input2 = "r \n aa \n 2 \n 2 \n 2 \n 2 \n aa";
+		String input2 = "txt \n txt \n 3 \n 3 \n 3 \n 3 \n txt";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -176,30 +166,6 @@ class Test {
 
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testEscribirCsv() {
-		String input = "fichero1";
-		String input2 = "aaaa\n aaaa \n 22 \n 22 \n 22 \n aaa \n aa";
-		InputStream in = new ByteArrayInputStream(input2.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input);
-		assertEquals(true,correcto);
-
-	}
-	
-	@org.junit.jupiter.api.Test
-	public void testEscribirCsvNoExiste() {
-		String input = "prueba";
-		String input2 = "aaaa \n aaaa \n 22 \n 22 \n 22 \n aaa \n aa";
-		InputStream in = new ByteArrayInputStream(input2.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);	
-		boolean correcto = EscribirCsv.EscribeFichero(input);
-		assertEquals(true,correcto);
-
-	}
-	
 
 	
 	// NO TENGO CLARO QUE TENGAMOS AUE COMPROBAR ERROR AL ESCRIBIR YA QUE SIEMPRE NOS CREARA UN NUEVO DOCUMENTO //

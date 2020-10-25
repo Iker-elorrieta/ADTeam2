@@ -134,7 +134,7 @@ public class controladorMenus {
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-			if (opcion != 4) {
+			if (opcion != 3) {
 				switch (opcion) {
 				case 1:
 					opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
@@ -143,7 +143,6 @@ public class controladorMenus {
 
 						switch (opcionSubMenu) {
 						case 1:
-
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
 							LeerFicheroCsv.LeerCSV(nombreFichero);
@@ -206,7 +205,7 @@ public class controladorMenus {
 					}
 				}
 			}
-		} while (opcion != 4);
+		} while (opcion != 3);
 		return 1;
 
 	}

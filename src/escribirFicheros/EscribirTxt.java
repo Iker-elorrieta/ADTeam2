@@ -35,7 +35,6 @@ public class EscribirTxt {
 			bw.write("*******************************" + "\n");
 			System.out.println("información agregada!");
 
-			return true;
 
 		} catch (IOException e) {
 			e.printStackTrace();

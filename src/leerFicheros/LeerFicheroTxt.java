@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import metodosComunes.EscribirPantalla;
 import metodosComunes.Visualizacion;
 import objetos.Libro;
 
@@ -65,10 +66,8 @@ public class LeerFicheroTxt {
 
 				 else if (linea.contains("Materias")) 
 					libro.setMaterias(cortar1);
-
-				 
 				}
-			metodosComunes.EscribirPantalla.escribirLibro(libros,true);
+			EscribirPantalla.escribirLibro(libros,true);
 			return true;
 		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");

@@ -27,22 +27,24 @@ public class EscribirCsv {
 			if (!file.exists()) {
 				fw = new FileWriter(file.getAbsoluteFile(), true);
 				bw = new BufferedWriter(fw);
-
 				libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
 				bw.write("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
 						+ cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias" + "\n");
 				file.createNewFile();
+				bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
+				+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
+				+ cvsSplitBy + libro.getMaterias() + "\n");
+			}else {
+				
+				fw = new FileWriter(file.getAbsoluteFile(), true);
+				bw = new BufferedWriter(fw);
+				libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
+				bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
+						+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
+						+ cvsSplitBy + libro.getMaterias() + "\n");
+
 			}
-			fw = new FileWriter(file.getAbsoluteFile(), true);
-			bw = new BufferedWriter(fw);
-			libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
 
-			bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
-					+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
-					+ cvsSplitBy + libro.getMaterias() + "\n");
-
-			return true;
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
