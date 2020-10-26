@@ -9,6 +9,14 @@ import java.util.Scanner;
 import objetos.Libro;
 
 public class EscribirTxt {
+	/**
+	 * Esta clase contiene el metodo de escrbir Fichero .txt 
+	 * @param nombreArchivo Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Ibai,Jonatan 
+	 * @return Retorna un booleano true para saber si se ha terminado de escribir o crear el fichero
+	 * 
+	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
+	 */
 	static Scanner sc = new Scanner(System.in);
 	public static boolean añadirTxt(String nombreArchivo) {
 		BufferedWriter bw = null;

@@ -13,6 +13,15 @@ import metodosComunes.RellenarLibro;
 import objetos.Libro;
 
 public class EscribirCsv {
+	/**
+	 * Esta clase contiene el metodo de Escribir Fichero Csv 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Fran, Jonatan
+	 * @return Retorna un booleano false para saber si ha saltado alguna excepcion
+	 * @return Retorna un booleano true para saber si se ha terminado de escribir o crear el fichero
+	 * 
+	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
+	 */
 	final static String cvsSplitBy = ",";
 	static Scanner sc = new Scanner(System.in);
 	public static boolean EscribeFichero(String nombreFichero) {

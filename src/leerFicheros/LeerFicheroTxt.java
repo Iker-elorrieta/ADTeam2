@@ -17,8 +17,6 @@ public class LeerFicheroTxt {
 	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
 	 * @author Ibai 
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
-	 * 
-	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	public static Boolean LeerTxt(String nombreFichero) {
 		

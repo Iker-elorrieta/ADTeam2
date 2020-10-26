@@ -17,6 +17,10 @@ import metodosComunes.Visualizacion;
 import objetos.Libro;
 
 class Test {
+	/**
+	 * Esta clase contiene los metodos de TEST de la aplicacion.
+	 * @author Fran
+	 */
 	Scanner reader = new Scanner(System.in);
 
 	@org.junit.jupiter.api.Test

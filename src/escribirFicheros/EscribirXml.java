@@ -19,7 +19,15 @@ import leerFicheros.LeerFicheroXml;
 import metodosComunes.*;
 import objetos.Libro;
 
-public class EscribirXml {
+public class EscribirXml {/**
+	 * Esta clase contiene el metodo de escribir Fichero .xml 
+	 * @param nombre Nombre del fichero que se le pasa al metodo como parametro
+	 * @param name Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Asier, Jonatan  
+	 * @return Retorna un ArrayList de Libros
+	 * 
+	 * @throws Exception clase general de excepciones.
+	 */
 	static Scanner sc = new Scanner(System.in);
 	public EscribirXml(String nombre) {
 

@@ -2,6 +2,17 @@ package objetos;
 
 
 public class Libro {
+	/**
+	 * Esta clase se utiliza para la creacion y gestion de datos de Objetos Libro 
+	 * @param titulo Titulo del Libro que se le pasa al metodo como parametro
+	 * @param editorial Editorial del Libro que se le pasa al metodo como parametro
+	 * @param paginas Numero de paginas del Libro que se le pasa al metodo como parametro
+	 * @param altura Altura del Libro en milimetros que se le pasa al metodo como parametro
+	 * @param notas Notas sobre el Libro que se le pasa al metodo como parametro
+	 * @param isbn Numero ISBN del Libro que se le pasa al metodo como parametro
+	 * @param materias Materias sobre las que trata el Libro que se le pasa al metodo como parametro
+	 * @author Asier, Jonatan 
+	 */
 
 	private String titulo;
 	private String editorial;

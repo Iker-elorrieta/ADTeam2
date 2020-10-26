@@ -122,9 +122,6 @@ public class controladorMenus {
 	 * @param sc Entrada de teclado automatica para la realizacion de las pruebas
 	 * @author jonatan,fran
 	 * @return retorna un 1 para comprobar que termina correctamente
-	 * @throws IOException clase general de excepciones producidas por operaciones
-	 *                     de E / S fallidas o interrumpidas.
-	 * 
 	 * 
 	 */
 	public static int opcionElegida(Scanner sc) {

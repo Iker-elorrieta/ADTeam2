@@ -5,6 +5,12 @@ import java.util.Scanner;
 import objetos.Libro;
 
 public class RellenarLibro {
+	/**
+	 * Esta clase contiene el metodo de rellenar Libro 
+	 * @param sc Nombre del scanner que se le pasa al metodo como parametro para los tests
+	 * @author Asier
+	 * @return Retorna un objeto Libro
+	 */
 
 	public static Libro rellenarLibro(Scanner sc) {
 

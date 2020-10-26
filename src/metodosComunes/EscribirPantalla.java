@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import objetos.Libro;
 
 public class EscribirPantalla {
+	/**
+	 * Esta clase contiene el metodo de escrbir LIbro 
+	 * @param libros Nombre del ArrayList de Libros que se le pasa al metodo como parametro
+	 * @param cabezera Nombre del booleano que se le pasa al metodo como parametro
+	 * @author Fran
+	 * 
+	 */
 
 	public static void escribirLibro(ArrayList<Libro> libros ,boolean cabezera) {
 		
