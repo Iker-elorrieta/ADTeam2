@@ -14,10 +14,6 @@ public class RellenarLibro {
 
 	public static Libro rellenarLibro(Scanner sc) {
 
-		
-		// pruabas automaticas
-
-
 
 		String titulo;
 		String editorial;

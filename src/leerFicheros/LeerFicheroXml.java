@@ -2,14 +2,9 @@ package leerFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.*;
-
-import metodosComunes.EscribirPantalla;
-import metodosComunes.Visualizacion;
 import objetos.Libro;
 
 public class LeerFicheroXml {

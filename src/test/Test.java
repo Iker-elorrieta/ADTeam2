@@ -12,7 +12,6 @@ import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
-import metodosComunes.RellenarLibro;
 import metodosComunes.Visualizacion;
 import objetos.Libro;
 
@@ -70,7 +69,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaLeer() {
 
-		String input = " 1 \n 1 \n fichero1 \n 1 \n 2 \n fichero2 \n  1 \n 3 \n fichero3 \n 3\n";
+		String input = " 1 \n 1 \n fichero1 \n 1 \n 2 \n fichero2 \n 1 \n 3 \n fichero3 \n 3\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -133,17 +132,32 @@ class Test {
 		assertEquals(0, libros.size());
 	}
 
+	
+	@org.junit.jupiter.api.Test
+	public void testEscribirCsvNoExiste() {
+		String input = "fichero11";
+		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
+		
+		InputStream in = new ByteArrayInputStream(input2.getBytes());
+		System.setIn(in);
+		Scanner sc = new Scanner(System.in);
+		boolean correcto = EscribirCsv.EscribeFichero(sc,input);
+		assertEquals(true,correcto);
+
+	}
+
 	@org.junit.jupiter.api.Test
 	public void testEscribirCsv() {
 		String input = "fichero1";
 		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
-		reader = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input);
+		Scanner sc = new Scanner(System.in);
+		boolean correcto = EscribirCsv.EscribeFichero(sc,input);;
 		assertEquals(true,correcto);
 
 	}
+	
 	
 	@org.junit.jupiter.api.Test
 	public void testEscribirXml() {
