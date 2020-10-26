@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import escribirFicheros.EscribirCsv;
@@ -10,6 +11,7 @@ import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
+import objetos.Libro;
 
 public class controladorMenus {
 
@@ -183,7 +185,8 @@ public class controladorMenus {
 
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							EscribirXml xml = new EscribirXml(nombreFichero);
+							EscribirXml xml = new EscribirXml();							
+							xml.generarXml(nombreFichero);
 							System.out.println();
 							LeerFicheroXml.leerXml(nombreFichero);
 

@@ -29,16 +29,16 @@ public class EscribirXml {/**
 	 * @throws Exception clase general de excepciones.
 	 */
 	static Scanner sc = new Scanner(System.in);
-	public EscribirXml(String nombre) {
+	public EscribirXml() {
 
-		try {
-
-			generarXml(nombre);
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//
+//			generarXml(nombre);
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	public ArrayList<Libro> generarXml(String name) {

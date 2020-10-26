@@ -153,7 +153,10 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		EscribirXml xml = new EscribirXml(input);
+		EscribirXml xml = new EscribirXml();
+		ArrayList<Libro> libros = xml.generarXml(input);
+		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+		assertEquals(pruebaLibros.getClass(), libros.getClass());
 		
 	}
 
