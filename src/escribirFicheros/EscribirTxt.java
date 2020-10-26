@@ -18,7 +18,7 @@ public class EscribirTxt {
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	static Scanner sc = new Scanner(System.in);
-	public static boolean añadirTxt(String nombreArchivo) {
+	public static boolean añadirTxt(String nombreArchivo,Scanner sc) {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		Libro libro = new Libro();
@@ -45,7 +45,7 @@ public class EscribirTxt {
 
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			
 
 		} finally {
 			try {
@@ -55,7 +55,7 @@ public class EscribirTxt {
 				if (fw != null)
 					fw.close();
 			} catch (IOException ex) {
-				ex.printStackTrace();
+				
 			}
 		}
 		return true;

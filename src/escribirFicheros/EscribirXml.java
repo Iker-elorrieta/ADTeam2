@@ -41,7 +41,7 @@ public class EscribirXml {/**
 //		}
 	}
 
-	public ArrayList<Libro> generarXml(String name) {
+	public ArrayList<Libro> generarXml(String name, Scanner sc) {
 
 		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
 

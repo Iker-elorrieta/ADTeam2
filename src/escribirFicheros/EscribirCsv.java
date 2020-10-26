@@ -24,7 +24,7 @@ public class EscribirCsv {
 	 */
 	final static String cvsSplitBy = ",";
 	static Scanner sc = new Scanner(System.in);
-	public static boolean EscribeFichero(String nombreFichero) {
+	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;

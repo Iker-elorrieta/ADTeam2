@@ -134,13 +134,25 @@ class Test {
 	}
 
 	@org.junit.jupiter.api.Test
+	public void testEscribirCsvNuevo() {
+		String input = "fichero6";
+		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
+		InputStream in = new ByteArrayInputStream(input2.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		boolean correcto = EscribirCsv.EscribeFichero(input,reader);
+		assertEquals(true,correcto);
+
+	}
+	
+	@org.junit.jupiter.api.Test
 	public void testEscribirCsv() {
 		String input = "fichero1";
 		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input);
+		boolean correcto = EscribirCsv.EscribeFichero(input,reader);
 		assertEquals(true,correcto);
 
 	}
@@ -154,7 +166,7 @@ class Test {
 		System.setIn(in);
 		reader = new Scanner(System.in);
 		EscribirXml xml = new EscribirXml();
-		ArrayList<Libro> libros = xml.generarXml(input);
+		ArrayList<Libro> libros = xml.generarXml(input,reader);
 		ArrayList<Libro> pruebaLibros = new ArrayList<>();
 		assertEquals(pruebaLibros.getClass(), libros.getClass());
 		
@@ -162,18 +174,58 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	public void testEscribirTxt() {
-		String input = "fichero3";
+		String input = "fichero7";
 	
 		String input2 = "txt \n txt \n 3 \n 3 \n 3 \n 3 \n txt";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		boolean correcto = EscribirTxt.añadirTxt(input);
+		boolean correcto = EscribirTxt.añadirTxt(input,reader);
 		assertEquals(true,correcto);
 
 	}
+	
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionElegidaEscribirCSV() {
+
+		System.out.println("HOLA MU HUENAS");
+		
+		String input = "2\n1\nfichero1\nCsv\nCsv\n1\n1\n1\n1\nCsv ";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionElegidaEscribirXML() {
+
+		System.out.println("HOLA MU HUENAS");
+		
+		String input = "2\n2\nfichero2\nXml\nXml\n 2\n2\n2\n2\nXml\n3";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionElegidaEscribirTXT() {
+
+		System.out.println("HOLA MU HUENAS");
+		
+		String input = "2\n3\nfichero3\ntxt\ntxt\n3\n 3\n 3\n 3\ntxt\n3";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
 
 
+// \n  \n
 	
 	// NO TENGO CLARO QUE TENGAMOS AUE COMPROBAR ERROR AL ESCRIBIR YA QUE SIEMPRE NOS CREARA UN NUEVO DOCUMENTO //
 
