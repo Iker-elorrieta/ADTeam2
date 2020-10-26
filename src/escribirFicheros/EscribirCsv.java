@@ -4,12 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
-import metodosComunes.RellenarLibro;
 import objetos.Libro;
 
 public class EscribirCsv {
@@ -23,8 +18,11 @@ public class EscribirCsv {
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	final static String cvsSplitBy = ",";
+
 	static Scanner sc = new Scanner(System.in);
 	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {
+
+	//static Scanner sc = new Scanner(System.in);
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;

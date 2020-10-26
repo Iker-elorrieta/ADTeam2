@@ -3,11 +3,9 @@ package leerFicheros;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import metodosComunes.EscribirPantalla;
-import metodosComunes.Visualizacion;
 import objetos.Libro;
 
 public class LeerFicheroTxt {
@@ -37,7 +35,7 @@ public class LeerFicheroTxt {
 			br = new BufferedReader(fr);
 			// Lectura del fichero
 			String linea;
-			while ((linea = br.readLine()) != null)
+			while ((linea = br.readLine()) != null) {
 				if (linea.contains("***********")) {
 					
 					libros.add(libro);
@@ -66,7 +64,8 @@ public class LeerFicheroTxt {
 					libro.setMaterias(cortar1);
 				}
 			EscribirPantalla.escribirLibro(libros,true);
-			return true;
+			}
+
 		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
@@ -79,10 +78,10 @@ public class LeerFicheroTxt {
 					fr.close();
 				}
 			} catch (Exception e2) {
-				e2.printStackTrace();
+			
 			}
 		}
-	
+	return true;
 	}
 
 }

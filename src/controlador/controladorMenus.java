@@ -1,17 +1,13 @@
 package controlador;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
+import java.util.Scanner;
 import escribirFicheros.EscribirCsv;
-//import escribirFicheros.EscribirCsv;
 import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
-import objetos.Libro;
 
 public class controladorMenus {
 
@@ -178,7 +174,9 @@ public class controladorMenus {
 
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
+
 							EscribirCsv.EscribeFichero(nombreFichero,sc);
+
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:

@@ -12,7 +12,6 @@ import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
-import metodosComunes.RellenarLibro;
 import metodosComunes.Visualizacion;
 import objetos.Libro;
 
@@ -70,13 +69,14 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaLeer() {
 
-		String input = " 1 \n 1 \n fichero1 \n 1 \n 2 \n fichero2 \n  1 \n 3 \n fichero3 \n 3\n";
+		String input = " 1 \n 1 \n fichero1 \n 1 \n 2 \n fichero2 \n 1 \n 3 \n fichero3 \n 3\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
 		int opcion = controladorMenus.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
+	
 
 	@org.junit.jupiter.api.Test
 	public void testLeerCsv() {
@@ -85,7 +85,8 @@ class Test {
 		Boolean opcion = LeerFicheroCsv.LeerCSV(input);
 		assertEquals(true, opcion);
 	}
-
+	
+	
 	@org.junit.jupiter.api.Test
 	public void testLeerCsvError() {
 
@@ -133,17 +134,22 @@ class Test {
 		assertEquals(0, libros.size());
 	}
 
+	
 	@org.junit.jupiter.api.Test
-	public void testEscribirCsvNuevo() {
-		String input = "fichero6";
+	public void testEscribirCsvNoExiste() {
+		String input = "fichero11";
 		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
+		
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
-		reader = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input,reader);
+		Scanner sc = new Scanner(System.in);
+		boolean correcto = EscribirCsv.EscribeFichero(input,sc);
 		assertEquals(true,correcto);
 
 	}
+
+
+	
 	
 	@org.junit.jupiter.api.Test
 	public void testEscribirCsv() {
@@ -151,11 +157,16 @@ class Test {
 		String input2 = "Csv \n Csv \n 1 \n 1 \n 1 \n 1 \n Csv";
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
+
 		reader = new Scanner(System.in);
 		boolean correcto = EscribirCsv.EscribeFichero(input,reader);
+
+	
+
 		assertEquals(true,correcto);
 
 	}
+
 	
 	@org.junit.jupiter.api.Test
 	public void testEscribirXml() {
@@ -187,10 +198,8 @@ class Test {
 	
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaEscribirCSV() {
-
 		System.out.println("HOLA MU HUENAS");
-		
-		String input = "2\n1\nfichero1\nCsv\nCsv\n1\n1\n1\n1\nCsv ";
+		String input = "2\n1\nfichero1\nCsv\nCsv\n1\n1\n1\n1\nCsv\n3 ";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -201,7 +210,6 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaEscribirXML() {
 
-		System.out.println("HOLA MU HUENAS");
 		
 		String input = "2\n2\nfichero2\nXml\nXml\n 2\n2\n2\n2\nXml\n3";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -214,7 +222,6 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaEscribirTXT() {
 
-		System.out.println("HOLA MU HUENAS");
 		
 		String input = "2\n3\nfichero3\ntxt\ntxt\n3\n 3\n 3\n 3\ntxt\n3";
 		InputStream in = new ByteArrayInputStream(input.getBytes());

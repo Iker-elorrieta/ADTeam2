@@ -45,7 +45,7 @@ public class EscribirTxt {
 
 
 		} catch (IOException e) {
-			
+			e.printStackTrace();
 
 		} finally {
 			try {
@@ -55,7 +55,7 @@ public class EscribirTxt {
 				if (fw != null)
 					fw.close();
 			} catch (IOException ex) {
-				
+				ex.printStackTrace();
 			}
 		}
 		return true;
