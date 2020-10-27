@@ -2,20 +2,15 @@ package leerFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.*;
-
-import Objetos.Libro;
-import metodosComunes.EscribirPantalla;
-import metodosComunes.Visualizacion;
+import objetos.Libro;
 
 public class LeerFicheroXml {
 
-	public static boolean leerXml(String nombreFichero) {
-		// leer xml
+	public static ArrayList<Libro> leerXml(String nombreFichero) {
+		
 
 		File file = new File(nombreFichero + ".xml");
 		ArrayList<Libro> libros = new ArrayList<>();
@@ -29,12 +24,6 @@ public class LeerFicheroXml {
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("libro");
-			System.out.println("Número de libros: " + nList.getLength());
-
-			System.out.println("\n" + Visualizacion.textoEspacios(30, "Título")
-					+ Visualizacion.textoEspacios(15, "Editorial") + Visualizacion.textoEspacios(15, "Páginas")
-					+ Visualizacion.textoEspacios(15, "Altura") + Visualizacion.textoEspacios(15, "Notas")
-					+ Visualizacion.textoEspacios(30, "Isbn") + Visualizacion.textoEspacios(30, "Materias"));
 
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -52,20 +41,15 @@ public class LeerFicheroXml {
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());
 					libros.add(libro);
-					
-					
+
 				}
 			}
-			EscribirPantalla.escribirLibro(libros,false);
-			return true;
+			
+			return libros;
 		} catch (Exception e) {
 
-			System.out.println("El fichero no se encuentra en el sistema");
-			// Hago NULL el array de libros para poder comprobar en JUnit que no ha
-			// terminado correctamente este metodo.
-			libros = null;
-			return false;
+			return libros;
 		}
 	}
-	
+
 }

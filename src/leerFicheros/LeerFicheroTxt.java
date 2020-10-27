@@ -3,11 +3,10 @@ package leerFicheros;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import Objetos.Libro;
-import metodosComunes.Visualizacion;
+import metodosComunes.EscribirPantalla;
+import objetos.Libro;
 
 public class LeerFicheroTxt {
 
@@ -16,8 +15,6 @@ public class LeerFicheroTxt {
 	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
 	 * @author Ibai 
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
-	 * 
-	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	public static Boolean LeerTxt(String nombreFichero) {
 		
@@ -38,7 +35,7 @@ public class LeerFicheroTxt {
 			br = new BufferedReader(fr);
 			// Lectura del fichero
 			String linea;
-			while ((linea = br.readLine()) != null)
+			while ((linea = br.readLine()) != null) {
 				if (linea.contains("***********")) {
 					
 					libros.add(libro);
@@ -65,11 +62,10 @@ public class LeerFicheroTxt {
 
 				 else if (linea.contains("Materias")) 
 					libro.setMaterias(cortar1);
-
-				 
 				}
-			metodosComunes.EscribirPantalla.escribirLibro(libros,true);
-			
+			EscribirPantalla.escribirLibro(libros,true);
+			}
+
 		}catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
@@ -82,10 +78,10 @@ public class LeerFicheroTxt {
 					fr.close();
 				}
 			} catch (Exception e2) {
-				e2.printStackTrace();
+			
 			}
 		}
-		return true;
+	return true;
 	}
 
 }
