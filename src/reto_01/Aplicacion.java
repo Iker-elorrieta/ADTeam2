@@ -10,9 +10,9 @@ public class Aplicacion {
 	 * @param args Array de Strings que se le pasa al metodo como parametro
 	 */
 	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args, Scanner reader) {
+	public static void main(String[] args) {
 		// LLamada al menu
-		controladorMenus.opcionElegida(sc);
+		controladorMenus.opcionElegida();
 
 	}
 }

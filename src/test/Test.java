@@ -73,7 +73,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladorMenus.opcionElegida();
 		assertEquals(1, opcion);
 	}
 	
@@ -203,7 +203,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladorMenus.opcionElegida();
 		assertEquals(1, opcion);
 	}
 	
@@ -215,7 +215,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladorMenus.opcionElegida();
 		assertEquals(1, opcion);
 	}
 	
@@ -227,7 +227,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladorMenus.opcionElegida();
 		assertEquals(1, opcion);
 	}
 

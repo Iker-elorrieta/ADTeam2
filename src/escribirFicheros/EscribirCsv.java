@@ -17,7 +17,7 @@ public class EscribirCsv {
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	final static String cvsSplitBy = ",";
+	final static String cvsSplitBy = ";";
 
 	static Scanner sc = new Scanner(System.in);
 	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {

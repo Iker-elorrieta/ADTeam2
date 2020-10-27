@@ -24,30 +24,30 @@ public class RellenarLibro {
 		String materias;
 
 		System.out.println("Introduce un titulo de libro ");
-		titulo = sc.nextLine();
+		titulo = sc.next();
 		
 
 		System.out.println("Introduce una editorial ");
-		editorial = sc.nextLine();
+		editorial = sc.next();
 		
 
 		System.out.println("Introduce un numero de paginas ");
-		paginas = sc.nextLine();
+		paginas = sc.next();
 		
 
 		System.out.println("Introduce un altura ");
-		altura = sc.nextLine();
+		altura = sc.next();
 		
 		System.out.println("Introduce un notas ");
-		notas = sc.nextLine();
+		notas = sc.next();
 		
 
 		System.out.println("Introduce una isbn ");
-		isbn = sc.nextLine();
+		isbn = sc.next();
 		
 
 		System.out.println("Introduce una materias ");
-		materias = sc.nextLine();
+		materias = sc.next();
 		
 
 		Libro libro = new Libro(titulo, editorial, paginas, altura, notas, isbn, materias);

@@ -4,26 +4,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 import metodosComunes.EscribirPantalla;
 import objetos.Libro;
 
-
 public class LeerFicheroCsv {
 	/**
-	 * Esta clase contiene el metodo de leer Fichero Csv 
-	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
-	 * @author Fran 
-	 * @return Retorna un booleano true para saber si se ha temrinado de leer el fichero
+	 * Esta clase contiene el metodo de leer Fichero Csv
+	 * 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como
+	 *                      parametro
+	 * @author Fran
+	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
+	 *         fichero
 	 */
 	public static Boolean LeerCSV(String nombreFichero) {
 
-		String titulo = "";
-		String Editorial = "";
-		String Paginas = "";
-		String Altura = "";
-		String Notas = "";
-		String Isbn = "";
-		String Materias = "";
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		BufferedReader br = null;
 		String linea = "";
@@ -34,22 +31,24 @@ public class LeerFicheroCsv {
 			br = new BufferedReader(new FileReader(nombreFichero + ".csv"));
 			// Leemos liena a linea el fichero csv
 			while ((linea = br.readLine()) != null) {
-				String[] datos = linea.split(cvsSplitBy);
 
-				titulo = datos[0];
-				Editorial = datos[1];
-				Paginas = datos[2];
-				Altura = datos[3];
-				Notas = datos[4];
-				Isbn = datos[5];
-				Materias = datos[6];
+				StringTokenizer st = new StringTokenizer(linea, ";");
+				Libro libro = new Libro();
 
-				Libro libro = new Libro(titulo, Editorial, Paginas, Altura, Notas, Isbn, Materias);
+				while (st.hasMoreTokens()) {
+
+					libro.setTitulo(st.nextToken());
+					libro.setEditorial(st.nextToken());
+					libro.setPaginas(st.nextToken());
+					libro.setAltura(st.nextToken());
+					libro.setNotas(st.nextToken());
+					libro.setIsbn(st.nextToken());
+					libro.setMaterias(st.nextToken());
+				}
 				libros.add(libro);
-				
 			}
-			
-			EscribirPantalla.escribirLibro(libros,false);
+
+			EscribirPantalla.escribirLibro(libros, false);
 		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");
