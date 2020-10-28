@@ -58,6 +58,84 @@ public class EscribirPantalla {
 				}
 			}
 			break;
+		case 2://Editorial
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getEditorial().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
+		case 3://paginas
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getPaginas().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
+		case 4://Altura
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getAltura().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
+		case 5://Notas
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getNotas().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
+		case 6://Isbn
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getIsbn().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
+		case 7://Materias
+			for(int x=0;x<libros.size();x++) {
+				if(libros.get(x).getMaterias().toString().contains(DatoAFiltrar)) {
+				System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+				+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
+				+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+				}
+			}
+			break;
 		}
 	
 	

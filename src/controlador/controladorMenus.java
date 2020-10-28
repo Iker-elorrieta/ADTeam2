@@ -27,7 +27,7 @@ public class controladorMenus {
 		System.out.println("------BIENVENIDO AL MENU PRINCIPAL------:\n\n");
 		do {
 			try {
-				System.out.println("Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros\n 3.- Salir");
+				System.out.println("Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar Fichero \n 4.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
