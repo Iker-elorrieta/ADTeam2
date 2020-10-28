@@ -80,37 +80,37 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	public void testLeerCsv() {
-
+		reader = new Scanner(System.in);
 		String input = "fichero1";
-		Boolean opcion = LeerFicheroCsv.LeerCSV(input,0);
+		Boolean opcion = LeerFicheroCsv.LeerCSV(input,0,reader);
 		assertEquals(true, opcion);
 	}
 
 	@org.junit.jupiter.api.Test
 	public void testLeerCsvError() {
-
+		reader = new Scanner(System.in);
 		String input = "aaa.txt";
 		LeerFicheroCsv ficheroCsv = new LeerFicheroCsv();
 
-		Boolean opcion = ficheroCsv.LeerCSV(input,0);
+		Boolean opcion = ficheroCsv.LeerCSV(input,0,reader);
 		assertEquals(false, opcion);
 	}
 
 	@org.junit.jupiter.api.Test
 	public void testLeerTxt() {
-
+		reader = new Scanner(System.in);
 		String input = "fichero3";
 		LeerFicheroTxt ficheroTxt = new LeerFicheroTxt();
-		Boolean opcion = ficheroTxt.LeerTxt(input,0);
+		Boolean opcion = ficheroTxt.LeerTxt(input,0,reader);
 
 		assertEquals(true, opcion);
 	}
 
 	@org.junit.jupiter.api.Test
 	public void testLeerTxtError() {
-
+		reader = new Scanner(System.in);
 		String input = "aaa.txt";
-		Boolean opcion = LeerFicheroTxt.LeerTxt(input,0);
+		Boolean opcion = LeerFicheroTxt.LeerTxt(input,0,reader);
 		assertEquals(false, opcion);
 	}
 

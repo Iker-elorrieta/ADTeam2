@@ -2,6 +2,8 @@ package leerFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
@@ -12,8 +14,8 @@ import objetos.Libro;
 public class LeerFicheroXml {
 
 
-	public static boolean leerXml(String nombreFichero,int datoFiltrado) {
-
+	public static boolean leerXml(String nombreFichero,int datoFiltrado,Scanner sc) {
+		String datoAfiltrar;
 		
 
 		File file = new File(nombreFichero + ".xml");
@@ -50,7 +52,7 @@ public class LeerFicheroXml {
 			}
 			
 
-			EscribirPantalla.escribirLibro(libros,true,datoFiltrado);
+			EscribirPantalla.escribirLibro(libros,true,datoFiltrado,sc);
 
 			
 			return true;

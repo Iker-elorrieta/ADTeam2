@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import metodosComunes.EscribirPantalla;
@@ -19,7 +20,7 @@ public class LeerFicheroCsv {
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerCSV(String nombreFichero,int datoFiltrado) {
+	public static Boolean LeerCSV(String nombreFichero,int datoFiltrado,Scanner sc) {
 
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		BufferedReader br = null;
@@ -48,7 +49,7 @@ public class LeerFicheroCsv {
 				libros.add(libro);
 			}
 
-			EscribirPantalla.escribirLibro(libros, false,datoFiltrado);
+			EscribirPantalla.escribirLibro(libros, false,datoFiltrado,sc);
 		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");

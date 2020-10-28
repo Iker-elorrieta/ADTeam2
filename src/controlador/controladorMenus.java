@@ -140,19 +140,19 @@ public class controladorMenus {
 						case 1:
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
-							LeerFicheroCsv.LeerCSV(nombreFichero,0);
+							LeerFicheroCsv.LeerCSV(nombreFichero,0,sc);
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							LeerFicheroXml.leerXml(nombreFichero,0);
+							LeerFicheroXml.leerXml(nombreFichero,0,sc);
 							System.out.println();
 							break;
 						case 3:
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
-							LeerFicheroTxt.LeerTxt(nombreFichero,0);// Le pasamos el nombre del fichero que queremos leer
+							LeerFicheroTxt.LeerTxt(nombreFichero,0,sc);// Le pasamos el nombre del fichero que queremos leer
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						}

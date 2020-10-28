@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import metodosComunes.EscribirPantalla;
@@ -17,10 +18,11 @@ public class LeerFicheroTxt {
 	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como
 	 *                      parametro
 	 * @author Ibai
+	 * @param sc 
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerTxt(String nombreFichero,int datoFiltrado) {
+	public static Boolean LeerTxt(String nombreFichero,int datoFiltrado, Scanner sc) {
 
 		String cortar1;
 		ArrayList<Libro> libros = new ArrayList<Libro>();
@@ -45,7 +47,7 @@ public class LeerFicheroTxt {
 					libros.add(libro);
 					libro = new Libro();
 				} else {
-					StringTokenizer st = new StringTokenizer(linea, ";");
+					StringTokenizer st = new StringTokenizer(linea, ":");
 					while (st.hasMoreTokens()) {
 						if (linea.contains("Titulo"))
 							libro.setTitulo(st.nextToken());
@@ -71,7 +73,7 @@ public class LeerFicheroTxt {
 				}
 
 			}
-			EscribirPantalla.escribirLibro(libros, true,datoFiltrado);
+			EscribirPantalla.escribirLibro(libros, true,datoFiltrado,sc);
 		} catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
