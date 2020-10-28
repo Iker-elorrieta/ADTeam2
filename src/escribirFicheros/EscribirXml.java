@@ -48,7 +48,7 @@ public class EscribirXml {/**
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.newDocument();
-
+			
 			// definimos el elemento raíz del documento
 			Element eBiblioteca = doc.createElement("biblioteca");
 			doc.appendChild(eBiblioteca);

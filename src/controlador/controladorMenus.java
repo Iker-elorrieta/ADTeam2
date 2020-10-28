@@ -122,7 +122,7 @@ public class controladorMenus {
 	 * @return retorna un 1 para comprobar que termina correctamente
 	 * 
 	 */
-	public static int opcionElegida() {
+	public static int opcionElegida(Scanner sc) {
 		int opcion = 0;
 		int opcionSubMenu = 0;
 		String nombreFichero = "";
