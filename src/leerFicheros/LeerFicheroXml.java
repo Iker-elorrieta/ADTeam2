@@ -11,7 +11,9 @@ import objetos.Libro;
 
 public class LeerFicheroXml {
 
+
 	public static boolean leerXml(String nombreFichero,int datoFiltrado) {
+
 		
 
 		File file = new File(nombreFichero + ".xml");
@@ -47,7 +49,9 @@ public class LeerFicheroXml {
 				}
 			}
 			
+
 			EscribirPantalla.escribirLibro(libros,true,datoFiltrado);
+
 			
 			return true;
 		} catch (Exception e) {

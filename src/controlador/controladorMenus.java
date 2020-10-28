@@ -144,17 +144,12 @@ public class controladorMenus {
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
-
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-
 							LeerFicheroXml.leerXml(nombreFichero,0);
-
 							System.out.println();
-							// Aqui ira las demas acciones del submenu
 							break;
 						case 3:
-
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
 							LeerFicheroTxt.LeerTxt(nombreFichero,0);// Le pasamos el nombre del fichero que queremos leer
@@ -168,30 +163,22 @@ public class controladorMenus {
 					opcionSubMenu = controladorMenus.subMenuEscribirFicheros(sc);
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 					if (opcionSubMenu != 4) {
-
 						switch (opcionSubMenu) {
 						case 1:
-
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
-
 							EscribirCsv.EscribeFichero(nombreFichero,sc);
-
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
-
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
 							EscribirXml xml = new EscribirXml();							
 							xml.generarXml(nombreFichero,sc);
 							System.out.println();
-							
-
 							// Aqui ira las demas acciones del submenu*/
 							break;
 						case 3:
-
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
 							escribirFicheros.EscribirTxt.añadirTxt(nombreFichero,sc);// Le pasamos el nombre del
