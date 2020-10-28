@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
+
+import metodosComunes.EscribirPantalla;
 import objetos.Libro;
 
 public class LeerFicheroXml {
 
-	public static ArrayList<Libro> leerXml(String nombreFichero) {
+	public static boolean leerXml(String nombreFichero) {
 		
 
 		File file = new File(nombreFichero + ".xml");
@@ -45,10 +47,12 @@ public class LeerFicheroXml {
 				}
 			}
 			
-			return libros;
+			EscribirPantalla.escribirLibro(libros,true);
+			
+			return true;
 		} catch (Exception e) {
 
-			return libros;
+			return false;
 		}
 	}
 

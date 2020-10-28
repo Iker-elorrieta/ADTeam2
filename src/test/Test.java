@@ -115,24 +115,24 @@ class Test {
 		assertEquals(false, opcion);
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testLeerXml() {
-
-		String input = "fichero2";
-		LeerFicheroXml ficheroXml = new LeerFicheroXml();
-		ArrayList<Libro> libros = ficheroXml.leerXml(input);
-		ArrayList<Libro> pruebaLibros = new ArrayList<>();
-		assertEquals(pruebaLibros.getClass(), libros.getClass());
-	}
-
-	@org.junit.jupiter.api.Test
-	public void testLeerXmlError() {
-
-		String input = "aaa.xml";
-
-		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
-		assertEquals(0, libros.size());
-	}
+//	@org.junit.jupiter.api.Test
+//	public void testLeerXml() {
+//
+//		String input = "fichero2";
+//		LeerFicheroXml ficheroXml = new LeerFicheroXml();
+//		ArrayList<Libro> libros = ficheroXml.leerXml(input);
+//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+//		assertEquals(pruebaLibros.getClass(), libros.getClass());
+//	}
+//
+//	@org.junit.jupiter.api.Test
+//	public void testLeerXmlError() {
+//
+//		String input = "aaa.xml";
+//
+//		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
+//		assertEquals(0, libros.size());
+//	}
 
 	@org.junit.jupiter.api.Test
 	public void testEscribirCsvNoExiste() {
@@ -161,20 +161,20 @@ class Test {
 
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testEscribirXml() {
-
-		String input = "fichero2";
-		String input2 = "Xml \n Xml \n 2 \n 2 \n 2 \n 2 \n Xml";
-		InputStream in = new ByteArrayInputStream(input2.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		EscribirXml xml = new EscribirXml();
-		ArrayList<Libro> libros = xml.generarXml(input, reader);
-		ArrayList<Libro> pruebaLibros = new ArrayList<>();
-		assertEquals(pruebaLibros.getClass(), libros.getClass());
-
-	}
+//	@org.junit.jupiter.api.Test
+//	public void testEscribirXml() {
+//
+//		String input = "fichero2";
+//		String input2 = "Xml \n Xml \n 2 \n 2 \n 2 \n 2 \n Xml";
+//		InputStream in = new ByteArrayInputStream(input2.getBytes());
+//		System.setIn(in);
+//		reader = new Scanner(System.in);
+//		EscribirXml xml = new EscribirXml();
+//		ArrayList<Libro> libros = xml.generarXml(input, reader);
+//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+//		assertEquals(pruebaLibros.getClass(), libros.getClass());
+//
+//	}
 
 	@org.junit.jupiter.api.Test
 	public void testEscribirTxt() {
