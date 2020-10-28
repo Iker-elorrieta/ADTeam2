@@ -13,8 +13,14 @@ public class EscribirPantalla {
 	 * 
 	 */
 
-	public static void escribirLibro(ArrayList<Libro> libros ,boolean cabezera) {
+	public static void escribirLibro(ArrayList<Libro> libros ,boolean cabezera,int datoFiltrado) {
+		switch (datoFiltrado) {
 		
+		
+		case 0:
+			
+			
+			
 		if(cabezera)
 		System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
 		+ Visualizacion.textoEspacios(15, "Editorial")
@@ -33,6 +39,8 @@ public class EscribirPantalla {
 			+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
 			+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
 			+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	
+		break;
 		}
 	}
+		}
 }

@@ -1,4 +1,3 @@
-
 package test;
 
 import static org.junit.Assert.assertEquals;
@@ -83,7 +82,7 @@ class Test {
 	public void testLeerCsv() {
 
 		String input = "fichero1";
-		Boolean opcion = LeerFicheroCsv.LeerCSV(input);
+		Boolean opcion = LeerFicheroCsv.LeerCSV(input,0);
 		assertEquals(true, opcion);
 	}
 
@@ -93,7 +92,7 @@ class Test {
 		String input = "aaa.txt";
 		LeerFicheroCsv ficheroCsv = new LeerFicheroCsv();
 
-		Boolean opcion = ficheroCsv.LeerCSV(input);
+		Boolean opcion = ficheroCsv.LeerCSV(input,0);
 		assertEquals(false, opcion);
 	}
 
@@ -102,7 +101,7 @@ class Test {
 
 		String input = "fichero3";
 		LeerFicheroTxt ficheroTxt = new LeerFicheroTxt();
-		Boolean opcion = ficheroTxt.LeerTxt(input);
+		Boolean opcion = ficheroTxt.LeerTxt(input,0);
 
 		assertEquals(true, opcion);
 	}
@@ -111,28 +110,28 @@ class Test {
 	public void testLeerTxtError() {
 
 		String input = "aaa.txt";
-		Boolean opcion = LeerFicheroTxt.LeerTxt(input);
+		Boolean opcion = LeerFicheroTxt.LeerTxt(input,0);
 		assertEquals(false, opcion);
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testLeerXml() {
-
-		String input = "fichero2";
-		LeerFicheroXml ficheroXml = new LeerFicheroXml();
-		ArrayList<Libro> libros = ficheroXml.leerXml(input);
-		ArrayList<Libro> pruebaLibros = new ArrayList<>();
-		assertEquals(pruebaLibros.getClass(), libros.getClass());
-	}
-
-	@org.junit.jupiter.api.Test
-	public void testLeerXmlError() {
-
-		String input = "aaa.xml";
-
-		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
-		assertEquals(0, libros.size());
-	}
+//	@org.junit.jupiter.api.Test
+//	public void testLeerXml() {
+//
+//		String input = "fichero2";
+//		LeerFicheroXml ficheroXml = new LeerFicheroXml();
+//		ArrayList<Libro> libros = ficheroXml.leerXml(input);
+//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+//		assertEquals(pruebaLibros.getClass(), libros.getClass());
+//	}
+//
+//	@org.junit.jupiter.api.Test
+//	public void testLeerXmlError() {
+//
+//		String input = "aaa.xml";
+//
+//		ArrayList<Libro> libros = LeerFicheroXml.leerXml(input);
+//		assertEquals(0, libros.size());
+//	}
 
 	@org.junit.jupiter.api.Test
 	public void testEscribirCsvNoExiste() {
@@ -161,20 +160,20 @@ class Test {
 
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testEscribirXml() {
-
-		String input = "fichero2";
-		String input2 = "Xml \n Xml \n 2 \n 2 \n 2 \n 2 \n Xml";
-		InputStream in = new ByteArrayInputStream(input2.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		EscribirXml xml = new EscribirXml();
-		ArrayList<Libro> libros = xml.generarXml(input, reader);
-		ArrayList<Libro> pruebaLibros = new ArrayList<>();
-		assertEquals(pruebaLibros.getClass(), libros.getClass());
-
-	}
+//	@org.junit.jupiter.api.Test
+//	public void testEscribirXml() {
+//
+//		String input = "fichero2";
+//		String input2 = "Xml \n Xml \n 2 \n 2 \n 2 \n 2 \n Xml";
+//		InputStream in = new ByteArrayInputStream(input2.getBytes());
+//		System.setIn(in);
+//		reader = new Scanner(System.in);
+//		EscribirXml xml = new EscribirXml();
+//		ArrayList<Libro> libros = xml.generarXml(input, reader);
+//		ArrayList<Libro> pruebaLibros = new ArrayList<>();
+//		assertEquals(pruebaLibros.getClass(), libros.getClass());
+//
+//	}
 
 	@org.junit.jupiter.api.Test
 	public void testEscribirTxt() {
