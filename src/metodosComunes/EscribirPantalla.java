@@ -17,10 +17,7 @@ public class EscribirPantalla {
 	public static void escribirLibro(ArrayList<Libro> libros ,boolean cabezera,int datoFiltrado,Scanner sc) {
 		String DatoAFiltrar = null;
 		boolean escribir=false;
-		if(datoFiltrado!=0) {
-			System.out.println("Escribe lo que quieras buscar:");
-			DatoAFiltrar=sc.nextLine();
-		}
+		
 		
 		if(cabezera)
 			System.out.println("\n" + Visualizacion.textoEspacios(30, "Titulo")
@@ -39,42 +36,7 @@ public class EscribirPantalla {
 			
 			
 		break;
-		case 1://titulo
-			
-				if(libros.get(x).getTitulo().toString().contains(DatoAFiltrar)) 
-					escribir=true;
-			break;
-		case 2://Editorial
-			
-				if(libros.get(x).getEditorial().toString().contains(DatoAFiltrar))
-					escribir=true;
-			
-			break;
-		case 3://paginas
-			
-				if(libros.get(x).getPaginas().toString().contains(DatoAFiltrar))
-					escribir=true;
-			break;
-		case 4://Altura
-			
-				if(libros.get(x).getAltura().toString().contains(DatoAFiltrar)) 
-					escribir=true;
-			
-			break;
-		case 5://Notas
-				if(libros.get(x).getNotas().toString().contains(DatoAFiltrar))
-					escribir=true;
-			break;
-		case 6://Isbn
-			
-				if(libros.get(x).getIsbn().toString().contains(DatoAFiltrar)) 
-				escribir=true;
-			break;
-		case 7://Materias
-			
-				if(libros.get(x).getMaterias().toString().contains(DatoAFiltrar)) 
-					escribir=true;
-			break;
+		
 		}
 			if(escribir) {
 			
