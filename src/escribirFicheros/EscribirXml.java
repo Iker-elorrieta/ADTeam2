@@ -1,7 +1,6 @@
 package escribirFicheros;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
@@ -17,82 +16,84 @@ import leerFicheros.LeerFicheroXml;
 import metodosComunes.*;
 import objetos.Libro;
 
-public class EscribirXml {
-	/**
-	 * Esta clase contiene el metodo de escribir Fichero .xml
-	 * 
+public class EscribirXml {/**
+	 * Esta clase contiene el metodo de escribir Fichero .xml 
 	 * @param nombre Nombre del fichero que se le pasa al metodo como parametro
-	 * @param name   Nombre del fichero que se le pasa al metodo como parametro
-	 * @author Asier, Jonatan
+	 * @param name Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Asier, Jonatan  
 	 * @return Retorna un ArrayList de Libros
 	 * 
 	 * @throws Exception clase general de excepciones.
 	 */
 	static Scanner sc = new Scanner(System.in);
-
 	public EscribirXml() {
 
+//		try {
+//
+//			generarXml(nombre);
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
-	public boolean generarXml(String name, Scanner sc) {
+	public ArrayList<Libro> generarXml(String name, Scanner sc) {
 
-		Libro libro = RellenarLibro.rellenarLibro(sc);
-		FileWriter fw = null;
+		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name, 0, sc);
+
+		libros.add(RellenarLibro.rellenarLibro(sc));
+
 		try {
-
-			File file = new File(name + ".txt");
-			// Si el archivo no existe, se crea!
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-			fw = new FileWriter(file.getAbsoluteFile(), true);
-
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.newDocument();
-
+			
 			// definimos el elemento raíz del documento
 			Element eBiblioteca = doc.createElement("biblioteca");
 			doc.appendChild(eBiblioteca);
 
-			// definimos el nodo que contendrá los elementos
-			Element eLibro = doc.createElement("libro");
-			eBiblioteca.appendChild(eLibro);
+			for (Libro libro : libros) {
 
-			// atributo para el nodo coche
-			Attr attr = doc.createAttribute("id");
+				// definimos el nodo que contendrá los elementos
+				Element eLibro = doc.createElement("libro");
+				eBiblioteca.appendChild(eLibro);
 
-			// attr.setValue(libros.indexOf(libro));
-			eLibro.setAttributeNode(attr);
+				// atributo para el nodo coche
+				Attr attr = doc.createAttribute("id");
 
-			// definimos cada uno de los elementos y le asignamos un valor
-			Element eTitulo = doc.createElement("titulo");
-			eTitulo.appendChild(doc.createTextNode(libro.getTitulo()));
-			eLibro.appendChild(eTitulo);
+				// attr.setValue(libros.indexOf(libro));
+				eLibro.setAttributeNode(attr);
 
-			Element eEditorial = doc.createElement("editorial");
-			eEditorial.appendChild(doc.createTextNode(libro.getEditorial()));
-			eLibro.appendChild(eEditorial);
+				// definimos cada uno de los elementos y le asignamos un valor
+				Element eTitulo = doc.createElement("titulo");
+				eTitulo.appendChild(doc.createTextNode(libro.getTitulo()));
+				eLibro.appendChild(eTitulo);
 
-			Element ePaginas = doc.createElement("paginas");
-			ePaginas.appendChild(doc.createTextNode(libro.getPaginas()));
-			eLibro.appendChild(ePaginas);
+				Element eEditorial = doc.createElement("editorial");
+				eEditorial.appendChild(doc.createTextNode(libro.getEditorial()));
+				eLibro.appendChild(eEditorial);
 
-			Element eAltura = doc.createElement("altura");
-			eAltura.appendChild(doc.createTextNode(libro.getAltura()));
-			eLibro.appendChild(eAltura);
+				Element ePaginas = doc.createElement("paginas");
+				ePaginas.appendChild(doc.createTextNode(libro.getPaginas()));
+				eLibro.appendChild(ePaginas);
 
-			Element eNotas = doc.createElement("notas");
-			eNotas.appendChild(doc.createTextNode(libro.getNotas()));
-			eLibro.appendChild(eNotas);
+				Element eAltura = doc.createElement("altura");
+				eAltura.appendChild(doc.createTextNode(libro.getAltura()));
+				eLibro.appendChild(eAltura);
 
-			Element eIsbn = doc.createElement("isbn");
-			eIsbn.appendChild(doc.createTextNode(libro.getIsbn()));
-			eLibro.appendChild(eIsbn);
+				Element eNotas = doc.createElement("notas");
+				eNotas.appendChild(doc.createTextNode(libro.getNotas()));
+				eLibro.appendChild(eNotas);
 
-			Element eMaterias = doc.createElement("materias");
-			eMaterias.appendChild(doc.createTextNode(libro.getMaterias()));
-			eLibro.appendChild(eMaterias);
+				Element eIsbn = doc.createElement("isbn");
+				eIsbn.appendChild(doc.createTextNode(libro.getIsbn()));
+				eLibro.appendChild(eIsbn);
+
+				Element eMaterias = doc.createElement("materias");
+				eMaterias.appendChild(doc.createTextNode(libro.getMaterias()));
+				eLibro.appendChild(eMaterias);
+			}
 
 			// clases necesarias finalizar la creación del archivo XML
 
@@ -101,16 +102,15 @@ public class EscribirXml {
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(name + ".xml"));
 
-//			System.out.println("");
-//			System.out.println("DOCUMENTO CREADO CON ÉXITO: " + name + ".xml");
-
+			
 			((javax.xml.transform.Transformer) transformer).transform(source, result);
 		} catch (Exception e) {
-			// System.out.println("!ERROR AL CREAR DOCUMENTO¡");
+			System.out.println("!ERROR AL CREAR DOCUMENTO¡");
 			e.printStackTrace();
-			return false;
+			libros = null;
+			return libros;
 		}
-		return true;
+		return libros;
 	}
 
 }
