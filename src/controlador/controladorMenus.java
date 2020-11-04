@@ -27,11 +27,11 @@ public class controladorMenus {
 		System.out.println("------BIENVENIDO AL MENU PRINCIPAL------:\n\n");
 		do {
 			try {
-				System.out.println("Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar Fichero \n 4.- Salir");
+				System.out.println("Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 3) {
+				if (opcion < 1 || opcion > 4) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
 					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
 				} else {
@@ -112,6 +112,106 @@ public class controladorMenus {
 
 		return opcion;
 	}
+	
+	public static int subMenuBuscador(Scanner sc) {
+
+		int opcion = 0;
+		boolean error = true;
+		do {
+			try {
+				System.out.println(
+						"Por que quiere buscar :\n 1.- Titulo \n 2.- Editorial\n 3.- Paginas\n 4.- Altura \n 5.- Notas \n 6.- Isbn \n 7.- Materias \n 8.- Volver");
+				opcion = sc.nextInt();
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 9
+				if (opcion < 1 || opcion > 8) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-9):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+				// Mensaje de error si el usuario introduce letras
+				System.out.println(
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				sc.nextLine();
+			}
+		} while (error);
+
+		return opcion;
+	}
+	
+
+	public static String subMenuBuscarPorPalabra(Scanner sc) {
+		String patron = null;
+		String empieza = null;
+		String termina = null;
+		int opcion = 0;
+		boolean error = true;
+		do {
+			try {
+				System.out.println(
+						"Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Empieza y termina\n 4.- Contiene \n 5.- Volver ");
+				opcion = sc.nextInt();
+				switch (opcion) {
+				case 1:
+					System.out.println("Introduce el patron a buscar");
+					empieza = sc.next();
+				case 3:
+					System.out.println("Introduce el por que quiere empezar a buscar");
+					empieza = sc.next();
+					
+					System.out.println("Introduce el por que quiere terminar a buscar");
+					termina = sc.next();
+				}
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 4
+				if (opcion < 1 || opcion > 5) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+				// Mensaje de error si el usuario introduce letras
+				System.out.println(
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				sc.nextLine();
+			}
+		} while (error);
+
+		return patron;
+	}
+	
+	public static int subMenuBuscarPorTamano(Scanner sc) {
+
+		int opcion = 0;
+		boolean error = true;
+		do {
+			try {
+				System.out.println(
+						"Introduzca un tamaño o rangos :\n 1.- Minimo \n 2.- Maximo\n 3.- Rango \n 4.- Volver \n ");
+				opcion = sc.nextInt();
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 4
+				if (opcion < 1 || opcion > 4) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+				// Mensaje de error si el usuario introduce letras
+				System.out.println(
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				sc.nextLine();
+			}
+		} while (error);
+
+		return opcion;
+	}
+
+
 
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
@@ -129,7 +229,7 @@ public class controladorMenus {
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-			if (opcion != 3) {
+			if (opcion != 4) {
 				switch (opcion) {
 				case 1:
 					opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
@@ -188,9 +288,33 @@ public class controladorMenus {
 						}
 
 					}
+				case 3:
+				
+					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
+					String patron;
+					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
+					if (opcionSubMenu < 8) {
+						switch (opcionSubMenu) {
+						case 1:
+						case 2:
+						case 7:
+							patron = controladorMenus.subMenuBuscarPorPalabra(sc);
+							
+							break;
+						case 3:
+						case 4:
+						case 5:
+							opcion =subMenuBuscarPorTamano(sc);
+							break;// final de la accion elegida del submenu
+						case 6:
+							
+							break;// final de la accion elegida del submenu
+				
+						}
+					}
 				}
 			}
-		} while (opcion != 3);
+		} while (opcion != 4);
 		return 1;
 
 	}
