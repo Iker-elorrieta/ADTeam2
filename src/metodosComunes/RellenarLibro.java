@@ -17,8 +17,8 @@ public class RellenarLibro {
 
 		String titulo;
 		String editorial;
-		String paginas;
-		String altura;
+		int paginas;
+		float altura;
 		String notas;
 		String isbn;
 		String materias;
@@ -32,11 +32,11 @@ public class RellenarLibro {
 		
 
 		System.out.println("Introduce un numero de paginas ");
-		paginas = sc.next();
+		paginas = sc.nextInt();
 		
 
 		System.out.println("Introduce un altura ");
-		altura = sc.next();
+		altura = sc.nextFloat();
 		
 		System.out.println("Introduce un notas ");
 		notas = sc.next();

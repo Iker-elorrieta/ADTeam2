@@ -155,14 +155,20 @@ public class controladorMenus {
 				opcion = sc.nextInt();
 				switch (opcion) {
 				case 1:
-					System.out.println("Introduce el patron a buscar");
+					System.out.println("Introduce por que quiere empezar a buscar");
 					empieza = sc.next();
+					break;
+				case 2:
+					System.out.println("Introduce por que quiere terminar a buscar");
+					termina = sc.next();
+					break;
 				case 3:
 					System.out.println("Introduce el por que quiere empezar a buscar");
 					empieza = sc.next();
 					
 					System.out.println("Introduce el por que quiere terminar a buscar");
 					termina = sc.next();
+					break;
 				}
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 4

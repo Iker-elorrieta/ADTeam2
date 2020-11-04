@@ -41,8 +41,8 @@ public class LeerFicheroXml {
 
 					Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),
 							eElement.getElementsByTagName("editorial").item(0).getTextContent(),
-							eElement.getElementsByTagName("paginas").item(0).getTextContent(),
-							eElement.getElementsByTagName("altura").item(0).getTextContent(),
+							Integer.valueOf(eElement.getElementsByTagName("paginas").item(0).getTextContent()),
+							Float.parseFloat(eElement.getElementsByTagName("altura").item(0).getTextContent()),
 							eElement.getElementsByTagName("notas").item(0).getTextContent(),
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());

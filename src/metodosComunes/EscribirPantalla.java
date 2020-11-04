@@ -52,13 +52,13 @@ public class EscribirPantalla {
 			break;
 		case 3://paginas
 			
-				if(libros.get(x).getPaginas().toString().contains(DatoAFiltrar))
-					escribir=true;
+				//if(libros.get(x).getPaginas().toString().contains(DatoAFiltrar))
+					//escribir=true;
 			break;
 		case 4://Altura
 			
-				if(libros.get(x).getAltura().toString().contains(DatoAFiltrar)) 
-					escribir=true;
+				//if(libros.get(x).getAltura().toString().contains(DatoAFiltrar)) 
+					//escribir=true;
 			
 			break;
 		case 5://Notas
@@ -80,8 +80,8 @@ public class EscribirPantalla {
 			
 			System.out.println("\n" + Visualizacion.textoEspacios(30, libros.get(x).getTitulo().toString())
 			+ Visualizacion.textoEspacios(15, libros.get(x).getEditorial().toString())
-			+ Visualizacion.textoEspacios(15, libros.get(x).getPaginas().toString())
-			+ Visualizacion.textoEspacios(15, libros.get(x).getAltura().toString())
+			+ Visualizacion.textoEspacios(15, Integer.toString(libros.get(x).getPaginas()))
+			+ Visualizacion.textoEspacios(15, String.valueOf(libros.get(x).getAltura()))
 			+ Visualizacion.textoEspacios(15, libros.get(x).getNotas().toString())
 			+ Visualizacion.textoEspacios(30, libros.get(x).getIsbn().toString())
 			+ Visualizacion.textoEspacios(30, libros.get(x).getMaterias().toString()));	

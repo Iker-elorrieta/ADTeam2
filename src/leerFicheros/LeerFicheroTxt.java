@@ -56,10 +56,11 @@ public class LeerFicheroTxt {
 							libro.setEditorial(st.nextToken());
 
 						else if (linea.contains("Paginas"))
-							libro.setPaginas(st.nextToken());
+							libro.setPaginas(Integer.parseInt(st.nextToken()));
+					
 
 						else if (linea.contains("Altura"))
-							libro.setAltura(st.nextToken());
+							libro.setAltura(Float.parseFloat(st.nextToken()));
 
 						else if (linea.contains("Notas"))
 							libro.setNotas(st.nextToken());

@@ -75,11 +75,11 @@ public class EscribirXml {
 			eLibro.appendChild(eEditorial);
 
 			Element ePaginas = doc.createElement("paginas");
-			ePaginas.appendChild(doc.createTextNode(libro.getPaginas()));
+			ePaginas.appendChild(doc.createTextNode(Integer.toString(libro.getPaginas())));
 			eLibro.appendChild(ePaginas);
 
 			Element eAltura = doc.createElement("altura");
-			eAltura.appendChild(doc.createTextNode(libro.getAltura()));
+			eAltura.appendChild(doc.createTextNode( String.valueOf(libro.getAltura())));
 			eLibro.appendChild(eAltura);
 
 			Element eNotas = doc.createElement("notas");

@@ -16,13 +16,13 @@ public class Libro {
 
 	private String titulo;
 	private String editorial;
-	private String paginas;
-	private String altura;
+	private int paginas;
+	private float altura;
 	private String notas;
 	private String isbn;
 	private String materias;
 
-	public Libro(String titulo, String editorial, String paginas, String altura, String notas, String isbn,
+	public Libro(String titulo, String editorial, int paginas, float altura, String notas, String isbn,
 			String materias) {
 
 		this.titulo = titulo;
@@ -47,11 +47,11 @@ public class Libro {
 		return editorial;
 	}
 
-	public String getPaginas() {
+	public int getPaginas() {
 		return paginas;
 	}
 
-	public String getAltura() {
+	public float getAltura() {
 		return altura;
 	}
 
@@ -75,11 +75,11 @@ public class Libro {
 		this.editorial = editorial;
 	}
 
-	public void setPaginas(String paginas) {
+	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
 
-	public void setAltura(String altura) {
+	public void setAltura(float altura) {
 		this.altura = altura;
 	}
 

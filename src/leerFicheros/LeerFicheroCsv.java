@@ -34,13 +34,13 @@ public class LeerFicheroCsv {
 
 				StringTokenizer st = new StringTokenizer(linea, ";");
 				Libro libro = new Libro();
-
+				String prueba;
 				while (st.hasMoreTokens()) {
 
 					libro.setTitulo(st.nextToken());
 					libro.setEditorial(st.nextToken());
-					libro.setPaginas(st.nextToken());
-					libro.setAltura(st.nextToken());
+					libro.setPaginas(Integer.parseInt(st.nextToken()));
+					libro.setAltura(Float.parseFloat(st.nextToken()));
 					libro.setNotas(st.nextToken());
 					libro.setIsbn(st.nextToken());
 					libro.setMaterias(st.nextToken());
@@ -49,7 +49,7 @@ public class LeerFicheroCsv {
 				libros.add(libro);
 			}
 
-			EscribirPantalla.escribirLibro(libros, false,datoFiltrado,sc);
+			EscribirPantalla.escribirLibro(libros, true,datoFiltrado,sc);
 		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");
