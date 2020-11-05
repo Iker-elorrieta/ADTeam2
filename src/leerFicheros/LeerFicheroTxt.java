@@ -22,10 +22,10 @@ public class LeerFicheroTxt {
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerTxt(String nombreFichero,int datoFiltrado, Scanner sc) {
+	public static Boolean LeerTxt(String nombreFichero,ArrayList<Libro> libros, Scanner sc) {
 
 		String cortar1;
-		ArrayList<Libro> libros = new ArrayList<Libro>();
+		
 		Libro libro = new Libro();
 		Boolean RepetirCabezera = true;
 		File archivo = null;
@@ -41,40 +41,47 @@ public class LeerFicheroTxt {
 			br = new BufferedReader(fr);
 			// Lectura del fichero
 			String linea;
+			String obj;
 			while ((linea = br.readLine()) != null) {
-				if (linea.contains("***********")) {
+				if (linea.contains("*******************************")) {
 
 					libros.add(libro);
 					libro = new Libro();
 				} else {
 					StringTokenizer st = new StringTokenizer(linea, ":");
-					while (st.hasMoreTokens()) {
+					obj=st.nextToken();
+					
+					if(st.hasMoreTokens()) {
+						obj=st.nextToken();
+					}
+					
+					obj=obj.trim();
+					
 						if (linea.contains("Titulo"))
-							libro.setTitulo(st.nextToken());
+							libro.setTitulo(obj);
 
 						else if (linea.contains("Editorial"))
-							libro.setEditorial(st.nextToken());
+							libro.setEditorial(obj);
 
 						else if (linea.contains("Paginas"))
-							libro.setPaginas(Integer.parseInt(st.nextToken()));
+							libro.setPaginas(Integer.parseInt(obj.trim()));
 					
-
 						else if (linea.contains("Altura"))
-							libro.setAltura(Float.parseFloat(st.nextToken()));
+							libro.setAltura(Float.parseFloat(obj.trim()));
 
 						else if (linea.contains("Notas"))
-							libro.setNotas(st.nextToken());
+							libro.setNotas(obj);
 
 						else if (linea.contains("Isbn"))
-							libro.setIsbn(st.nextToken());
+							libro.setIsbn(obj);
 
 						else if (linea.contains("Materias"))
-							libro.setMaterias(st.nextToken());
+							libro.setMaterias(obj);
 					}
 				}
 
-			}
-			EscribirPantalla.escribirLibro(libros, true,datoFiltrado,sc);
+			
+		
 		} catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;

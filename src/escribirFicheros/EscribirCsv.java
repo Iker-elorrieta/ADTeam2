@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import objetos.Libro;
 
@@ -20,6 +21,7 @@ public class EscribirCsv {
 	final static String cvsSplitBy = ";";
 
 	static Scanner sc = new Scanner(System.in);
+	
 	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {
 
 	//static Scanner sc = new Scanner(System.in);
@@ -41,6 +43,8 @@ public class EscribirCsv {
 				bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
 				+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
 				+ cvsSplitBy + libro.getMaterias() + "\n");
+				
+				
 			}else {
 				
 				fw = new FileWriter(file.getAbsoluteFile(), true);
@@ -51,6 +55,7 @@ public class EscribirCsv {
 						+ cvsSplitBy + libro.getMaterias() + "\n");
 
 			}
+			
 
 		} catch (IOException e) {
 			e.printStackTrace();

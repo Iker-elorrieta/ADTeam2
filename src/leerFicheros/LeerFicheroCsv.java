@@ -20,9 +20,9 @@ public class LeerFicheroCsv {
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerCSV(String nombreFichero,int datoFiltrado,Scanner sc) {
+	public static Boolean LeerCSV(String nombreFichero,ArrayList<Libro> libros,Scanner sc) {
 
-		ArrayList<Libro> libros = new ArrayList<Libro>();
+		
 		BufferedReader br = null;
 		String linea = "";
 		// Se define separador ","
@@ -49,7 +49,7 @@ public class LeerFicheroCsv {
 				libros.add(libro);
 			}
 
-			EscribirPantalla.escribirLibro(libros, true,datoFiltrado,sc);
+			
 		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");

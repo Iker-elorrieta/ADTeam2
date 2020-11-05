@@ -1,6 +1,7 @@
 package controlador;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import escribirFicheros.EscribirCsv;
 import escribirFicheros.EscribirXml;
@@ -8,6 +9,7 @@ import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
+import objetos.Libro;
 
 public class controladorMenus {
 
@@ -229,9 +231,14 @@ public class controladorMenus {
 	 * 
 	 */
 	public static int opcionElegida(Scanner sc) {
+		
+		
 		int opcion = 0;
 		int opcionSubMenu = 0;
 		String nombreFichero = "";
+		
+		ArrayList<Libro> libros = new ArrayList<Libro>();
+		
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
@@ -244,21 +251,27 @@ public class controladorMenus {
 
 						switch (opcionSubMenu) {
 						case 1:
+							
+							
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
-							LeerFicheroCsv.LeerCSV(nombreFichero,EscribirTodos,sc);
+							LeerFicheroCsv.LeerCSV(nombreFichero,libros,sc);
+							EscribirPantalla.escribirLibro(libros,sc);
+						
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							LeerFicheroXml.leerXml(nombreFichero,EscribirTodos,sc);
+							LeerFicheroXml.leerXml(nombreFichero,libros,sc);
+							EscribirPantalla.escribirLibro(libros,sc);
 							System.out.println();
 							break;
 						case 3:
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
-							LeerFicheroTxt.LeerTxt(nombreFichero,EscribirTodos,sc);// Le pasamos el nombre del fichero que queremos leer
+							LeerFicheroTxt.LeerTxt(nombreFichero,libros,sc);// Le pasamos el nombre del fichero que queremos leer
+							EscribirPantalla.escribirLibro(libros,sc);
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						}
@@ -294,6 +307,7 @@ public class controladorMenus {
 						}
 
 					}
+					break;
 				case 3:
 				
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);

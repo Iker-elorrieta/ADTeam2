@@ -13,13 +13,9 @@ import objetos.Libro;
 
 public class LeerFicheroXml {
 
-
-	public static boolean leerXml(String nombreFichero,int datoFiltrado,Scanner sc) {
-		String datoAfiltrar;
-		
+	public static boolean leerXml(String nombreFichero, ArrayList<Libro> libros, Scanner sc) {
 
 		File file = new File(nombreFichero + ".xml");
-		ArrayList<Libro> libros = new ArrayList<>();
 
 		try {
 
@@ -50,11 +46,7 @@ public class LeerFicheroXml {
 
 				}
 			}
-			
 
-			EscribirPantalla.escribirLibro(libros,true,datoFiltrado,sc);
-
-			
 			return true;
 		} catch (Exception e) {
 
