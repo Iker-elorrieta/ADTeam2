@@ -16,8 +16,6 @@ public class BuscarLibro {
 
 			case "titulo":
 
-				
-
 				if (busqueda == 1) {
 					if (libro.getTitulo().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -119,7 +117,7 @@ public class BuscarLibro {
 					}
 				}
 				break;
-				
+
 			case "isbn":
 				if (busqueda == 1) {
 					if (libro.getIsbn().startsWith(dato)) {
@@ -141,7 +139,7 @@ public class BuscarLibro {
 				break;
 
 			case "materias":
-			if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getMaterias().startsWith(dato)) {
 						librosEncontrados.add(libro);
 

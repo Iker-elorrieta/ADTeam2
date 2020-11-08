@@ -250,7 +250,13 @@ public class controladorMenus {
 							validador.validador(dato, "");
 
 							busqueda = validador.getLugarDeTexto();
-							text = dato.split(simbolo)[0];
+							
+							if (busqueda == 2) {
+								text = dato.split(simbolo)[1];
+							}
+							else {
+								text = dato.split(simbolo)[0];
+							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
@@ -259,7 +265,12 @@ public class controladorMenus {
 							validador.validador(dato, "");
 
 							busqueda = validador.getLugarDeTexto();
-							text = dato.split(simbolo)[0];
+							if (busqueda == 2) {
+								text = dato.split(simbolo)[1];
+							}
+							else {
+								text = dato.split(simbolo)[0];
+							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
@@ -294,16 +305,53 @@ public class controladorMenus {
 							} while (!validador.validador("(1-9)[6]", dato));
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "altura", dato, busqueda);
 							break;
-//						case 5:
-//							opcion = subMenuBuscarPorTamano(sc);
-//							break;// final de la accion elegida del submenu
-//						case 6:
-//
-//							break;// final de la accion elegida del submenu
-//						case 7:
-//							patron = controladorMenus.subMenuBuscarPorPalabra(sc);
-//
-//							break;
+						case 5:
+							dato = subMenuBuscarPorPalabra(sc);
+							validador.validador(dato, "");
+
+							busqueda = validador.getLugarDeTexto();
+							
+							if (busqueda == 2) {
+								text = dato.split(simbolo)[1];
+							}
+							else {
+								text = dato.split(simbolo)[0];
+							}
+							
+							
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "notas", text, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
+							break;
+						case 6:
+							dato = subMenuBuscarPorPalabra(sc);
+							validador.validador(dato, "");
+
+							busqueda = validador.getLugarDeTexto();
+							if (busqueda == 2) {
+								text = dato.split(simbolo)[1];
+							}
+							else {
+								text = dato.split(simbolo)[0];
+							}
+							
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "isbn", text, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
+							break;
+						case 7:
+							dato = subMenuBuscarPorPalabra(sc);
+							validador.validador(dato, "");
+
+							busqueda = validador.getLugarDeTexto();
+							if (busqueda == 2) {
+								text = dato.split(simbolo)[1];
+							}
+							else {
+								text = dato.split(simbolo)[0];
+							}
+							
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "materias", text, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
+							break;
 
 						}
 					}
