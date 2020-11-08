@@ -41,7 +41,7 @@ public class Validador {
 					}
 				
 		} else if (contieneNumeros) {
-			for (int x = 0; x < texto.length() - 1; x++) {
+			for (int x = 0; x < texto.length(); x++) {
 				if (java.lang.Character.isDigit(texto.charAt(x))) {
 					if (texto.length() < numeroMaximo && texto.length() > numeroMinimo) {
 						return true;
@@ -122,6 +122,7 @@ public class Validador {
 		else if (patron.contains("(")) {
 			spliteado = patron.split("\\(");
 			contieneNumeros = true;
+			lugarDeTexto = verificarComienzo(spliteado[0]);
 			if (spliteado[1].contains("[")) {
 				spliteado = spliteado[1].split("\\[");
 				contieneNumeros = true;
@@ -140,6 +141,7 @@ public class Validador {
 
 		} else if (patron.contains("[")) {
 			spliteado = patron.split("\\[");
+			lugarDeTexto = verificarComienzo(spliteado[0]);
 			contieneNumeros = true;
 			if (spliteado[1].contains("-")) {
 				largo = spliteado[1].split("-");
@@ -153,7 +155,7 @@ public class Validador {
 				numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
 			}
 		} else {
-
+			lugarDeTexto = verificarComienzo(patron);
 		}
 
 	}

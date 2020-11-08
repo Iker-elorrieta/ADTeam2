@@ -260,10 +260,11 @@ public class controladorMenus {
 					}
 					break;
 				case 3:
-
+					int busqueda ;
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
-					
+					final String simbolo = "\\*";
 					String dato;
+					String text;
 					ArrayList<Libro> librosEncontrados;
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 
@@ -275,18 +276,22 @@ public class controladorMenus {
 							
 
 							dato = subMenuBuscarPorPalabra(sc);
-							//validador.verificarComienzo(dato) ;
+						validador.validador(dato,"");
 							
-							int busqueda = validador.getLugarDeTexto();
-							String text = quitarAsterisco(dato, busqueda);
+						 busqueda = validador.getLugarDeTexto();
+							text = dato.split(simbolo)[0];
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
-//						case 2:
-//							System.out.println("Introduzca editorial:");
-//							dato = sc.next();
-//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", dato);
-//							break;
+							case 2:
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato,"");
+									
+									busqueda = validador.getLugarDeTexto();
+									text = dato.split(simbolo)[0];
+									librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
+									EscribirPantalla.escribirLibro(librosEncontrados, sc);
+									break;
 //						case 3:
 //							System.out.println("Introduzca paginas:");
 //							dato = sc.next();
@@ -318,7 +323,7 @@ public class controladorMenus {
 	}
 	
 	public static String quitarAsterisco(String patron, int busqueda) {
-		final String simbolo = "*";
+		final String simbolo = "\\*";
 		String textoFinal = "";
 		
 		switch (busqueda) {
@@ -326,10 +331,10 @@ public class controladorMenus {
 			
 			break;
 		case 1:
-			textoFinal = patron.split(simbolo)[1];
+			textoFinal = patron.split(simbolo)[0];
 			break;
 //		case 2:
-//			textoFinal = patron.split(simbolo);
+//			textoFinal = patron.split(simbolo)[];
 //			break;
 		default:
 			break;
