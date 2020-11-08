@@ -45,36 +45,161 @@ public class BuscarLibro {
 				break;
 
 			case "editorial":
-				if (libro.getEditorial().equals(dato)) {
-					librosEncontrados.add(libro);
-					break;
+				if (busqueda == 0) {
+					if (libro.getEditorial().equals(dato)) {
+						librosEncontrados.add(libro);
+
+					}
 				}
+
+				else if (busqueda == 1) {
+					if (libro.getEditorial().startsWith(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getEditorial().contains(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else {
+					if (libro.getEditorial().endsWith(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+
+				}
+				break;
+
 			case "paginas":
-				if (libro.getPaginas() == Integer.parseInt(dato)) {
-					librosEncontrados.add(libro);
+
+				if (busqueda == 0) {
+					if (libro.getPaginas() == Integer.parseInt(dato)) {
+						librosEncontrados.add(libro);
+
+					}
 				}
+
+				else if (busqueda == 1) {
+					if (libro.getPaginas() < Integer.parseInt(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getPaginas() > Integer.parseInt(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
 				break;
+
 			case "altura":
-				if (libro.getAltura() == Float.parseFloat(dato)) {
-					librosEncontrados.add(libro);
+
+				if (busqueda == 0) {
+					if (libro.getAltura() == Double.parseDouble(dato)) {
+						librosEncontrados.add(libro);
+
+					}
 				}
+
+				else if (busqueda == 1) {
+					if (libro.getAltura() < Double.parseDouble(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getAltura() > Double.parseDouble(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
 				break;
+
 			case "notas":
-				if (libro.getNotas().equals(dato)) {
-					librosEncontrados.add(libro);
+				if (busqueda == 0) {
+					if (libro.getNotas().equals(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else if (busqueda == 1) {
+					if (libro.getNotas().startsWith(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getNotas().contains(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else {
+					if (libro.getNotas().endsWith(dato)) {
+						librosEncontrados.add(libro);
+					}
 				}
 				break;
+				
 			case "isbn":
-				if (libro.getIsbn().equals(dato)) {
-					librosEncontrados.add(libro);
+				if (busqueda == 0) {
+					if (libro.getIsbn().equals(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else if (busqueda == 1) {
+					if (libro.getIsbn().startsWith(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getIsbn().contains(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else {
+					if (libro.getIsbn().endsWith(dato)) {
+						librosEncontrados.add(libro);
+					}
 				}
 				break;
 
 			case "materias":
-				if (libro.getMaterias().equals(dato)) {
-					librosEncontrados.add(libro);
+				if (busqueda == 0) {
+					if (libro.getMaterias().equals(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else if (busqueda == 1) {
+					if (libro.getMaterias().startsWith(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				} else if (busqueda == 2) {
+					if (libro.getMaterias().contains(dato)) {
+						librosEncontrados.add(libro);
+
+					}
+				}
+
+				else {
+					if (libro.getMaterias().endsWith(dato)) {
+						librosEncontrados.add(libro);
+					}
 				}
 				break;
+
 			default:
 				break;
 			}
