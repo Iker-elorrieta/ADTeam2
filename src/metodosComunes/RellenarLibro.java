@@ -46,7 +46,7 @@ public class RellenarLibro {
 		do{
 		System.out.println("Introduce un altura ");
 		alturaSinParse = sc.next();
-		}while(!v.validador("(0-9)[3]", (alturaSinParse)));
+		}while(!v.validador("(0-9)[6]", (alturaSinParse)));
 		altura = Float.parseFloat(alturaSinParse);
 		
 		do{

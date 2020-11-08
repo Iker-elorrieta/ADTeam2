@@ -145,34 +145,6 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int subMenuBuscarPorTamano(Scanner sc) {
-
-		int opcion = 0;
-		boolean error = true;
-		do {
-			try {
-				System.out.println(
-						"Introduzca un tamaño o rangos :\n 1.- Minimo \n 2.- Maximo\n 3.- Rango \n 4.- Volver \n ");
-				opcion = sc.nextInt();
-				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 4
-				if (opcion < 1 || opcion > 4) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
-				} else {
-					error = false;
-				}
-			} catch (Exception e) {
-				// Mensaje de error si el usuario introduce letras
-				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
-				sc.nextLine();
-			}
-		} while (error);
-
-		return opcion;
-	}
-
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
 	 * LeerFichero
@@ -260,7 +232,7 @@ public class controladorMenus {
 					}
 					break;
 				case 3:
-					int busqueda ;
+					int busqueda;
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
 					final String simbolo = "\\*";
 					String dato;
@@ -273,35 +245,55 @@ public class controladorMenus {
 						switch (opcionSubMenu) {
 
 						case 1:
-							
 
 							dato = subMenuBuscarPorPalabra(sc);
-						validador.validador(dato,"");
-							
-						 busqueda = validador.getLugarDeTexto();
+							validador.validador(dato, "");
+
+							busqueda = validador.getLugarDeTexto();
 							text = dato.split(simbolo)[0];
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
-							case 2:
-								dato = subMenuBuscarPorPalabra(sc);
-								validador.validador(dato,"");
-									
-									busqueda = validador.getLugarDeTexto();
-									text = dato.split(simbolo)[0];
-									librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
-									EscribirPantalla.escribirLibro(librosEncontrados, sc);
-									break;
-//						case 3:
-//							System.out.println("Introduzca paginas:");
-//							dato = sc.next();
-//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "paginas", dato);
-//							break;
-//						case 4:
-//							System.out.println("Introduzca paginas:");
-//							dato = sc.next();
-//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "paginas", dato);
-//							break;
+						case 2:
+							dato = subMenuBuscarPorPalabra(sc);
+							validador.validador(dato, "");
+
+							busqueda = validador.getLugarDeTexto();
+							text = dato.split(simbolo)[0];
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", text, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
+							break;
+						case 3:
+
+							do {
+								System.out.println(
+										"Que quiere buscar :\n 1.-Numero Concreto \n 2.- Hasta numero X \n 3.- Mas de X numero \n");
+								busqueda = sc.nextInt();
+							} while (busqueda > 4);
+							do {
+								System.out.println("Que numero de paginas");
+
+								dato = sc.next();
+
+							} while (validador.validador("(1-9)[3]", dato));
+
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "paginas", dato, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
+							break;
+						case 4:
+							do {
+								System.out.println(
+										"Que quiere buscar :\n 1.- Numero Concreto \n 2.- Hasta numero X \n 3.- Mas de X numero \n");
+								busqueda = sc.nextInt();
+							} while (busqueda > 4);
+							do {
+								System.out.println("Que tamaño");
+
+								dato = sc.next();
+
+							} while (!validador.validador("(1-9)[6]", dato));
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "altura", dato, busqueda);
+							break;
 //						case 5:
 //							opcion = subMenuBuscarPorTamano(sc);
 //							break;// final de la accion elegida del submenu
@@ -321,26 +313,8 @@ public class controladorMenus {
 		return 1;
 
 	}
-	
-	public static String quitarAsterisco(String patron, int busqueda) {
-		final String simbolo = "\\*";
-		String textoFinal = "";
-		
-		switch (busqueda) {
-		case 0:
-			
-			break;
-		case 1:
-			textoFinal = patron.split(simbolo)[0];
-			break;
-//		case 2:
-//			textoFinal = patron.split(simbolo)[];
-//			break;
-		default:
-			break;
-		}
-		return textoFinal;
-	}
+
+
 
 	public static String subMenuBuscarPorPalabra(Scanner sc) {
 

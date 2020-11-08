@@ -16,14 +16,9 @@ public class BuscarLibro {
 
 			case "titulo":
 
-				if (busqueda == 0) {
-					if (libro.getTitulo().equals(dato)) {
-						librosEncontrados.add(libro);
+				
 
-					}
-				}
-
-				else if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getTitulo().startsWith(dato)) {
 						librosEncontrados.add(libro);
 
@@ -45,14 +40,7 @@ public class BuscarLibro {
 				break;
 
 			case "editorial":
-				if (busqueda == 0) {
-					if (libro.getEditorial().equals(dato)) {
-						librosEncontrados.add(libro);
-
-					}
-				}
-
-				else if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getEditorial().startsWith(dato)) {
 						librosEncontrados.add(libro);
 
@@ -75,20 +63,20 @@ public class BuscarLibro {
 
 			case "paginas":
 
-				if (busqueda == 0) {
+				if (busqueda == 1) {
 					if (libro.getPaginas() == Integer.parseInt(dato)) {
 						librosEncontrados.add(libro);
 
 					}
 				}
 
-				else if (busqueda == 1) {
-					if (libro.getPaginas() < Integer.parseInt(dato)) {
+				else if (busqueda == 2) {
+					if (libro.getPaginas() <= Integer.parseInt(dato)) {
 						librosEncontrados.add(libro);
 
 					}
-				} else if (busqueda == 2) {
-					if (libro.getPaginas() > Integer.parseInt(dato)) {
+				} else if (busqueda == 3) {
+					if (libro.getPaginas() >= Integer.parseInt(dato)) {
 						librosEncontrados.add(libro);
 
 					}
@@ -98,14 +86,7 @@ public class BuscarLibro {
 
 			case "altura":
 
-				if (busqueda == 0) {
-					if (libro.getAltura() == Double.parseDouble(dato)) {
-						librosEncontrados.add(libro);
-
-					}
-				}
-
-				else if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getAltura() < Double.parseDouble(dato)) {
 						librosEncontrados.add(libro);
 
@@ -120,14 +101,7 @@ public class BuscarLibro {
 				break;
 
 			case "notas":
-				if (busqueda == 0) {
-					if (libro.getNotas().equals(dato)) {
-						librosEncontrados.add(libro);
-
-					}
-				}
-
-				else if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getNotas().startsWith(dato)) {
 						librosEncontrados.add(libro);
 
@@ -147,14 +121,7 @@ public class BuscarLibro {
 				break;
 				
 			case "isbn":
-				if (busqueda == 0) {
-					if (libro.getIsbn().equals(dato)) {
-						librosEncontrados.add(libro);
-
-					}
-				}
-
-				else if (busqueda == 1) {
+				if (busqueda == 1) {
 					if (libro.getIsbn().startsWith(dato)) {
 						librosEncontrados.add(libro);
 
@@ -174,14 +141,7 @@ public class BuscarLibro {
 				break;
 
 			case "materias":
-				if (busqueda == 0) {
-					if (libro.getMaterias().equals(dato)) {
-						librosEncontrados.add(libro);
-
-					}
-				}
-
-				else if (busqueda == 1) {
+			if (busqueda == 1) {
 					if (libro.getMaterias().startsWith(dato)) {
 						librosEncontrados.add(libro);
 

@@ -119,11 +119,11 @@ public class Validador {
 		} 
 		// asdfa
 
-		else if (patron.contains("(")) {
+		else if (patron.contains("\\(")) {
 			spliteado = patron.split("\\(");
 			contieneNumeros = true;
 			lugarDeTexto = verificarComienzo(spliteado[0]);
-			if (spliteado[1].contains("[")) {
+			if (spliteado[1].contains("\\[")) {
 				spliteado = spliteado[1].split("\\[");
 				contieneNumeros = true;
 				if (spliteado[1].contains("-")) {
