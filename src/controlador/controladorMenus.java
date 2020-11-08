@@ -1,6 +1,5 @@
 package controlador;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import escribirFicheros.EscribirCsv;
@@ -9,12 +8,14 @@ import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
+import metodosComunes.Validador;
 import objetos.Libro;
 
 public class controladorMenus {
 
 	static Scanner sc = new Scanner(System.in);
-	final static int EscribirTodos=0;
+	final static int EscribirTodos = 0;
+
 	/**
 	 * Esta clase contiene el metodo de opcion del menu principal
 	 * 
@@ -29,7 +30,8 @@ public class controladorMenus {
 		System.out.println("------BIENVENIDO AL MENU PRINCIPAL------:\n\n");
 		do {
 			try {
-				System.out.println("Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.- Salir");
+				System.out.println(
+						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
@@ -114,7 +116,7 @@ public class controladorMenus {
 
 		return opcion;
 	}
-	
+
 	public static int subMenuBuscador(Scanner sc) {
 
 		int opcion = 0;
@@ -142,55 +144,7 @@ public class controladorMenus {
 
 		return opcion;
 	}
-	
 
-	public static String subMenuBuscarPorPalabra(Scanner sc) {
-		String patron = null;
-		String empieza = null;
-		String termina = null;
-		int opcion = 0;
-		boolean error = true;
-		do {
-			try {
-				System.out.println(
-						"Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Empieza y termina\n 4.- Contiene \n 5.- Volver ");
-				opcion = sc.nextInt();
-				switch (opcion) {
-				case 1:
-					System.out.println("Introduce por que quiere empezar a buscar");
-					empieza = sc.next();
-					break;
-				case 2:
-					System.out.println("Introduce por que quiere terminar a buscar");
-					termina = sc.next();
-					break;
-				case 3:
-					System.out.println("Introduce el por que quiere empezar a buscar");
-					empieza = sc.next();
-					
-					System.out.println("Introduce el por que quiere terminar a buscar");
-					termina = sc.next();
-					break;
-				}
-				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 4
-				if (opcion < 1 || opcion > 5) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
-				} else {
-					error = false;
-				}
-			} catch (Exception e) {
-				// Mensaje de error si el usuario introduce letras
-				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
-				sc.nextLine();
-			}
-		} while (error);
-
-		return patron;
-	}
-	
 	public static int subMenuBuscarPorTamano(Scanner sc) {
 
 		int opcion = 0;
@@ -219,8 +173,6 @@ public class controladorMenus {
 		return opcion;
 	}
 
-
-
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
 	 * LeerFichero
@@ -231,14 +183,13 @@ public class controladorMenus {
 	 * 
 	 */
 	public static int opcionElegida(Scanner sc) {
-		
-		
+
 		int opcion = 0;
 		int opcionSubMenu = 0;
 		String nombreFichero = "";
-		
+		Validador validador = new Validador();
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-		
+
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
@@ -251,27 +202,27 @@ public class controladorMenus {
 
 						switch (opcionSubMenu) {
 						case 1:
-							
-							
+
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
-							LeerFicheroCsv.LeerCSV(nombreFichero,libros,sc);
-							EscribirPantalla.escribirLibro(libros,sc);
-						
+							LeerFicheroCsv.LeerCSV(nombreFichero, libros, sc);
+							EscribirPantalla.escribirLibro(libros, sc);
+
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							LeerFicheroXml.leerXml(nombreFichero,libros,sc);
-							EscribirPantalla.escribirLibro(libros,sc);
+							LeerFicheroXml.leerXml(nombreFichero, libros, sc);
+							EscribirPantalla.escribirLibro(libros, sc);
 							System.out.println();
 							break;
 						case 3:
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
-							LeerFicheroTxt.LeerTxt(nombreFichero,libros,sc);// Le pasamos el nombre del fichero que queremos leer
-							EscribirPantalla.escribirLibro(libros,sc);
+							LeerFicheroTxt.LeerTxt(nombreFichero, libros, sc);// Le pasamos el nombre del fichero que
+																				// queremos leer
+							EscribirPantalla.escribirLibro(libros, sc);
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						}
@@ -286,22 +237,22 @@ public class controladorMenus {
 						case 1:
 							System.out.println("Introduzca el nombre del CSV :");
 							nombreFichero = sc.next();
-							EscribirCsv.EscribeFichero(nombreFichero,sc);
+							EscribirCsv.EscribeFichero(nombreFichero, sc);
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						case 2:
 							System.out.println("Introduzca el nombre del XML :");
 							nombreFichero = sc.next();
-							EscribirXml xml = new EscribirXml();							
-							xml.generarXml(nombreFichero,sc);
+							EscribirXml xml = new EscribirXml();
+							xml.generarXml(nombreFichero, sc);
 							System.out.println();
 							// Aqui ira las demas acciones del submenu*/
 							break;
 						case 3:
 							System.out.println("Introduzca el nombre del TXT :");
 							nombreFichero = sc.next();
-							escribirFicheros.EscribirTxt.añadirTxt(nombreFichero,sc);// Le pasamos el nombre del
-																					// fichero que queremos leer
+							escribirFicheros.EscribirTxt.añadirTxt(nombreFichero, sc);// Le pasamos el nombre del
+																						// fichero que queremos leer
 							System.out.println();
 							break;// final de la accion elegida del submenu
 						}
@@ -309,27 +260,54 @@ public class controladorMenus {
 					}
 					break;
 				case 3:
-				
+
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
-					String patron;
+					
+					String dato;
+					ArrayList<Libro> librosEncontrados;
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
+
 					if (opcionSubMenu < 8) {
+
 						switch (opcionSubMenu) {
+
 						case 1:
-						case 2:
-						case 7:
-							patron = controladorMenus.subMenuBuscarPorPalabra(sc);
 							
+
+							dato = subMenuBuscarPorPalabra(sc);
+							//validador.verificarComienzo(dato) ;
+							
+							int busqueda = validador.getLugarDeTexto();
+							String text = quitarAsterisco(dato, busqueda);
+							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
+							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
-						case 3:
-						case 4:
-						case 5:
-							opcion =subMenuBuscarPorTamano(sc);
-							break;// final de la accion elegida del submenu
-						case 6:
-							
-							break;// final de la accion elegida del submenu
-				
+//						case 2:
+//							System.out.println("Introduzca editorial:");
+//							dato = sc.next();
+//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", dato);
+//							break;
+//						case 3:
+//							System.out.println("Introduzca paginas:");
+//							dato = sc.next();
+//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "paginas", dato);
+//							break;
+//						case 4:
+//							System.out.println("Introduzca paginas:");
+//							dato = sc.next();
+//							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "paginas", dato);
+//							break;
+//						case 5:
+//							opcion = subMenuBuscarPorTamano(sc);
+//							break;// final de la accion elegida del submenu
+//						case 6:
+//
+//							break;// final de la accion elegida del submenu
+//						case 7:
+//							patron = controladorMenus.subMenuBuscarPorPalabra(sc);
+//
+//							break;
+
 						}
 					}
 				}
@@ -337,6 +315,70 @@ public class controladorMenus {
 		} while (opcion != 4);
 		return 1;
 
+	}
+	
+	public static String quitarAsterisco(String patron, int busqueda) {
+		final String simbolo = "*";
+		String textoFinal = "";
+		
+		switch (busqueda) {
+		case 0:
+			
+			break;
+		case 1:
+			textoFinal = patron.split(simbolo)[1];
+			break;
+//		case 2:
+//			textoFinal = patron.split(simbolo);
+//			break;
+		default:
+			break;
+		}
+		return textoFinal;
+	}
+
+	public static String subMenuBuscarPorPalabra(Scanner sc) {
+
+		String patron = null;
+		String empieza = null;
+		String termina = null;
+		int opcion = 0;
+		boolean error = true;
+		do {
+
+			try {
+				System.out
+						.println("Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Contiene \n 4.- Volver ");
+				opcion = sc.nextInt();
+				switch (opcion) {
+				case 1:
+					System.out.println("Introduce por que quiere empezar a buscar");
+					empieza = sc.next();
+					patron = empieza + "*";
+					break;
+				case 2:
+					System.out.println("Introduce por que quiere terminar a buscar");
+					termina = sc.next();
+					patron = "*" + termina;
+					break;
+				case 3:
+					System.out.println("Introduce que contiene lo que quiere  buscar");
+					empieza = sc.next();
+					patron = "*" + empieza + "*";
+					break;
+				}
+				System.out.println();
+				if (opcion < 1 || opcion > 4) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+			}
+		} while (error);
+
+		return patron;
 	}
 
 }

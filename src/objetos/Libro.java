@@ -21,6 +21,7 @@ public class Libro {
 	private String notas;
 	private String isbn;
 	private String materias;
+	
 
 	public Libro(String titulo, String editorial, int paginas, float altura, String notas, String isbn,
 			String materias) {
