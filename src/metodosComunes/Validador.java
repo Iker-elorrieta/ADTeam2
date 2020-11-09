@@ -1,6 +1,16 @@
 package metodosComunes;
 
 public class Validador {
+	
+	/**
+	 * Esta clase contiene el metodo de validador
+	 * @param patron String con el patron a validar en el texto
+	 * @param texto String con el texto a verificar que cumple con el patron
+	 * @author Ibai, Jonatan
+	 * @return Retorna un booleano true si el texto cumple con el patron y false en caso contrario
+	 * 
+	 */
+	
 	private boolean contieneLetras = false;
 	private boolean contieneNumeros = false;
 	private int numeroMinimo;
@@ -23,7 +33,6 @@ public class Validador {
 		lugarDeTexto = 0;
 		contieneLetras=false;
 		contieneNumeros=false;;
-		// *sdfjbvkn*{a-z}(0-9)[0-30] ]
 		comprobarPatron(patron);
 		if (contieneLetras && contieneNumeros) {
 			if (texto.length() < numeroMaximo && texto.length() > numeroMinimo) {
@@ -119,7 +128,6 @@ public class Validador {
 
 			}
 		} 
-		// asdfa
 
 		else if (patron.contains(parentesis)) {
 			contieneNumeros = true;
