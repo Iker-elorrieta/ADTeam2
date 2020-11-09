@@ -7,10 +7,14 @@ public class Validador {
 	private int numeroMaximo;
 	private String[] spliteado;
 	private String[] largo;
-	private String textoPrincipal;
 	private int lugarDeTexto = 0;
-	private String texto, patron;
 
+	private final String parentesis="(";
+	private final String guion="-";
+	private final String Corchete="[";
+	private final String Corchete2="]";
+	private final String llave="{";
+	private final String rallas="\\";
 	public Validador() {
 
 	}
@@ -75,84 +79,84 @@ public class Validador {
 	}
 
 	public void comprobarPatron(String patron) {
-		if (patron.contains("{")) {
+		if (patron.contains(llave)) {
 			contieneLetras = true;
-			spliteado = patron.split("\\{");
+			spliteado = patron.split(rallas+llave);
 			lugarDeTexto = verificarComienzo(spliteado[0]);
 
-			if (spliteado[1].contains("(")) {
-				spliteado = spliteado[1].split("\\(");
+			if (spliteado[1].contains(parentesis)) {
+				spliteado = spliteado[1].split(rallas+parentesis);
 				contieneNumeros = true;
-				if (spliteado[1].contains("[")) {
-					spliteado = spliteado[1].split("\\[");
+				if (spliteado[1].contains(Corchete)) {
+					spliteado = spliteado[1].split(rallas+Corchete);
 
-					if (spliteado[1].contains("-")) {
-						largo = spliteado[1].split("-");
+					if (spliteado[1].contains(guion)) {
+						largo = spliteado[1].split(rallas+guion);
 						numeroMinimo = Integer.parseInt(largo[0]);
 
-						numeroMaximo = Integer.parseInt(largo[1].split("\\]")[0]);
+						numeroMaximo = Integer.parseInt(largo[1].split(rallas+Corchete2)[0]);
 					}
 
 					else {
 						numeroMinimo = 0;
-						numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
+						numeroMaximo = Integer.parseInt(spliteado[1].split(rallas+Corchete2)[0]);
 					}
 				}
-			} else if (spliteado[1].contains("[")) {
-				spliteado = spliteado[1].split("\\[");
+			} else if (spliteado[1].contains(Corchete)) {
+				spliteado = spliteado[1].split(rallas+Corchete);
 
-				if (spliteado[1].contains("-")) {
-					largo = spliteado[1].split("-");
+				if (spliteado[1].contains(guion)) {
+					largo = spliteado[1].split(rallas+guion);
 					numeroMinimo = Integer.parseInt(largo[0]);
 
-					numeroMaximo = Integer.parseInt(largo[1].split("\\]")[0]);
+					numeroMaximo = Integer.parseInt(largo[1].split(rallas+Corchete2)[0]);
 				}
 
 				else {
 					numeroMinimo = 0;
-					numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
+					numeroMaximo = Integer.parseInt(spliteado[1].split(rallas+Corchete2)[0]);
 				}
 
 			}
 		} 
 		// asdfa
 
-		else if (patron.contains("(")) {
+		else if (patron.contains(parentesis)) {
 			contieneNumeros = true;
-			spliteado = patron.split("\\(");
+			spliteado = patron.split(rallas+parentesis);
 			lugarDeTexto = verificarComienzo(spliteado[0]);
-			if (spliteado[1].contains("[")) {
-				spliteado = spliteado[1].split("\\[");
+			if (spliteado[1].contains(Corchete)) {
+				spliteado = spliteado[1].split(rallas+Corchete);
 
-				if (spliteado[1].contains("-")) {
-					largo = spliteado[1].split("-");
+				if (spliteado[1].contains(guion)) {
+					largo = spliteado[1].split(rallas+guion);
 					numeroMinimo = Integer.parseInt(largo[0]);
 
-					numeroMaximo = Integer.parseInt(largo[1].split("\\]")[0]);
+					numeroMaximo = Integer.parseInt(largo[1].split(rallas+Corchete2)[0]);
 				}
 
 				else {
 					numeroMinimo = 0;
-					numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
+					numeroMaximo = Integer.parseInt(spliteado[1].split(rallas+Corchete2)[0]);
 				}
 			}
 		
 	
 
-		} else if (patron.contains("[")) {
-			spliteado = patron.split("\\[");
+		} else if (patron.contains(Corchete)) {
+			spliteado = patron.split(rallas+Corchete);
 			lugarDeTexto = verificarComienzo(spliteado[0]);
 			contieneNumeros = true;
-			if (spliteado[1].contains("-")) {
-				largo = spliteado[1].split("-");
+			if (spliteado[1].contains(guion)) {
+				largo = spliteado[1].split(rallas+guion);
 				numeroMinimo = Integer.parseInt(largo[0]);
 
-				numeroMaximo = Integer.parseInt(largo[1].split("\\]")[0]);
+				numeroMaximo = Integer.parseInt(largo[1].split(rallas+Corchete2)[0]);
 			}
 
 			else {
 				numeroMinimo = 0;
-				numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
+				numeroMaximo = Integer.parseInt(spliteado[1].split(rallas+Corchete2)[0]);
 			}
 		} else {
 			lugarDeTexto = verificarComienzo(patron);
