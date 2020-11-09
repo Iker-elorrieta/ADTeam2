@@ -60,16 +60,14 @@ public class Validador {
 
 	public int verificarComienzo(String patron) {
 		int lugar = 0;
-		if (patron.equals("")) {
-			lugar = 0;
-		} else if (patron.startsWith("*") && patron.endsWith("*")) {
+		if (patron.startsWith("*") && patron.endsWith("*")) {
 			lugar = 2;
 		} else if (patron.startsWith("*")) {
 			lugar = 3;
 		} else if (patron.endsWith("*")) {
 			lugar = 1;
 		} else {
-			lugar = 4;
+			lugar = 0;
 		}
 
 		return lugar;
@@ -119,13 +117,13 @@ public class Validador {
 		} 
 		// asdfa
 
-		else if (patron.contains("\\(")) {
-			spliteado = patron.split("\\(");
+		else if (patron.contains("(")) {
 			contieneNumeros = true;
+			spliteado = patron.split("\\(");
 			lugarDeTexto = verificarComienzo(spliteado[0]);
-			if (spliteado[1].contains("\\[")) {
+			if (spliteado[1].contains("[")) {
 				spliteado = spliteado[1].split("\\[");
-				contieneNumeros = true;
+
 				if (spliteado[1].contains("-")) {
 					largo = spliteado[1].split("-");
 					numeroMinimo = Integer.parseInt(largo[0]);
@@ -138,6 +136,8 @@ public class Validador {
 					numeroMaximo = Integer.parseInt(spliteado[1].split("\\]")[0]);
 				}
 			}
+		
+	
 
 		} else if (patron.contains("[")) {
 			spliteado = patron.split("\\[");
@@ -164,8 +164,5 @@ public class Validador {
 		return lugarDeTexto;
 	}
 
-	public void setLugarDeTexto(int lugarDeTexto) {
-		this.lugarDeTexto = lugarDeTexto;
-	}
-
+	
 }

@@ -94,7 +94,7 @@ public class LeerFicheroTxt {
 					fr.close();
 				}
 			} catch (Exception e2) {
-
+				
 			}
 		}
 		return true;
