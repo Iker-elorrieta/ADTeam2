@@ -101,7 +101,57 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarTitulo() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 1 \n Cs \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 1 \n 1 \n Cs \n 4\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionBuscarTituloComplicado() {
+
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 2 \n Cs* \n 4\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionBuscarEditorialComplicado() {
+
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n 2 \n Al* \n 4\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionBuscarNotasComplicado() {
+
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 5 \n dfshdf \n 2 \n Bu* \n 4\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionBuscarIsbnComplicado() {
+
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 6 \n 2 \n 97* \n 4\n";
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		reader = new Scanner(System.in);
+		int opcion = controladorMenus.opcionElegida(reader);
+		assertEquals(1, opcion);
+	}
+	@org.junit.jupiter.api.Test
+	public void testControladorOpcionBuscarMateriassComplicado() {
+
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 7 \n 2 \n Fan* \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -111,7 +161,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarTitulo2() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 2 \n Cs \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 1 \n 2 \n Cs \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -122,7 +172,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarTitulo3() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 3 \n sv \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 1 \n 1 \n 3 \n sv \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -142,7 +192,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarMaterias() {
 
-		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 1 \n Fan \n 4\n";
+		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 1 \n 1 \n Fan \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -152,7 +202,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarMaterias2() {
 
-		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 8\n2 \n Fan \n 4\n";
+		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 1 \n 8 \n 2 \n Fan \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -162,7 +212,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarMaterias3() {
 
-		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 3 \n sia \n 4\n";
+		String input = " 1 \n 3 \n fichero3 \n 3 \n 7 \n 1 \n 3 \n sia \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -172,7 +222,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarISBN() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 6 \n 1 \n 97 \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 6 \n 1 \n 1 \n 97 \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -182,7 +232,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarISBN2() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n10\n affd \n 6 \n 2 \n 97 \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n10\n affd \n 6 \n 1 \n 2 \n 97 \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -192,7 +242,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarISBN3() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 6 \n 3 \n 2 \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 6 \n 1 \n 3 \n 2 \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -202,7 +252,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarNotas() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 1 \n Buen \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 1 \n 1 \n Buen \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -212,7 +262,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarNotas2() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 2 \n Buen \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 1 \n 2 \n Buen \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -222,7 +272,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarNotas3() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 3 \n bro \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 5 \n 1 \n 3 \n bro \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -282,7 +332,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarEditorial() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n 1 \n Al \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n 1 \n 1 \n Al \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -293,7 +343,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarEditorial2() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n 2 \n Al \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n1  \n 2 \n Al \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -304,7 +354,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionBuscarEditorial3() {
 
-		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n 3 \n ba \n 4\n";
+		String input = " 1 \n 1 \n fichero1 \n 3 \n 2 \n1 \n 3 \n ba \n 4\n";
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
@@ -609,8 +659,8 @@ public void testValidadorTerceraZona2() {
 		
 		boolean opcion = validador.validador("[50]", "sdfafsdfds");
 		int numero= validador.getLugarDeTexto();
-		assertEquals(true, opcion);
-		assertEquals(0, numero);
+		assertEquals(false, opcion);
+		
 	}
 	
 	@org.junit.jupiter.api.Test
@@ -619,8 +669,8 @@ public void testValidadorTerceraZona2() {
 		
 		boolean opcion = validador.validador("[0-50]", "sdfafsdfds");
 		int numero= validador.getLugarDeTexto();
-		assertEquals(true, opcion);
-		assertEquals(0, numero);
+		assertEquals(false, opcion);
+		
 	}
 	
 	

@@ -137,7 +137,34 @@ public class controladorMenus {
 			} catch (Exception e) {
 				// Mensaje de error si el usuario introduce letras
 				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-8):\n");
+				sc.nextLine();
+			}
+		} while (error);
+
+		return opcion;
+	}
+	public static int subMenuTipoDeBusqueda(Scanner sc) {
+
+		int opcion = 0;
+		boolean error = true;
+		do {
+			try {
+				System.out.println(
+						"Que tipo de busqueda desea realizar? \n1.- Sencilla \n 2.-Con Codigo");
+				opcion = sc.nextInt();
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 9
+				if (opcion < 1 || opcion > 3) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+				// Mensaje de error si el usuario introduce letras
+				System.out.println(
+						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-2):\n");
 				sc.nextLine();
 			}
 		} while (error);
@@ -233,7 +260,11 @@ public class controladorMenus {
 					break;
 				case 3:
 					int busqueda;
+					int tipoDeBusqueda=1;
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
+					if (opcionSubMenu !=3 && opcionSubMenu!=4) {
+					tipoDeBusqueda= controladorMenus.subMenuTipoDeBusqueda(sc);
+					}
 					final String simbolo = "\\*";
 					String dato;
 					String text;
@@ -245,7 +276,7 @@ public class controladorMenus {
 						switch (opcionSubMenu) {
 
 						case 1:
-
+							if (tipoDeBusqueda== 1) {
 							dato = subMenuBuscarPorPalabra(sc);
 							validador.validador(dato, "");
 
@@ -257,10 +288,19 @@ public class controladorMenus {
 							else {
 								text = dato.split(simbolo)[0];
 							}
+							}
+							else {
+								System.out.println("Introduzca el patron");
+								dato=sc.next();
+								validador.comprobarPatron(dato);
+								busqueda=validador.getLugarDeTexto();
+								text=validador.getTextoSinParentesis();
+							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 2:
+							if (tipoDeBusqueda== 1) {
 							dato = subMenuBuscarPorPalabra(sc);
 							validador.validador(dato, "");
 
@@ -270,6 +310,13 @@ public class controladorMenus {
 							}
 							else {
 								text = dato.split(simbolo)[0];
+							}
+							}else {
+								System.out.println("Introduzca el patron");
+								dato=sc.next();
+								validador.comprobarPatron(dato);
+								busqueda=validador.getLugarDeTexto();
+								text=validador.getTextoSinParentesis();
 							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
@@ -306,6 +353,7 @@ public class controladorMenus {
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "altura", dato, busqueda);
 							break;
 						case 5:
+							if (tipoDeBusqueda== 1) {
 							dato = subMenuBuscarPorPalabra(sc);
 							validador.validador(dato, "");
 
@@ -317,12 +365,19 @@ public class controladorMenus {
 							else {
 								text = dato.split(simbolo)[0];
 							}
-							
+							}else {
+								System.out.println("Introduzca el patron");
+								dato=sc.next();
+								validador.comprobarPatron(dato);
+								busqueda=validador.getLugarDeTexto();
+								text=validador.getTextoSinParentesis();
+							}
 							
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "notas", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 6:
+							if (tipoDeBusqueda== 1) {
 							dato = subMenuBuscarPorPalabra(sc);
 							validador.validador(dato, "");
 
@@ -333,11 +388,18 @@ public class controladorMenus {
 							else {
 								text = dato.split(simbolo)[0];
 							}
-							
+						}else {
+							System.out.println("Introduzca el patron");
+							dato=sc.next();
+							validador.comprobarPatron(dato);
+							busqueda=validador.getLugarDeTexto();
+							text=validador.getTextoSinParentesis();
+						}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "isbn", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 7:
+							if (tipoDeBusqueda== 1) {
 							dato = subMenuBuscarPorPalabra(sc);
 							validador.validador(dato, "");
 
@@ -348,7 +410,13 @@ public class controladorMenus {
 							else {
 								text = dato.split(simbolo)[0];
 							}
-							
+					}else {
+						System.out.println("Introduzca el patron");
+						dato=sc.next();
+						validador.comprobarPatron(dato);
+						busqueda=validador.getLugarDeTexto();
+						text=validador.getTextoSinParentesis();
+					}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "materias", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
@@ -376,6 +444,7 @@ public class controladorMenus {
 			try {
 				System.out
 						.println("Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Contiene \n 4.- Volver ");
+				
 				opcion = sc.nextInt();
 				switch (opcion) {
 				case 1:

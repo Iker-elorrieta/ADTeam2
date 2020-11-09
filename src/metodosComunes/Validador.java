@@ -8,13 +8,14 @@ public class Validador {
 	private String[] spliteado;
 	private String[] largo;
 	private int lugarDeTexto = 0;
-
+	private String textoSinParentesis;
 	private final String parentesis="(";
 	private final String guion="-";
 	private final String Corchete="[";
 	private final String Corchete2="]";
 	private final String llave="{";
 	private final String rallas="\\";
+	final String simbolo = "\\*";
 	public Validador() {
 
 	}
@@ -32,7 +33,7 @@ public class Validador {
 				return false;
 			}
 		} else if (contieneLetras) {
-			for (int x = 0; x < texto.length() - 1; x++) {
+			for (int x = 0; x < texto.length(); x++) {
 				if (java.lang.Character.isDigit(texto.charAt(x))) {
 					return false;
 				}
@@ -72,6 +73,12 @@ public class Validador {
 			lugar = 1;
 		} else {
 			lugar = 0;
+		}
+		if (lugar == 2) {
+			textoSinParentesis = patron.split(simbolo)[1];
+		}
+		else {
+			textoSinParentesis = patron.split(simbolo)[0];
 		}
 
 		return lugar;
@@ -167,6 +174,12 @@ public class Validador {
 	public int getLugarDeTexto() {
 		return lugarDeTexto;
 	}
+
+	public String getTextoSinParentesis() {
+		return textoSinParentesis;
+	}
+
+	
 
 	
 }
