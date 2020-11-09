@@ -16,7 +16,6 @@ public class EscribirCsv {
 	 * @return Retorna un booleano false para saber si ha saltado alguna excepcion
 	 * @return Retorna un booleano true para saber si se ha terminado de escribir o crear el fichero
 	 * 
-	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	final static String cvsSplitBy = ";";
 
