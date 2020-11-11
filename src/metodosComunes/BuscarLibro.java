@@ -7,25 +7,38 @@ import objetos.Libro;
 public class BuscarLibro {
 
 	/**
-	 * Esta clase contiene el metodo de Buscar Libro 
-	 * @param libros ArrayList de Libros que se le pasa al metodo como parametro
-	 * @param categoria String que se le pasa al metodo como parametro(Indica por que atributo del Libro se quiere buscar)
-	 * @param dato String que se le pasa al metodo como parametro(patron a buscar)
-	 * @param busqueda Numero entero que se le pasa al metodo como parametro(Indica la zona de busqueda)
+	 * Esta clase contiene el metodo de Buscar Libro
+	 * 
+	 * @param libros    ArrayList de Libros que se le pasa al metodo como parametro
+	 * @param categoria String que se le pasa al metodo como parametro(Indica por
+	 *                  que atributo del Libro se quiere buscar)
+	 * @param dato      String que se le pasa al metodo como parametro(patron a
+	 *                  buscar)
+	 * @param busqueda  Numero entero que se le pasa al metodo como parametro(Indica
+	 *                  la zona de busqueda)
 	 * @author Asier, Jonatan
 	 * @return librosencontrados ArrayList de Libros encontrados en la busqueda
-	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
+	 * @throws IOException clase general de excepciones producidas por operaciones
+	 *                     de E / S fallidas o interrumpidas.
 	 */
-	
+
 	public static ArrayList<Libro> buscar(ArrayList<Libro> libros, String categoria, String dato, int busqueda) {
 
 		ArrayList<Libro> librosEncontrados = new ArrayList<>();
+
+		final String titulo = "titulo";
+		final String editorial = "editorial";
+		final String paginas = "paginas";
+		final String altura = "altura";
+		final String notas = "notas";
+		final String isbn = "isbn";
+		final String materias = "materias";
 
 		for (Libro libro : libros) {
 
 			switch (categoria) {
 
-			case "titulo":
+			case titulo:
 
 				if (busqueda == 1) {
 					if (libro.getTitulo().startsWith(dato)) {
@@ -48,7 +61,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "editorial":
+			case editorial:
 				if (busqueda == 1) {
 					if (libro.getEditorial().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -70,7 +83,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "paginas":
+			case paginas:
 
 				if (busqueda == 1) {
 					if (libro.getPaginas() == Integer.parseInt(dato)) {
@@ -93,7 +106,7 @@ public class BuscarLibro {
 
 				break;
 
-			case "altura":
+			case altura:
 
 				if (busqueda == 1) {
 					if (libro.getAltura() < Double.parseDouble(dato)) {
@@ -109,7 +122,7 @@ public class BuscarLibro {
 
 				break;
 
-			case "notas":
+			case notas:
 				if (busqueda == 1) {
 					if (libro.getNotas().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -129,7 +142,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "isbn":
+			case isbn:
 				if (busqueda == 1) {
 					if (libro.getIsbn().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -149,7 +162,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "materias":
+			case materias:
 				if (busqueda == 1) {
 					if (libro.getMaterias().startsWith(dato)) {
 						librosEncontrados.add(libro);
