@@ -20,12 +20,21 @@ public class BuscarLibro {
 	public static ArrayList<Libro> buscar(ArrayList<Libro> libros, String categoria, String dato, int busqueda) {
 
 		ArrayList<Libro> librosEncontrados = new ArrayList<>();
+		
+		final String titulo = "titulo";
+		final String editorial = "editorial"; 
+		final String paginas = "paginas"; 
+		final String altura = "altura"; 
+		final String notas = "notas"; 
+		final String isbn = "isbn"; 
+		final String materias = "materias"; 
+		
 
 		for (Libro libro : libros) {
 
 			switch (categoria) {
 
-			case "titulo":
+			case titulo:
 
 				if (busqueda == 1) {
 					if (libro.getTitulo().startsWith(dato)) {
@@ -48,7 +57,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "editorial":
+			case editorial:
 				if (busqueda == 1) {
 					if (libro.getEditorial().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -70,7 +79,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "paginas":
+			case paginas:
 
 				if (busqueda == 1) {
 					if (libro.getPaginas() == Integer.parseInt(dato)) {
@@ -93,7 +102,7 @@ public class BuscarLibro {
 
 				break;
 
-			case "altura":
+			case altura:
 
 				if (busqueda == 1) {
 					if (libro.getAltura() < Double.parseDouble(dato)) {
@@ -109,7 +118,7 @@ public class BuscarLibro {
 
 				break;
 
-			case "notas":
+			case notas:
 				if (busqueda == 1) {
 					if (libro.getNotas().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -129,7 +138,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "isbn":
+			case isbn:
 				if (busqueda == 1) {
 					if (libro.getIsbn().startsWith(dato)) {
 						librosEncontrados.add(libro);
@@ -149,7 +158,7 @@ public class BuscarLibro {
 				}
 				break;
 
-			case "materias":
+			case materias:
 				if (busqueda == 1) {
 					if (libro.getMaterias().startsWith(dato)) {
 						librosEncontrados.add(libro);
