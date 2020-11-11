@@ -1,0 +1,60 @@
+						-----------------------------------------
+						-		LINUX			-
+						-					-
+						-----------------------------------------
+
+Paso 1 – Cambiar permisos de archivos y carpetas a través de la línea de comandos en Linux
+
+chmod: Este comando se usa para cambiar permisos de un archivo o carpeta. Básicamente, cada archivo tiene tres tipos de usuarios que pueden interactuar con él:
+
+Tipo	Explicación
+owner (propietario)	Es el usuario que creó y posee un archivo/directorio.
+group (grupo)	Todos los usuarios que son miembros del mismo grupo.
+others (otros)	Todos los demás usuarios del sistema que no son propietarios ni miembros del grupo.
+
+El comando ls -l se puede usar para ver los permisos de archivos y los propietarios. Por ejemplo, ls -l file1.txt mostraría:
+
+r (read; leer en español) – 4
+w (write; escribir en español) – 2
+x (execute, ejecutar en español) – 1
+Entonces, por ejemplo, si queremos que los permisos de file1.txt sean estos:
+
+
+Valor	Valor Numérico	Explicación
+-rw——-	600	El propietario puede leer y escribir.
+-rw-r–r–	644	El propietario puede leer y escribir, el grupo y otros pueden leer.
+-rw-rw-rw-	666	El propietario, el grupo y otros pueden leer y escribir.
+-rwx——	700	El propietario puede leer, escribir y ejecutar, el grupo y otros no pueden hacer nada con el archivo.
+-rwx–x–x	711	El propietario puede leer, escribir y ejecutar, el grupo y otros pueden ejecutar.
+-rwxr-xr-x	755	El propietario puede leer, escribir y ejecutar, el grupo y otros pueden leer y ejecutar.
+-rwxrwxrwx	777	 EL propietario, el grupo y otros pueden leer, escribir y ejecutar.
+Los permisos comunes para directorios:
+
+Valor	Valor Numérico	Explicación
+drwx——	700	Solo el propietario puede leer y escribir en este directorio.
+drwxr-xr-x	755	 El propietario, el grupo y otros pueden leer el directorio, pero solo el propietario puede cambiar su contenido.
+Hay otras maneras de cambiar permisos del archivo usando el comando chmod pero nuestra recomendación es que aprendas una de ellas y la uses todas las veces (en este caso, el modo de numeración). Si quieres obtener más información sobre las otras formas de cambiar los permisos, puede leer sobre esto aquí. (Contenido en inglés).
+
+Paso 2 – Cambiar los propietarios de archivos y carpetas a través de la línea de comandos
+chown: Este comando se usa para cambiar los propietarios de un archivo o carpeta. La sintaxis más básica de este comando es esta:
+
+chown [owner/group owner] [file name]
+Básicamente, si tenemos un archivo «demo.txt» y queremos que el propietario del archivo sea «jerry» y que el propietario del grupo sea «clientes», usaríamos este comando:
+
+chown jerry:clients demo.txt
+Como puedes ver, separamos al propietario y al propietario del grupo con un símbolo «:» (dos puntos). Si solo quisiéramos cambiar el propietario del archivo, usaríamos esto:
+
+chown jerry demo.txt
+Como ves, simplemente dejamos fuera al propietario del grupo y solo escribimos el nuevo propietario del archivo, por lo que en ese caso, el propietario del grupo permanecerá sin cambios. Otro ejemplo similar sería si quisiéramos cambiar el propietario del grupo del archivo, el comando sería así:
+
+chown :clients demo.txt
+En este caso, solo el propietario del grupo cambiaría a clientes (el propietario no cambiaría).
+
+Paso 3 – Usar opciones adicionales con los comandos chmod y chown
+Una de las opciones principales que funciona con ambos comandos es -R, que significa recursivo. Esta opción te permite cambiar permisos/propietarios en una carpeta y TODOS los demás archivos y carpetas dentro de esa carpeta inicial.
+
+
+
+
+
+

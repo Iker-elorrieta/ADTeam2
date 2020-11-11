@@ -8,6 +8,7 @@ import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
+import metodosComunes.InfoCambioPermisos;
 import metodosComunes.Validador;
 import objetos.Libro;
 
@@ -31,13 +32,13 @@ public class controladorMenus {
 		do {
 			try {
 				System.out.println(
-						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.- Salir");
+						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.-Modificar Archivo \n 5.-Info cambiar permisos \n 6.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 4) {
+				if (opcion < 1 || opcion > 6) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-6):\n");
 				} else {
 					error = false;
 				}
@@ -45,7 +46,7 @@ public class controladorMenus {
 				// Excepcion de que se introduce un numero valido
 			} catch (Exception e) {
 				System.out.println(
-						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-5):\n");
 				sc.nextLine();
 			}
 
@@ -144,14 +145,14 @@ public class controladorMenus {
 
 		return opcion;
 	}
+
 	public static int subMenuTipoDeBusqueda(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
 		do {
 			try {
-				System.out.println(
-						"Que tipo de busqueda desea realizar? \n1.- Sencilla \n 2.-Con Codigo");
+				System.out.println("Que tipo de busqueda desea realizar? \n1.- Sencilla \n 2.-Con Codigo");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 9
@@ -172,6 +173,111 @@ public class controladorMenus {
 		return opcion;
 	}
 
+	public static String subMenuBuscarPorPalabra(Scanner sc) {
+
+		String patron = null;
+		String empieza = null;
+		String termina = null;
+		int opcion = 0;
+		boolean error = true;
+		do {
+
+			try {
+				System.out
+						.println("Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Contiene \n 4.- Volver ");
+
+				opcion = sc.nextInt();
+				switch (opcion) {
+				case 1:
+					System.out.println("Introduce por que quiere empezar a buscar");
+					empieza = sc.next();
+					patron = empieza + "*";
+					break;
+				case 2:
+					System.out.println("Introduce por que quiere terminar a buscar");
+					termina = sc.next();
+					patron = "*" + termina;
+					break;
+				case 3:
+					System.out.println("Introduce que contiene lo que quiere  buscar");
+					empieza = sc.next();
+					patron = "*" + empieza + "*";
+					break;
+				}
+				System.out.println();
+				if (opcion < 1 || opcion > 4) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
+				} else {
+					error = false;
+				}
+			} catch (Exception e) {
+			}
+		} while (error);
+
+		return patron;
+	}
+
+	public static int SubmenuModificar(Scanner sc) {
+		int opcion = 0;
+		boolean error = true;
+
+		do {
+			try {
+				System.out.println(
+						"Elija una opcion:\n\n 1.-Cambiar Ubicacion de archivo \n 2.-Cambiar permisos del fichero \n 3.-Añadir al fichero \n 4.- Salir");
+				opcion = sc.nextInt();
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 2
+				if (opcion < 1 || opcion > 4) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
+				} else {
+					error = false;
+				}
+
+				// Excepcion de que se introduce un numero valido
+			} catch (Exception e) {
+				System.out.println(
+						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				sc.nextLine();
+			}
+
+		} while (error);
+
+		return opcion;
+	}
+
+	
+	public static int SubmenuInfo(Scanner sc) {
+		int opcion = 0;
+		boolean error = true;
+
+		do {
+			try {
+				System.out.println(
+						"Elija una opcion:\n\n 1.-Info Windows \n 2.-InfoLinux \n 3.-ModificarTamaño \n 4.- Salir");
+				opcion = sc.nextInt();
+				System.out.println();
+				// Comprobacion de que se intoduce un numero del 1 al 2
+				if (opcion < 1 || opcion > 4) {
+					System.out.println("\n NUMERO INEXISTENTE\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
+				} else {
+					error = false;
+				}
+
+				// Excepcion de que se introduce un numero valido
+			} catch (Exception e) {
+				System.out.println(
+						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+				sc.nextLine();
+			}
+
+		} while (error);
+
+		return opcion;
+	}
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
 	 * LeerFichero
@@ -192,7 +298,7 @@ public class controladorMenus {
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-			if (opcion != 4) {
+			if (opcion != 6) {
 				switch (opcion) {
 				case 1:
 					opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
@@ -260,10 +366,10 @@ public class controladorMenus {
 					break;
 				case 3:
 					int busqueda;
-					int tipoDeBusqueda=1;
+					int tipoDeBusqueda = 1;
 					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
-					if (opcionSubMenu !=3 && opcionSubMenu!=4) {
-					tipoDeBusqueda= controladorMenus.subMenuTipoDeBusqueda(sc);
+					if (opcionSubMenu != 3 && opcionSubMenu != 4) {
+						tipoDeBusqueda = controladorMenus.subMenuTipoDeBusqueda(sc);
 					}
 					final String simbolo = "\\*";
 					String dato;
@@ -271,52 +377,49 @@ public class controladorMenus {
 					ArrayList<Libro> librosEncontrados;
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 
-					if (opcionSubMenu < 8) {
+					if (opcionSubMenu != 8) {
 
 						switch (opcionSubMenu) {
 
 						case 1:
-							if (tipoDeBusqueda== 1) {
-							dato = subMenuBuscarPorPalabra(sc);
-							validador.validador(dato, "");
+							if (tipoDeBusqueda == 1) {
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato, "");
 
-							busqueda = validador.getLugarDeTexto();
-							
-							if (busqueda == 2) {
-								text = dato.split(simbolo)[1];
-							}
-							else {
-								text = dato.split(simbolo)[0];
-							}
-							}
-							else {
+								busqueda = validador.getLugarDeTexto();
+
+								if (busqueda == 2) {
+									text = dato.split(simbolo)[1];
+								} else {
+									text = dato.split(simbolo)[0];
+								}
+							} else {
 								System.out.println("Introduzca el patron");
-								dato=sc.next();
+								dato = sc.next();
 								validador.comprobarPatron(dato);
-								busqueda=validador.getLugarDeTexto();
-								text=validador.getTextoSinParentesis();
+								busqueda = validador.getLugarDeTexto();
+								text = validador.getTextoSinParentesis();
 							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "titulo", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 2:
-							if (tipoDeBusqueda== 1) {
-							dato = subMenuBuscarPorPalabra(sc);
-							validador.validador(dato, "");
+							if (tipoDeBusqueda == 1) {
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato, "");
 
-							busqueda = validador.getLugarDeTexto();
-							if (busqueda == 2) {
-								text = dato.split(simbolo)[1];
-							}
-							else {
-								text = dato.split(simbolo)[0];
-							}
-							}else {
+								busqueda = validador.getLugarDeTexto();
+								if (busqueda == 2) {
+									text = dato.split(simbolo)[1];
+								} else {
+									text = dato.split(simbolo)[0];
+								}
+							} else {
 								System.out.println("Introduzca el patron");
-								dato=sc.next();
+								dato = sc.next();
 								validador.comprobarPatron(dato);
-								busqueda=validador.getLugarDeTexto();
-								text=validador.getTextoSinParentesis();
+								busqueda = validador.getLugarDeTexto();
+								text = validador.getTextoSinParentesis();
 							}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "editorial", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
@@ -353,128 +456,122 @@ public class controladorMenus {
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "altura", dato, busqueda);
 							break;
 						case 5:
-							if (tipoDeBusqueda== 1) {
-							dato = subMenuBuscarPorPalabra(sc);
-							validador.validador(dato, "");
+							if (tipoDeBusqueda == 1) {
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato, "");
 
-							busqueda = validador.getLugarDeTexto();
-							
-							if (busqueda == 2) {
-								text = dato.split(simbolo)[1];
-							}
-							else {
-								text = dato.split(simbolo)[0];
-							}
-							}else {
+								busqueda = validador.getLugarDeTexto();
+
+								if (busqueda == 2) {
+									text = dato.split(simbolo)[1];
+								} else {
+									text = dato.split(simbolo)[0];
+								}
+							} else {
 								System.out.println("Introduzca el patron");
-								dato=sc.next();
+								dato = sc.next();
 								validador.comprobarPatron(dato);
-								busqueda=validador.getLugarDeTexto();
-								text=validador.getTextoSinParentesis();
+								busqueda = validador.getLugarDeTexto();
+								text = validador.getTextoSinParentesis();
 							}
-							
+
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "notas", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 6:
-							if (tipoDeBusqueda== 1) {
-							dato = subMenuBuscarPorPalabra(sc);
-							validador.validador(dato, "");
+							if (tipoDeBusqueda == 1) {
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato, "");
 
-							busqueda = validador.getLugarDeTexto();
-							if (busqueda == 2) {
-								text = dato.split(simbolo)[1];
+								busqueda = validador.getLugarDeTexto();
+								if (busqueda == 2) {
+									text = dato.split(simbolo)[1];
+								} else {
+									text = dato.split(simbolo)[0];
+								}
+							} else {
+								System.out.println("Introduzca el patron");
+								dato = sc.next();
+								validador.comprobarPatron(dato);
+								busqueda = validador.getLugarDeTexto();
+								text = validador.getTextoSinParentesis();
 							}
-							else {
-								text = dato.split(simbolo)[0];
-							}
-						}else {
-							System.out.println("Introduzca el patron");
-							dato=sc.next();
-							validador.comprobarPatron(dato);
-							busqueda=validador.getLugarDeTexto();
-							text=validador.getTextoSinParentesis();
-						}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "isbn", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 						case 7:
-							if (tipoDeBusqueda== 1) {
-							dato = subMenuBuscarPorPalabra(sc);
-							validador.validador(dato, "");
+							if (tipoDeBusqueda == 1) {
+								dato = subMenuBuscarPorPalabra(sc);
+								validador.validador(dato, "");
 
-							busqueda = validador.getLugarDeTexto();
-							if (busqueda == 2) {
-								text = dato.split(simbolo)[1];
+								busqueda = validador.getLugarDeTexto();
+								if (busqueda == 2) {
+									text = dato.split(simbolo)[1];
+								} else {
+									text = dato.split(simbolo)[0];
+								}
+							} else {
+								System.out.println("Introduzca el patron");
+								dato = sc.next();
+								validador.comprobarPatron(dato);
+								busqueda = validador.getLugarDeTexto();
+								text = validador.getTextoSinParentesis();
 							}
-							else {
-								text = dato.split(simbolo)[0];
-							}
-					}else {
-						System.out.println("Introduzca el patron");
-						dato=sc.next();
-						validador.comprobarPatron(dato);
-						busqueda=validador.getLugarDeTexto();
-						text=validador.getTextoSinParentesis();
-					}
 							librosEncontrados = metodosComunes.BuscarLibro.buscar(libros, "materias", text, busqueda);
 							EscribirPantalla.escribirLibro(librosEncontrados, sc);
 							break;
 
 						}
+
 					}
+					break;
+				case 4:
+					opcionSubMenu = controladorMenus.SubmenuModificar(sc);
+					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
+					if (opcionSubMenu != 4) {
+
+						switch (opcionSubMenu) {
+						case 1:
+
+							break;
+						case 2:
+
+							break;
+						case 3:
+
+							break;
+						}
+
+					}
+					break;
+				case 5 :
+					
+					opcionSubMenu = controladorMenus.SubmenuInfo(sc);
+					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
+					if (opcionSubMenu != 4) {
+
+						switch (opcionSubMenu) {
+						case 1:
+							
+							break;
+						case 2:
+							InfoCambioPermisos.InfoPermisosLinux();
+							break;
+						case 3:
+							
+							break;
+						}
+
+					}
+					
+					
+					break;
 				}
+				
 			}
-		} while (opcion != 4);
+		} while (opcion != 6);
 		return 1;
 
-	}
-
-
-
-	public static String subMenuBuscarPorPalabra(Scanner sc) {
-
-		String patron = null;
-		String empieza = null;
-		String termina = null;
-		int opcion = 0;
-		boolean error = true;
-		do {
-
-			try {
-				System.out
-						.println("Por que quiere buscar :\n 1.- Empieza \n 2.- Termina\n 3.- Contiene \n 4.- Volver ");
-				
-				opcion = sc.nextInt();
-				switch (opcion) {
-				case 1:
-					System.out.println("Introduce por que quiere empezar a buscar");
-					empieza = sc.next();
-					patron = empieza + "*";
-					break;
-				case 2:
-					System.out.println("Introduce por que quiere terminar a buscar");
-					termina = sc.next();
-					patron = "*" + termina;
-					break;
-				case 3:
-					System.out.println("Introduce que contiene lo que quiere  buscar");
-					empieza = sc.next();
-					patron = "*" + empieza + "*";
-					break;
-				}
-				System.out.println();
-				if (opcion < 1 || opcion > 4) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
-				} else {
-					error = false;
-				}
-			} catch (Exception e) {
-			}
-		} while (error);
-
-		return patron;
 	}
 
 }
