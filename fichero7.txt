@@ -1,0 +1,8 @@
+Titulo : txt
+Editorial : txt
+Paginas : 3
+Altura : 3.0
+Notas : 3
+Isbn : 3
+Materias : txt
+*******************************

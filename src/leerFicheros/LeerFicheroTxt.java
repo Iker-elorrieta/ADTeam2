@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import metodosComunes.EscribirPantalla;
 import objetos.Libro;
@@ -11,62 +13,76 @@ import objetos.Libro;
 public class LeerFicheroTxt {
 
 	/**
-	 * Esta clase contiene el metodo de leer Fichero txt 
-	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como parametro
-	 * @author Ibai 
-	 * @return retorna un booleano true para saber si se ha temrinado de leer el fichero
+	 * Esta clase contiene el metodo de leer Fichero txt
+	 * 
+	 * @param nombreFichero Nombre del fichero que se le pasa al metodo como
+	 *                      parametro
+	 * @author Ibai
+	 * @param sc 
+	 * @return retorna un booleano true para saber si se ha temrinado de leer el
+	 *         fichero
 	 */
-	public static Boolean LeerTxt(String nombreFichero) {
-		
+	public static Boolean LeerTxt(String nombreFichero,ArrayList<Libro> libros, Scanner sc) {
+
 		String cortar1;
-		ArrayList<Libro> libros = new ArrayList<Libro>();
+		
 		Libro libro = new Libro();
-		Boolean RepetirCabezera=true;
+		Boolean RepetirCabezera = true;
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
-		
+
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
-			archivo = new File(nombreFichero+".txt");
+			archivo = new File(nombreFichero + ".txt");
 			// Le pasamos la variable del Fichero que queremos leer
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 			// Lectura del fichero
 			String linea;
+			String obj;
 			while ((linea = br.readLine()) != null) {
-				if (linea.contains("***********")) {
-					
+				if (linea.contains("*******************************")) {
+
 					libros.add(libro);
-					libro=new Libro();
-				}else {
-					cortar1 = linea.split(": ")[1];
-				if (linea.contains("Titulo")) 
-					libro.setTitulo(cortar1);
+					libro = new Libro();
+				} else {
+					StringTokenizer st = new StringTokenizer(linea, ":");
+					obj=st.nextToken();
 					
-				 else if (linea.contains("Editorial")) 
-					libro.setEditorial(cortar1);
+					if(st.hasMoreTokens()) {
+						obj=st.nextToken();
+					}
+					
+					obj=obj.trim();
+					
+						if (linea.contains("Titulo"))
+							libro.setTitulo(obj);
 
-				 else if (linea.contains("Paginas")) 
-					libro.setPaginas(cortar1);
+						else if (linea.contains("Editorial"))
+							libro.setEditorial(obj);
 
-				 else if (linea.contains("Altura")) 
-					libro.setAltura(cortar1);
+						else if (linea.contains("Paginas"))
+							libro.setPaginas(Integer.parseInt(obj.trim()));
+					
+						else if (linea.contains("Altura"))
+							libro.setAltura(Float.parseFloat(obj.trim()));
 
-				 else if (linea.contains("Notas")) 
-					libro.setNotas(cortar1);
+						else if (linea.contains("Notas"))
+							libro.setNotas(obj);
 
-				 else if (linea.contains("Isbn")) 
-					libro.setIsbn(cortar1);
+						else if (linea.contains("Isbn"))
+							libro.setIsbn(obj);
 
-				 else if (linea.contains("Materias")) 
-					libro.setMaterias(cortar1);
+						else if (linea.contains("Materias"))
+							libro.setMaterias(obj);
+					}
 				}
-			EscribirPantalla.escribirLibro(libros,true);
-			}
 
-		}catch (Exception e) {
+			
+		
+		} catch (Exception e) {
 			System.out.println("El fichero no es compatible o no se encuentra en el sistema");
 			return false;
 		} finally {
@@ -78,10 +94,10 @@ public class LeerFicheroTxt {
 					fr.close();
 				}
 			} catch (Exception e2) {
-			
+				
 			}
 		}
-	return true;
+		return true;
 	}
 
 }

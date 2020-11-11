@@ -16,31 +16,27 @@ import leerFicheros.LeerFicheroXml;
 import metodosComunes.*;
 import objetos.Libro;
 
-public class EscribirXml {/**
-	 * Esta clase contiene el metodo de escribir Fichero .xml 
+public class EscribirXml {
+	/**
+	 * Esta clase contiene el metodo de escribir Fichero .xml
+	 * 
 	 * @param nombre Nombre del fichero que se le pasa al metodo como parametro
-	 * @param name Nombre del fichero que se le pasa al metodo como parametro
-	 * @author Asier, Jonatan  
+	 * @param name   Nombre del fichero que se le pasa al metodo como parametro
+	 * @author Asier, Jonatan
 	 * @return Retorna un ArrayList de Libros
 	 * 
 	 * @throws Exception clase general de excepciones.
 	 */
 	static Scanner sc = new Scanner(System.in);
+
 	public EscribirXml() {
 
-//		try {
-//
-//			generarXml(nombre);
-//
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	public ArrayList<Libro> generarXml(String name, Scanner sc) {
 
-		ArrayList<Libro> libros = LeerFicheroXml.leerXml(name);
+		ArrayList<Libro> libros = new ArrayList<Libro>();
+		LeerFicheroXml.leerXml(name, libros, sc);
 
 		libros.add(RellenarLibro.rellenarLibro(sc));
 
@@ -75,11 +71,12 @@ public class EscribirXml {/**
 				eLibro.appendChild(eEditorial);
 
 				Element ePaginas = doc.createElement("paginas");
-				ePaginas.appendChild(doc.createTextNode(libro.getPaginas()));
+				ePaginas.appendChild(doc.createTextNode(String.valueOf(libro.getPaginas())));
 				eLibro.appendChild(ePaginas);
 
 				Element eAltura = doc.createElement("altura");
-				eAltura.appendChild(doc.createTextNode(libro.getAltura()));
+				eAltura.appendChild(doc.createTextNode(String.valueOf(libro.getAltura())));
+				
 				eLibro.appendChild(eAltura);
 
 				Element eNotas = doc.createElement("notas");
@@ -102,13 +99,12 @@ public class EscribirXml {/**
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(name + ".xml"));
 
-			System.out.println("");
-			System.out.println("DOCUMENTO CREADO CON ÉXITO: " + name + ".xml");
-
 			((javax.xml.transform.Transformer) transformer).transform(source, result);
 		} catch (Exception e) {
 			System.out.println("!ERROR AL CREAR DOCUMENTO¡");
 			e.printStackTrace();
+			libros = null;
+			return libros;
 		}
 		return libros;
 	}

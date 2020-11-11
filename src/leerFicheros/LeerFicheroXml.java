@@ -2,18 +2,20 @@ package leerFicheros;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
+
+import metodosComunes.EscribirPantalla;
 import objetos.Libro;
 
 public class LeerFicheroXml {
 
-	public static ArrayList<Libro> leerXml(String nombreFichero) {
-		
+	public static boolean leerXml(String nombreFichero, ArrayList<Libro> libros, Scanner sc) {
 
 		File file = new File(nombreFichero + ".xml");
-		ArrayList<Libro> libros = new ArrayList<>();
 
 		try {
 
@@ -35,8 +37,8 @@ public class LeerFicheroXml {
 
 					Libro libro = new Libro(eElement.getElementsByTagName("titulo").item(0).getTextContent(),
 							eElement.getElementsByTagName("editorial").item(0).getTextContent(),
-							eElement.getElementsByTagName("paginas").item(0).getTextContent(),
-							eElement.getElementsByTagName("altura").item(0).getTextContent(),
+							Integer.valueOf(eElement.getElementsByTagName("paginas").item(0).getTextContent()),
+							Float.parseFloat(eElement.getElementsByTagName("altura").item(0).getTextContent()),
 							eElement.getElementsByTagName("notas").item(0).getTextContent(),
 							eElement.getElementsByTagName("isbn").item(0).getTextContent(),
 							eElement.getElementsByTagName("materias").item(0).getTextContent());
@@ -44,11 +46,11 @@ public class LeerFicheroXml {
 
 				}
 			}
-			
-			return libros;
+
+			return true;
 		} catch (Exception e) {
 
-			return libros;
+			return false;
 		}
 	}
 

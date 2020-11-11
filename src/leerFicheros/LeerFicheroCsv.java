@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import metodosComunes.EscribirPantalla;
@@ -19,13 +20,12 @@ public class LeerFicheroCsv {
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerCSV(String nombreFichero) {
+	public static Boolean LeerCSV(String nombreFichero,ArrayList<Libro> libros,Scanner sc) {
 
-		ArrayList<Libro> libros = new ArrayList<Libro>();
+		
 		BufferedReader br = null;
 		String linea = "";
 		// Se define separador ","
-		final String cvsSplitBy = ",";
 		try {
 			// cargamos en el bufer el fichero
 			br = new BufferedReader(new FileReader(nombreFichero + ".csv"));
@@ -34,21 +34,22 @@ public class LeerFicheroCsv {
 
 				StringTokenizer st = new StringTokenizer(linea, ";");
 				Libro libro = new Libro();
-
+				String prueba;
 				while (st.hasMoreTokens()) {
 
 					libro.setTitulo(st.nextToken());
 					libro.setEditorial(st.nextToken());
-					libro.setPaginas(st.nextToken());
-					libro.setAltura(st.nextToken());
+					libro.setPaginas(Integer.parseInt(st.nextToken()));
+					libro.setAltura(Float.parseFloat(st.nextToken()));
 					libro.setNotas(st.nextToken());
 					libro.setIsbn(st.nextToken());
 					libro.setMaterias(st.nextToken());
 				}
+				
 				libros.add(libro);
 			}
 
-			EscribirPantalla.escribirLibro(libros, false);
+			
 		} catch (IOException e) {
 			// Error en el nombre del fichero
 			System.out.println("");
