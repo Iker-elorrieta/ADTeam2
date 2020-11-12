@@ -539,36 +539,37 @@ public class controladorMenus {
 							break;
 						case 2:
 							Permisos p = new Permisos();
-							
-							File file = new File("PuebaPermisos.xml");
-							try {
-								file.createNewFile();
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							
+
+							String osName;
+
 							System.out.println("Para dar permisos pulse 1, para quitar permisos pulse 2");
-							
+
 							int permiso1 = sc.nextInt();
-							
-							System.out.println("Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
-							
+
+							System.out.println(
+									"Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
+
 							int permiso2 = sc.nextInt();
-							
+
 							if (permiso1 == 1) {
-								
+
+								if (System.getProperty("os.name").contains("Windows")) {
+
+								} else {
+
+								}
+
+							} else {
+								if (System.getProperty("os.name").contains("Windows")) {
+
+								}
+								else {
+									
+								}
 							}
-							else {
-								p.quitarPermisoWindows(file, permiso2);
-							}
-							
-							
-							
-							
-							
+
 							break;
-							
+
 						case 3:
 
 							break;
