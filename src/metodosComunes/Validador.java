@@ -187,7 +187,37 @@ public class Validador {
 		return textoSinParentesis;
 	}
 
+	public boolean validarIsbn(String isbn) {
+		boolean control = true;
+		final String guion="-";
+		String spliteado[]=isbn.split(guion);
+		
+		if(Integer.parseInt(spliteado[0])<978||Integer.parseInt(spliteado[0])>979) {
+			control = false;
+		}else if (spliteado[1].length()<1||spliteado[1].length()>5||!esNumerico(spliteado[1])) {
+			control = false;
+		}else if (spliteado[2].length()<1||spliteado[2].length()>7||!esNumerico(spliteado[2])) {
+			control = false;
+		}else if (spliteado[3].length()<1||spliteado[3].length()>6||!esNumerico(spliteado[3])) {
+			control = false;
+		}else if (spliteado[4].length()!=1||!esNumerico(spliteado[4])) {
+			control = false;
+		}
+		
+		return control;
+		
+	}
 	
+	public boolean esNumerico(String dato){  
+	     try  {  
+	    	 
+	       int num = Integer.parseInt(dato);  
+	       
+	     }catch(NumberFormatException nfe){  
+	       return false;  
+	     }  
+	     return true;  
+	}
 
 	
 }
