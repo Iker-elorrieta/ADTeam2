@@ -1,5 +1,7 @@
 package controlador;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import escribirFicheros.EscribirCsv;
@@ -9,6 +11,7 @@ import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
 import metodosComunes.InfoCambioPermisos;
+import metodosComunes.Permisos;
 import metodosComunes.Validador;
 import objetos.Libro;
 
@@ -248,7 +251,6 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	
 	public static int SubmenuInfo(Scanner sc) {
 		int opcion = 0;
 		boolean error = true;
@@ -278,6 +280,7 @@ public class controladorMenus {
 
 		return opcion;
 	}
+
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
 	 * LeerFichero
@@ -535,8 +538,37 @@ public class controladorMenus {
 
 							break;
 						case 2:
-
+							Permisos p = new Permisos();
+							
+							File file = new File("PuebaPermisos.xml");
+							try {
+								file.createNewFile();
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							
+							System.out.println("Para dar permisos pulse 1, para quitar permisos pulse 2");
+							
+							int permiso1 = sc.nextInt();
+							
+							System.out.println("Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
+							
+							int permiso2 = sc.nextInt();
+							
+							if (permiso1 == 1) {
+								
+							}
+							else {
+								p.quitarPermisoWindows(file, permiso2);
+							}
+							
+							
+							
+							
+							
 							break;
+							
 						case 3:
 
 							break;
@@ -544,30 +576,29 @@ public class controladorMenus {
 
 					}
 					break;
-				case 5 :
-					
+				case 5:
+
 					opcionSubMenu = controladorMenus.SubmenuInfo(sc);
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 					if (opcionSubMenu != 4) {
 
 						switch (opcionSubMenu) {
 						case 1:
-							
+
 							break;
 						case 2:
 							InfoCambioPermisos.InfoPermisosLinux();
 							break;
 						case 3:
-							
+
 							break;
 						}
 
 					}
-					
-					
+
 					break;
 				}
-				
+
 			}
 		} while (opcion != 6);
 		return 1;
