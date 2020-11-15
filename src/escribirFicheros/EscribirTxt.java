@@ -20,7 +20,7 @@ public class EscribirTxt {
 	 */
 	static Scanner sc = new Scanner(System.in);
 	
-	public static boolean añadirTxt(String nombreArchivo,Scanner sc) {
+	public static boolean añadirTxt(File fichero,Scanner sc) {
 		
 		BufferedWriter bw = null;
 		FileWriter fw = null;
@@ -28,7 +28,7 @@ public class EscribirTxt {
 		
 		try {
 
-			File file = new File(nombreArchivo + ".txt");
+			File file = fichero;
 			// Si el archivo no existe, se crea!
 			if (!file.exists()) {
 				file.createNewFile();

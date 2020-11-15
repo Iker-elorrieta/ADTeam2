@@ -10,6 +10,7 @@ import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
 import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
+import metodosComunes.FileChooser;
 import metodosComunes.InfoCambioPermisos;
 import metodosComunes.Permisos;
 import metodosComunes.Validador;
@@ -296,76 +297,55 @@ public class controladorMenus {
 		int opcionSubMenu = 0;
 		String nombreFichero = "";
 		Validador validador = new Validador();
+		File Fichero=null;
+		FileChooser Fc;
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-
+		
 		do {
 			opcion = controladorMenus.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 			if (opcion != 6) {
 				switch (opcion) {
 				case 1:
-					opcionSubMenu = controladorMenus.subMenuLeerFicheros(sc);
+					Fc = new FileChooser();
+					Fichero = Fc.getFile();
+					if (Fichero.getPath().contains(".csv")){
+						LeerFicheroCsv.LeerCSV(Fichero, libros, sc);
+						EscribirPantalla.escribirLibro(libros, sc);
+						System.out.println();
+						// final de la accion elegida del submenu
+					}else if(Fichero.getPath().contains(".xml")){
+						LeerFicheroXml.leerXml(Fichero, libros, sc);
+						EscribirPantalla.escribirLibro(libros, sc);
+						System.out.println();
+					}else if(Fichero.getPath().contains(".txt")){
+						LeerFicheroTxt.LeerTxt(Fichero, libros, sc);// Le pasamos el nombre del fichero que// queremos leer
+						EscribirPantalla.escribirLibro(libros, sc);
+						System.out.println();
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-					if (opcionSubMenu != 4) {
-
-						switch (opcionSubMenu) {
-						case 1:
-
-							System.out.println("Introduzca el nombre del CSV :");
-							nombreFichero = sc.next();
-							LeerFicheroCsv.LeerCSV(nombreFichero, libros, sc);
-							EscribirPantalla.escribirLibro(libros, sc);
-
-							System.out.println();
-							break;// final de la accion elegida del submenu
-						case 2:
-							System.out.println("Introduzca el nombre del XML :");
-							nombreFichero = sc.next();
-							LeerFicheroXml.leerXml(nombreFichero, libros, sc);
-							EscribirPantalla.escribirLibro(libros, sc);
-							System.out.println();
-							break;
-						case 3:
-							System.out.println("Introduzca el nombre del TXT :");
-							nombreFichero = sc.next();
-							LeerFicheroTxt.LeerTxt(nombreFichero, libros, sc);// Le pasamos el nombre del fichero que
-																				// queremos leer
-							EscribirPantalla.escribirLibro(libros, sc);
-							System.out.println();
-							break;// final de la accion elegida del submenu
+						}else {
+						System.out.println("El archivo no se a podido leer");
 						}
-
-					}
 					break;
 				case 2:
-					opcionSubMenu = controladorMenus.subMenuEscribirFicheros(sc);
+					Fc = new FileChooser();
+					Fichero = Fc.getFile();
+					if (Fichero.getPath().contains(".csv")){
+						EscribirCsv.EscribeFichero(Fichero, sc);
+						System.out.println();
+						// final de la accion elegida del submenu
+					}else if(Fichero.getPath().contains(".xml")){
+						EscribirCsv.EscribeFichero(Fichero, sc);
+						System.out.println();
+					}else if(Fichero.getPath().contains(".txt")){
+						escribirFicheros.EscribirTxt.añadirTxt(Fichero, sc);// Le pasamos el nombre del
+						// fichero que queremos leer
+						System.out.println();
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-					if (opcionSubMenu != 4) {
-						switch (opcionSubMenu) {
-						case 1:
-							System.out.println("Introduzca el nombre del CSV :");
-							nombreFichero = sc.next();
-							EscribirCsv.EscribeFichero(nombreFichero, sc);
-							System.out.println();
-							break;// final de la accion elegida del submenu
-						case 2:
-							System.out.println("Introduzca el nombre del XML :");
-							nombreFichero = sc.next();
-							EscribirXml xml = new EscribirXml();
-							xml.generarXml(nombreFichero, sc);
-							System.out.println();
-							// Aqui ira las demas acciones del submenu*/
-							break;
-						case 3:
-							System.out.println("Introduzca el nombre del TXT :");
-							nombreFichero = sc.next();
-							escribirFicheros.EscribirTxt.añadirTxt(nombreFichero, sc);// Le pasamos el nombre del
-																						// fichero que queremos leer
-							System.out.println();
-							break;// final de la accion elegida del submenu
+						}else {
+						System.out.println("El archivo no se a podido leer");
 						}
-
-					}
+					
 					break;
 				case 3:
 					int busqueda;

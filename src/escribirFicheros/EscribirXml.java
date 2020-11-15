@@ -33,7 +33,7 @@ public class EscribirXml {
 
 	}
 
-	public ArrayList<Libro> generarXml(String name, Scanner sc) {
+	public ArrayList<Libro> generarXml(File name, Scanner sc) {
 
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		LeerFicheroXml.leerXml(name, libros, sc);
@@ -97,7 +97,7 @@ public class EscribirXml {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = (Transformer) transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(name + ".xml"));
+			StreamResult result = new StreamResult(name);
 
 			((javax.xml.transform.Transformer) transformer).transform(source, result);
 		} catch (Exception e) {

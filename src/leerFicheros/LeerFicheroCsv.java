@@ -1,6 +1,7 @@
 package leerFicheros;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class LeerFicheroCsv {
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerCSV(String nombreFichero,ArrayList<Libro> libros,Scanner sc) {
+	public static Boolean LeerCSV(File Fichero,ArrayList<Libro> libros,Scanner sc) {
 
 		
 		BufferedReader br = null;
@@ -28,7 +29,7 @@ public class LeerFicheroCsv {
 		// Se define separador ","
 		try {
 			// cargamos en el bufer el fichero
-			br = new BufferedReader(new FileReader(nombreFichero + ".csv"));
+			br = new BufferedReader(new FileReader(Fichero));
 			// Leemos liena a linea el fichero csv
 			while ((linea = br.readLine()) != null) {
 

@@ -21,7 +21,7 @@ public class EscribirCsv {
 
 	static Scanner sc = new Scanner(System.in);
 	
-	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {
+	public static boolean EscribeFichero(File fichero, Scanner sc) {
 
 	//static Scanner sc = new Scanner(System.in);
 		
@@ -30,7 +30,7 @@ public class EscribirCsv {
 		Libro libro = new Libro();
 		try {
 
-			File file = new File(nombreFichero + ".csv");
+			File file = (fichero);
 			// Si el archivo no existe, se crea!
 			if (!file.exists()) {
 				fw = new FileWriter(file.getAbsoluteFile(), true);

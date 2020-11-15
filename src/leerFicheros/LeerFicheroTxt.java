@@ -22,20 +22,19 @@ public class LeerFicheroTxt {
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerTxt(String nombreFichero,ArrayList<Libro> libros, Scanner sc) {
+	public static Boolean LeerTxt(File Fichero,ArrayList<Libro> libros, Scanner sc) {
 
 		String cortar1;
 		
 		Libro libro = new Libro();
 		Boolean RepetirCabezera = true;
-		File archivo = null;
+		File archivo = Fichero;
 		FileReader fr = null;
 		BufferedReader br = null;
 
 		try {
 			// Apertura del fichero y creacion de BufferedReader para poder
 			// hacer una lectura comoda (disponer del metodo readLine()).
-			archivo = new File(nombreFichero + ".txt");
 			// Le pasamos la variable del Fichero que queremos leer
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);

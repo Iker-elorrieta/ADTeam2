@@ -13,9 +13,9 @@ import objetos.Libro;
 
 public class LeerFicheroXml {
 
-	public static boolean leerXml(String nombreFichero, ArrayList<Libro> libros, Scanner sc) {
+	public static boolean leerXml(File Fichero, ArrayList<Libro> libros, Scanner sc) {
 
-		File file = new File(nombreFichero + ".xml");
+		File file = (Fichero);
 
 		try {
 
