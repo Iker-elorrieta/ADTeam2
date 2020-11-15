@@ -13,6 +13,7 @@ import metodosComunes.EscribirPantalla;
 import metodosComunes.InfoCambioPermisos;
 import metodosComunes.Permisos;
 import metodosComunes.Validador;
+import metodosComunes.ValidadorSO;
 import objetos.Libro;
 
 public class controladorMenus {
@@ -540,15 +541,18 @@ public class controladorMenus {
 						case 2:
 							Permisos p = new Permisos();
 
-							String osName;
+							ValidadorSO validadorSistema=new ValidadorSO();
 
 							System.out.println("Para dar permisos pulse 1, para quitar permisos pulse 2");
 
 							int permiso1 = sc.nextInt();
-
-							System.out.println(
-									"Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
-
+							
+							if(validadorSistema.isWindows()) {
+								System.out.println("Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
+							}else if(validadorSistema.isUnix()) {
+								System.out.println("Para Control Total pulse 1, para Lectura y Ejecución pulse 2, para Lectura pulse 3, para Escritura pulse 4");
+							}
+							
 							int permiso2 = sc.nextInt();
 
 							if (permiso1 == 1) {
