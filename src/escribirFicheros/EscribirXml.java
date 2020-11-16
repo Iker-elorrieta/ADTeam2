@@ -27,8 +27,8 @@ public class EscribirXml {
 	 * 
 	 * @throws Exception clase general de excepciones.
 	 */
-	static Scanner sc = new Scanner(System.in);
-
+	Scanner sc = new Scanner(System.in);
+	LeerFicheroXml LFX = new LeerFicheroXml();
 	public EscribirXml() {
 
 	}
@@ -36,7 +36,7 @@ public class EscribirXml {
 	public ArrayList<Libro> generarXml(File name, Scanner sc) {
 
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-		LeerFicheroXml.leerXml(name, libros, sc);
+		LFX.leerXml(name, libros, sc);
 
 		libros.add(RellenarLibro.rellenarLibro(sc));
 

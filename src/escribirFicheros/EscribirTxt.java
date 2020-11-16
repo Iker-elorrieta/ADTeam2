@@ -18,9 +18,9 @@ public class EscribirTxt {
 	 * 
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
-	static Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 	
-	public static boolean añadirTxt(File fichero,Scanner sc) {
+	public boolean añadirTxt(File fichero,Scanner sc) {
 		
 		BufferedWriter bw = null;
 		FileWriter fw = null;

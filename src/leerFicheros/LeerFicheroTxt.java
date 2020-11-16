@@ -22,7 +22,7 @@ public class LeerFicheroTxt {
 	 * @return retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerTxt(File Fichero,ArrayList<Libro> libros, Scanner sc) {
+	public Boolean LeerTxt(File Fichero,ArrayList<Libro> libros, Scanner sc) {
 
 		String cortar1;
 		

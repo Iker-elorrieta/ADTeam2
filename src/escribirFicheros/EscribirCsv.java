@@ -17,11 +17,11 @@ public class EscribirCsv {
 	 * @return Retorna un booleano true para saber si se ha terminado de escribir o crear el fichero
 	 * 
 	 */
-	final static String cvsSplitBy = ";";
+	final String cvsSplitBy = ";";
 
 	static Scanner sc = new Scanner(System.in);
 	
-	public static boolean EscribeFichero(File fichero, Scanner sc) {
+	public boolean EscribeFichero(File fichero, Scanner sc) {
 
 	//static Scanner sc = new Scanner(System.in);
 		

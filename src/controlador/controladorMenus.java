@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import escribirFicheros.EscribirCsv;
+import escribirFicheros.EscribirTxt;
 import escribirFicheros.EscribirXml;
 import leerFicheros.LeerFicheroCsv;
 import leerFicheros.LeerFicheroTxt;
@@ -12,13 +13,20 @@ import leerFicheros.LeerFicheroXml;
 import metodosComunes.EscribirPantalla;
 import metodosComunes.FileChooser;
 import metodosComunes.InfoCambioPermisos;
+import metodosComunes.MoverFichero;
 import metodosComunes.Permisos;
 import metodosComunes.Validador;
 import metodosComunes.ValidadorSO;
 import objetos.Libro;
 
 public class controladorMenus {
-
+	LeerFicheroCsv LFC = new LeerFicheroCsv();
+	LeerFicheroTxt LFT = new LeerFicheroTxt();
+	LeerFicheroXml LFX = new LeerFicheroXml();
+	MoverFichero MF=new MoverFichero();
+	EscribirTxt EsT = new EscribirTxt();
+	EscribirXml EsX	=	new	EscribirXml();
+	EscribirCsv EsC = new EscribirCsv();
 	static Scanner sc = new Scanner(System.in);
 	final static int EscribirTodos = 0;
 
@@ -29,7 +37,7 @@ public class controladorMenus {
 	 * @author jonatan,fran
 	 * @return retorna un numero entero que sera la opcion elegida
 	 */
-	public static int menu(Scanner sc) {
+	public int menu(Scanner sc) {
 		int opcion = 0;
 		boolean error = true;
 
@@ -67,7 +75,7 @@ public class controladorMenus {
 	 * @author jonatan,fran
 	 * @return retorna un numero entero que sera la opcion elegida
 	 */
-	public static int subMenuLeerFicheros(Scanner sc) {
+	public int subMenuLeerFicheros(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
@@ -95,7 +103,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int subMenuEscribirFicheros(Scanner sc) {
+	public int subMenuEscribirFicheros(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
@@ -123,7 +131,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int subMenuBuscador(Scanner sc) {
+	public int subMenuBuscador(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
@@ -151,7 +159,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int subMenuTipoDeBusqueda(Scanner sc) {
+	public int subMenuTipoDeBusqueda(Scanner sc) {
 
 		int opcion = 0;
 		boolean error = true;
@@ -178,7 +186,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static String subMenuBuscarPorPalabra(Scanner sc) {
+	public String subMenuBuscarPorPalabra(Scanner sc) {
 
 		String patron = null;
 		String empieza = null;
@@ -223,7 +231,7 @@ public class controladorMenus {
 		return patron;
 	}
 
-	public static int SubmenuModificar(Scanner sc) {
+	public int SubmenuModificar(Scanner sc) {
 		int opcion = 0;
 		boolean error = true;
 
@@ -253,7 +261,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public static int SubmenuInfo(Scanner sc) {
+	public int SubmenuInfo(Scanner sc) {
 		int opcion = 0;
 		boolean error = true;
 
@@ -292,7 +300,7 @@ public class controladorMenus {
 	 * @return retorna un 1 para comprobar que termina correctamente
 	 * 
 	 */
-	public static int opcionElegida(Scanner sc) {
+	public int opcionElegida(Scanner sc) {
 
 		int opcion = 0;
 		int opcionSubMenu = 0;
@@ -303,7 +311,7 @@ public class controladorMenus {
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		
 		do {
-			opcion = controladorMenus.menu(sc);
+			opcion = this.menu(sc);
 			// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 			if (opcion != 6) {
 				switch (opcion) {
@@ -311,16 +319,16 @@ public class controladorMenus {
 					Fc = new FileChooser();
 					Fichero = Fc.getFile();
 					if (Fichero.getPath().contains(".csv")){
-						LeerFicheroCsv.LeerCSV(Fichero, libros, sc);
+						LFC.LeerCSV(Fichero, libros, sc);
 						EscribirPantalla.escribirLibro(libros, sc);
 						System.out.println();
 						// final de la accion elegida del submenu
 					}else if(Fichero.getPath().contains(".xml")){
-						LeerFicheroXml.leerXml(Fichero, libros, sc);
+						LFX.leerXml(Fichero, libros, sc);
 						EscribirPantalla.escribirLibro(libros, sc);
 						System.out.println();
 					}else if(Fichero.getPath().contains(".txt")){
-						LeerFicheroTxt.LeerTxt(Fichero, libros, sc);// Le pasamos el nombre del fichero que// queremos leer
+						LFT.LeerTxt(Fichero, libros, sc);// Le pasamos el nombre del fichero que// queremos leer
 						EscribirPantalla.escribirLibro(libros, sc);
 						System.out.println();
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
@@ -332,14 +340,14 @@ public class controladorMenus {
 					Fc = new FileChooser();
 					Fichero = Fc.getFile();
 					if (Fichero.getPath().contains(".csv")){
-						EscribirCsv.EscribeFichero(Fichero, sc);
+						EsC.EscribeFichero(Fichero, sc);
 						System.out.println();
 						// final de la accion elegida del submenu
 					}else if(Fichero.getPath().contains(".xml")){
-						EscribirCsv.EscribeFichero(Fichero, sc);
+						EsX.generarXml(Fichero, sc);
 						System.out.println();
 					}else if(Fichero.getPath().contains(".txt")){
-						escribirFicheros.EscribirTxt.añadirTxt(Fichero, sc);// Le pasamos el nombre del
+						EsT.añadirTxt(Fichero, sc);// Le pasamos el nombre del
 						// fichero que queremos leer
 						System.out.println();
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
@@ -351,9 +359,9 @@ public class controladorMenus {
 				case 3:
 					int busqueda;
 					int tipoDeBusqueda = 1;
-					opcionSubMenu = controladorMenus.subMenuBuscador(sc);
+					opcionSubMenu = this.subMenuBuscador(sc);
 					if (opcionSubMenu != 3 && opcionSubMenu != 4) {
-						tipoDeBusqueda = controladorMenus.subMenuTipoDeBusqueda(sc);
+						tipoDeBusqueda = this.subMenuTipoDeBusqueda(sc);
 					}
 					final String simbolo = "\\*";
 					String dato;
@@ -510,13 +518,13 @@ public class controladorMenus {
 					}
 					break;
 				case 4:
-					opcionSubMenu = controladorMenus.SubmenuModificar(sc);
+					opcionSubMenu = this.SubmenuModificar(sc);
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 					if (opcionSubMenu != 4) {
 
 						switch (opcionSubMenu) {
 						case 1:
-
+							MF.moverFicheroWindows();
 							break;
 						case 2:
 							Permisos p = new Permisos();
@@ -563,13 +571,13 @@ public class controladorMenus {
 					break;
 				case 5:
 
-					opcionSubMenu = controladorMenus.SubmenuInfo(sc);
+					opcionSubMenu = this.SubmenuInfo(sc);
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 					if (opcionSubMenu != 4) {
 
 						switch (opcionSubMenu) {
 						case 1:
-
+						
 							break;
 						case 2:
 							InfoCambioPermisos.InfoPermisosLinux();

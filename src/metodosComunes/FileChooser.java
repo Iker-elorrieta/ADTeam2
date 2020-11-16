@@ -9,6 +9,7 @@ public class FileChooser {
 	//private File Archivo;
 			public static int comprobadorDeTeses;
 	       private JFrame frame;
+	       private String path;
 	       public FileChooser() {
 	           frame = new JFrame();
 
@@ -21,12 +22,12 @@ public class FileChooser {
 				JFileChooser fc = new JFileChooser();
 		           if(JFileChooser.APPROVE_OPTION == fc.showOpenDialog(null)){
 		               frame.setVisible(false);
+		               path=fc.getSelectedFile().getAbsolutePath();
 		               return fc.getSelectedFile();
 		           }else {
-		               System.out.println("Next time select a file.");
-		               System.exit(1);
+		               System.out.println("La proxima vez seleccione un archivo.");
 		           }
-				break;
+				
 			case 1:
 				File fichero1 = new File("fichero1.csv");
 				return fichero1;
@@ -41,26 +42,28 @@ public class FileChooser {
 	           return null;
 	       }
 	       
-	       public String getPath() {
+	       public String getAbsolutePath() {
 	           JFileChooser fc = new JFileChooser();
 	           if(JFileChooser.APPROVE_OPTION == fc.showOpenDialog(null)){
 	               frame.setVisible(false);
+	               
 	               return fc.getSelectedFile().getAbsolutePath();
 	           }else {
-	               System.out.println("Next time select a file.");
-	               System.exit(1);
+	               System.out.println("La proxima vez seleccione un archivo.");
 	           }
 	           return null;
 	       }
+	       
+	       
 	      
-	       public String getSavePath() {
+	       public String getSavePath(String nombre) {
 	           JFileChooser fc = new JFileChooser();
+	           fc.setSelectedFile(new File(nombre));
 	           if(JFileChooser.APPROVE_OPTION == fc.showSaveDialog(null)){
 	               frame.setVisible(false);
 	               return fc.getSelectedFile().getAbsolutePath();
 	           }else {
-	               System.out.println("Next time select a file.");
-	               System.exit(1);
+	               System.out.println("La proxima vez seleccione un archivo.");
 	           }
 	           return null;
 	       }
@@ -70,5 +73,11 @@ public class FileChooser {
 	               frame.setExtendedState(JFrame.NORMAL);
 
 	       }
-
+	       
+	       public String getPath() {
+	    	   return this.path;
+	       }
+	       
+		
+	       
 	}

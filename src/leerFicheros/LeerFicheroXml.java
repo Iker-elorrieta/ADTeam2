@@ -13,7 +13,7 @@ import objetos.Libro;
 
 public class LeerFicheroXml {
 
-	public static boolean leerXml(File Fichero, ArrayList<Libro> libros, Scanner sc) {
+	public boolean leerXml(File Fichero, ArrayList<Libro> libros, Scanner sc) {
 
 		File file = (Fichero);
 

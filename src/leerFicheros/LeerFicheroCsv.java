@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import metodosComunes.EscribirPantalla;
 import objetos.Libro;
 
 public class LeerFicheroCsv {
@@ -21,7 +20,7 @@ public class LeerFicheroCsv {
 	 * @return Retorna un booleano true para saber si se ha temrinado de leer el
 	 *         fichero
 	 */
-	public static Boolean LeerCSV(File Fichero,ArrayList<Libro> libros,Scanner sc) {
+	public Boolean LeerCSV(File Fichero,ArrayList<Libro> libros,Scanner sc) {
 
 		
 		BufferedReader br = null;
@@ -35,7 +34,6 @@ public class LeerFicheroCsv {
 
 				StringTokenizer st = new StringTokenizer(linea, ";");
 				Libro libro = new Libro();
-				String prueba;
 				while (st.hasMoreTokens()) {
 
 					libro.setTitulo(st.nextToken());

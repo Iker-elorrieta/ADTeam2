@@ -30,7 +30,7 @@ class Test {
 	 * 
 	 * @author Fran
 	 */
-	
+	FileChooser fc = new FileChooser();
 	Validador validador = new Validador();
 	ValidadorSO validadorso = new ValidadorSO();
 	Permisos permisos = new Permisos();
@@ -51,7 +51,6 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	public void tesVisualicacion() {
-		String[] args = null;
 		int longuitud = 10;
 		String miString = "hola";
 		String opcion = Visualizacion.textoEspacios(longuitud, miString);
@@ -67,7 +66,7 @@ class Test {
 		System.setIn(in);
 		reader = new Scanner(System.in);
 
-		int opcion = controladorMenus.menu(reader);
+		int opcion = controladormenu.menu(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -78,7 +77,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.subMenuLeerFicheros(reader);
+		int opcion = controladormenu.subMenuLeerFicheros(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -89,7 +88,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.subMenuEscribirFicheros(reader);
+		int opcion = controladormenu.subMenuEscribirFicheros(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -100,7 +99,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -110,7 +109,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -120,7 +119,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -131,7 +130,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -141,7 +140,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -151,7 +150,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -161,7 +160,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -171,7 +170,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -181,7 +180,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -191,7 +190,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	
@@ -202,7 +201,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -212,7 +211,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -222,7 +221,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -232,7 +231,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -243,7 +242,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -253,7 +252,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -263,7 +262,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -273,7 +272,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -283,7 +282,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -293,7 +292,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -303,7 +302,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -313,7 +312,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -323,7 +322,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -333,7 +332,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -343,7 +342,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -353,7 +352,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	@org.junit.jupiter.api.Test
@@ -363,7 +362,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	
@@ -374,7 +373,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	
@@ -385,7 +384,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	
@@ -394,7 +393,7 @@ class Test {
 		ArrayList<Libro> libros = new ArrayList<>();
 		reader = new Scanner(System.in);
 		File input = new File( "fichero1.csv");
-		Boolean opcion = LeerFicheroCsv.LeerCSV(input, libros,reader);
+		Boolean opcion = leerCsv.LeerCSV(input, libros,reader);
 		assertEquals(true, opcion);
 	}
 
@@ -428,7 +427,7 @@ class Test {
 		
 		reader = new Scanner(System.in);
 		File input = new File( "aaa.txt");
-		Boolean opcion = LeerFicheroTxt.LeerTxt(input,libros,reader);
+		Boolean opcion = leerTxt.LeerTxt(input,libros,reader);
 		assertEquals(false, opcion);
 	}
 
@@ -449,7 +448,7 @@ class Test {
 		File input = new File( "aaa.xml");
 		reader = new Scanner(System.in);
 
-		LeerFicheroXml.leerXml(input,libros,reader);
+		leerXml.leerXml(input,libros,reader);
 		assertEquals(0, libros.size());
 	}
 
@@ -462,7 +461,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		Scanner sc = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input, sc);
+		boolean correcto = escribirCsv.EscribeFichero(input, sc);
 		assertEquals(true, correcto);
 
 	}
@@ -475,7 +474,7 @@ class Test {
 		System.setIn(in);
 
 		reader = new Scanner(System.in);
-		boolean correcto = EscribirCsv.EscribeFichero(input, reader);
+		boolean correcto = escribirCsv.EscribeFichero(input, reader);
 
 		assertEquals(true, correcto);
 
@@ -504,7 +503,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input2.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		boolean correcto = EscribirTxt.añadirTxt(input, reader);
+		boolean correcto = escribirTxt.añadirTxt(input, reader);
 		assertEquals(true, correcto);
 
 	}
@@ -516,7 +515,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -527,7 +526,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 
@@ -538,7 +537,7 @@ class Test {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		reader = new Scanner(System.in);
-		int opcion = controladorMenus.opcionElegida(reader);
+		int opcion = controladormenu.opcionElegida(reader);
 		assertEquals(1, opcion);
 	}
 	
