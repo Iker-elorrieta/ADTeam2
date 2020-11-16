@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class FileChooser {
 	//private File Archivo;
-			public static int comprobadorDeTeses=0;
+			public static int comprobadorDeTeses;
 	       private JFrame frame;
 	       public FileChooser() {
 	           frame = new JFrame();
@@ -36,13 +36,6 @@ public class FileChooser {
 			case 3:
 				File fichero3 = new File("fichero3.txt");
 				return fichero3;
-			case 4:
-				File fichero4 = new File("fichero4.txt");
-				return fichero4;
-			case 5:
-				File fichero5 = new File("fichero5.xml");
-				return fichero5;
-			
 			}
 	           
 	           return null;
