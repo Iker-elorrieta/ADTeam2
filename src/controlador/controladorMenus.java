@@ -75,61 +75,61 @@ public class controladorMenus {
 	 * @author jonatan,fran
 	 * @return retorna un numero entero que sera la opcion elegida
 	 */
-	public int subMenuLeerFicheros(Scanner sc) {
+//	public int subMenuLeerFicheros(Scanner sc) {
+//
+//		int opcion = 0;
+//		boolean error = true;
+//		do {
+//			try {
+//				System.out.println(
+//						"Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
+//				opcion = sc.nextInt();
+//				System.out.println();
+//				// Comprobacion de que se intoduce un numero del 1 al 4
+//				if (opcion < 1 || opcion > 4) {
+//					System.out.println("\n NUMERO INEXISTENTE\n");
+//					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
+//				} else {
+//					error = false;
+//				}
+//			} catch (Exception e) {
+//				// Mensaje de error si el usuario introduce letras
+//				System.out.println(
+//						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+//				sc.nextLine();
+//			}
+//		} while (error);
+//
+//		return opcion;
+//	}
 
-		int opcion = 0;
-		boolean error = true;
-		do {
-			try {
-				System.out.println(
-						"Que tipo de fichero quiere leer :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
-				opcion = sc.nextInt();
-				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 4
-				if (opcion < 1 || opcion > 4) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
-				} else {
-					error = false;
-				}
-			} catch (Exception e) {
-				// Mensaje de error si el usuario introduce letras
-				System.out.println(
-						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
-				sc.nextLine();
-			}
-		} while (error);
-
-		return opcion;
-	}
-
-	public int subMenuEscribirFicheros(Scanner sc) {
-
-		int opcion = 0;
-		boolean error = true;
-		do {
-			try {
-				System.out.println(
-						"Que tipo de fichero quiere Escribir :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
-				opcion = sc.nextInt();
-				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 4
-				if (opcion < 1 || opcion > 4) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
-				} else {
-					error = false;
-				}
-			} catch (Exception e) {
-				// Mensaje de error si el usuario introduce letras
-				System.out.println(
-						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
-				sc.nextLine();
-			}
-		} while (error);
-
-		return opcion;
-	}
+//	public int subMenuEscribirFicheros(Scanner sc) {
+//
+//		int opcion = 0;
+//		boolean error = true;
+//		do {
+//			try {
+//				System.out.println(
+//						"Que tipo de fichero quiere Escribir :\n 1.- Fichero CSV  \n 2.- Fichero XML\n 3.- Fichero TXT\n 4.- Volver");
+//				opcion = sc.nextInt();
+//				System.out.println();
+//				// Comprobacion de que se intoduce un numero del 1 al 4
+//				if (opcion < 1 || opcion > 4) {
+//					System.out.println("\n NUMERO INEXISTENTE\n");
+//					System.out.println(" Debe introducir una de las siguientes opciones (1-4):\n");
+//				} else {
+//					error = false;
+//				}
+//			} catch (Exception e) {
+//				// Mensaje de error si el usuario introduce letras
+//				System.out.println(
+//						"\n ¡ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
+//				sc.nextLine();
+//			}
+//		} while (error);
+//
+//		return opcion;
+//	}
 
 	public int subMenuBuscador(Scanner sc) {
 
@@ -261,35 +261,7 @@ public class controladorMenus {
 		return opcion;
 	}
 
-	public int SubmenuInfo(Scanner sc) {
-		int opcion = 0;
-		boolean error = true;
-
-		do {
-			try {
-				System.out.println(
-						"Elija una opcion:\n\n 1.-Info Windows \n 2.-InfoLinux \n 3.-ModificarTamaño \n 4.- Salir");
-				opcion = sc.nextInt();
-				System.out.println();
-				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 4) {
-					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-2):\n");
-				} else {
-					error = false;
-				}
-
-				// Excepcion de que se introduce un numero valido
-			} catch (Exception e) {
-				System.out.println(
-						"\n !ERROR! Debe introducir un numero entero.\n\n Selecciona una de las siguientes opciones (1-4):\n");
-				sc.nextLine();
-			}
-
-		} while (error);
-
-		return opcion;
-	}
+	
 
 	/**
 	 * Metodo donde se llama al metodo de la opcion elegida en el SubMenu de
@@ -302,7 +274,7 @@ public class controladorMenus {
 	 */
 	
 	public static boolean EsWindows;
-	
+	FileChooser Fc;
 	public int opcionElegida(Scanner sc) {
 
 		int opcion = 0;
@@ -310,7 +282,7 @@ public class controladorMenus {
 		String nombreFichero = "";
 		Validador validador = new Validador();
 		File Fichero=null;
-		FileChooser Fc;
+		
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		ValidadorSO VSo= new ValidadorSO();
 		
@@ -323,27 +295,35 @@ public class controladorMenus {
 			if (opcion != 6) {
 				switch (opcion) {
 				case 1:
-					Fc = new FileChooser();
-					Fichero = Fc.getFile();
-					if (Fichero.getPath().contains(".csv")){
-						LFC.LeerCSV(Fichero, libros, sc);
-						EscribirPantalla.escribirLibro(libros, sc);
-						System.out.println();
-						// final de la accion elegida del submenu
-					}else if(Fichero.getPath().contains(".xml")){
-						LFX.leerXml(Fichero, libros, sc);
-						EscribirPantalla.escribirLibro(libros, sc);
-						System.out.println();
-					}else if(Fichero.getPath().contains(".txt")){
-						LFT.LeerTxt(Fichero, libros, sc);// Le pasamos el nombre del fichero que// queremos leer
-						EscribirPantalla.escribirLibro(libros, sc);
-						System.out.println();
-					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-						}else {
-						System.out.println("El archivo no se a podido leer");
-						}
+					try {
+						Fc = new FileChooser();
+						Fichero = Fc.getFile();
+						if (Fichero.getPath().contains(".csv")){
+							LFC.LeerCSV(Fichero, libros, sc);
+							EscribirPantalla.escribirLibro(libros, sc);
+							System.out.println();
+							// final de la accion elegida del submenu
+						}else if(Fichero.getPath().contains(".xml")){
+							LFX.leerXml(Fichero, libros, sc);
+							EscribirPantalla.escribirLibro(libros, sc);
+							System.out.println();
+						}else if(Fichero.getPath().contains(".txt")){
+							LFT.LeerTxt(Fichero, libros, sc);// Le pasamos el nombre del fichero que// queremos leer
+							EscribirPantalla.escribirLibro(libros, sc);
+							System.out.println();
+						// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
+							}else {
+							System.out.println("El archivo no se a podido leer");
+							}
+					}catch(NullPointerException e) {
+						
+						
+					}
+					Fc.dispose();
+					
 					break;
 				case 2:
+					try {
 					Fc = new FileChooser();
 					Fichero = Fc.getFile();
 					if (Fichero.getPath().contains(".csv")){
@@ -361,6 +341,10 @@ public class controladorMenus {
 						}else {
 						System.out.println("El archivo no se a podido leer");
 						}
+					}catch(NullPointerException e) {
+						e.printStackTrace();
+					}
+					Fc.dispose();
 					
 					break;
 				case 3:
@@ -532,6 +516,7 @@ public class controladorMenus {
 						switch (opcionSubMenu) {
 						case 1:
 							MF.moverFicheroWindows();
+							Fc.dispose();
 							break;
 						case 2:
 							Permisos p = new Permisos();
@@ -568,34 +553,8 @@ public class controladorMenus {
 							}
 
 							break;
-
-						case 3:
-
-							break;
 						}
-
 					}
-					break;
-				case 5:
-
-					opcionSubMenu = this.SubmenuInfo(sc);
-					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
-					if (opcionSubMenu != 4) {
-
-						switch (opcionSubMenu) {
-						case 1:
-						
-							break;
-						case 2:
-							InfoCambioPermisos.InfoPermisosLinux();
-							break;
-						case 3:
-
-							break;
-						}
-
-					}
-
 					break;
 				}
 

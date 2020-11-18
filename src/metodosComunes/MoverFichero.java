@@ -5,11 +5,12 @@ import java.io.File;
 import controlador.controladorMenus;
 
 public class MoverFichero {
-	FileChooser file = new FileChooser();
+	
 	String pathFichero,PathGuardado;
 	String[] splitsFichero;
 	String simboloWindows;
 	public boolean moverFicheroWindows(){
+		FileChooser file = new FileChooser();
 		if(controladorMenus.EsWindows) {
 		simboloWindows=("/");
 		}else {

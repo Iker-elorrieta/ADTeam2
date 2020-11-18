@@ -10,23 +10,27 @@ public class FileChooser {
 			public static int comprobadorDeTeses;
 	       private JFrame frame;
 	       private String path;
+	       JFileChooser fc;
 	       public FileChooser() {
 	           frame = new JFrame();
 
 	           frame.setVisible(true);
 	           BringToFront();
 	       }
+	      
 	       public File getFile() {
 	    	   switch (comprobadorDeTeses) {
 			case 0:
-				JFileChooser fc = new JFileChooser();
+				fc = new JFileChooser();
 		           if(JFileChooser.APPROVE_OPTION == fc.showOpenDialog(null)){
 		               frame.setVisible(false);
 		               path=fc.getSelectedFile().getAbsolutePath();
+		               
 		               return fc.getSelectedFile();
 		           }else {
 		               System.out.println("La proxima vez seleccione un archivo.");
 		           }
+		           break;
 				
 			case 1:
 				File fichero1 = new File("fichero1.csv");
@@ -38,12 +42,12 @@ public class FileChooser {
 				File fichero3 = new File("fichero3.txt");
 				return fichero3;
 			}
-	           
+	    	   
 	           return null;
 	       }
 	       
 	       public String getAbsolutePath() {
-	           JFileChooser fc = new JFileChooser();
+	           fc = new JFileChooser();
 	           if(JFileChooser.APPROVE_OPTION == fc.showOpenDialog(null)){
 	               frame.setVisible(false);
 	               
@@ -57,7 +61,7 @@ public class FileChooser {
 	       
 	      
 	       public String getSavePath(String nombre) {
-	           JFileChooser fc = new JFileChooser();
+	    	   fc = new JFileChooser();
 	           fc.setSelectedFile(new File(nombre));
 	           if(JFileChooser.APPROVE_OPTION == fc.showSaveDialog(null)){
 	               frame.setVisible(false);
@@ -76,6 +80,10 @@ public class FileChooser {
 	       
 	       public String getPath() {
 	    	   return this.path;
+	       }
+	       
+	       public void dispose() {
+	    	   frame.setVisible(false);
 	       }
 	       
 		
