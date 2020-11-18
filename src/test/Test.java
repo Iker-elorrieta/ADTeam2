@@ -70,27 +70,27 @@ class Test {
 		assertEquals(1, opcion);
 	}
 
-	@org.junit.jupiter.api.Test
-	public void testControladorSubMenusLeer() {
-
-		String input = "r \n 6 \n 1";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		int opcion = controladormenu.subMenuLeerFicheros(reader);
-		assertEquals(1, opcion);
-	}
-
-	@org.junit.jupiter.api.Test
-	public void testControladorSubMenusEscribirError() {
-
-		String input = "r \n 6 \n 1";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		reader = new Scanner(System.in);
-		int opcion = controladormenu.subMenuEscribirFicheros(reader);
-		assertEquals(1, opcion);
-	}
+//	@org.junit.jupiter.api.Test
+//	public void testControladorSubMenusLeer() {
+//
+//		String input = "r \n 6 \n 1";
+//		InputStream in = new ByteArrayInputStream(input.getBytes());
+//		System.setIn(in);
+//		reader = new Scanner(System.in);
+//		int opcion = controladormenu.subMenuLeerFicheros(reader);
+//		assertEquals(1, opcion);
+//	}
+//
+//	@org.junit.jupiter.api.Test
+//	public void testControladorSubMenusEscribirError() {
+//
+//		String input = "r \n 6 \n 1";
+//		InputStream in = new ByteArrayInputStream(input.getBytes());
+//		System.setIn(in);
+//		reader = new Scanner(System.in);
+//		int opcion = controladormenu.subMenuEscribirFicheros(reader);
+//		assertEquals(1, opcion);
+//	}
 
 	@org.junit.jupiter.api.Test
 	public void testControladorOpcionElegidaLeercsv() {
