@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import metodosComunes.RellenarLibro;
 import objetos.Libro;
 
 public class EscribirTxt {
@@ -19,7 +20,8 @@ public class EscribirTxt {
 	 * @throws IOException clase general de excepciones producidas por operaciones de E / S fallidas o interrumpidas.
 	 */
 	Scanner sc = new Scanner(System.in);
-	
+
+	RellenarLibro RL=new RellenarLibro();
 	public boolean añadirTxt(File fichero,Scanner sc) {
 		
 		BufferedWriter bw = null;
@@ -38,7 +40,7 @@ public class EscribirTxt {
 			fw = new FileWriter(file.getAbsoluteFile(), true);
 			bw = new BufferedWriter(fw);
 			
-			libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
+			libro = RL.rellenarLibro(sc);
 			
 			bw.write("Titulo : " + libro.getTitulo() + "\n");
 			bw.write("Editorial : " + libro.getEditorial() + "\n");

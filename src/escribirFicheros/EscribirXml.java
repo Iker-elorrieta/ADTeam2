@@ -29,6 +29,7 @@ public class EscribirXml {
 	 */
 	Scanner sc = new Scanner(System.in);
 	LeerFicheroXml LFX = new LeerFicheroXml();
+	RellenarLibro RL=new RellenarLibro();
 	public EscribirXml() {
 
 	}
@@ -38,17 +39,15 @@ public class EscribirXml {
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 		LFX.leerXml(name, libros, sc);
 
-		libros.add(RellenarLibro.rellenarLibro(sc));
+		libros.add(RL.rellenarLibro(sc));
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.newDocument();
-
 			// definimos el elemento raíz del documento
 			Element eBiblioteca = doc.createElement("biblioteca");
 			doc.appendChild(eBiblioteca);
-
 			for (Libro libro : libros) {
 
 				// definimos el nodo que contendrá los elementos

@@ -2,13 +2,19 @@ package metodosComunes;
 
 import java.io.File;
 
+import controlador.controladorMenus;
+
 public class MoverFichero {
 	FileChooser file = new FileChooser();
 	String pathFichero,PathGuardado;
 	String[] splitsFichero;
-	final String simboloWindows=("/");
+	String simboloWindows;
 	public boolean moverFicheroWindows(){
-		
+		if(controladorMenus.EsWindows) {
+		simboloWindows=("/");
+		}else {
+		simboloWindows=("\\");
+		}
 		File fichero =file.getFile();
 		pathFichero=file.getPath();
 		splitsFichero=pathFichero.split(simboloWindows);

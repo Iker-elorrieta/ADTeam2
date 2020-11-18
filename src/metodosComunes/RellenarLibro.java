@@ -12,7 +12,7 @@ public class RellenarLibro {
 	 * @return Retorna un objeto Libro
 	 */
 
-	public static Libro rellenarLibro(Scanner sc) {
+	public Libro rellenarLibro(Scanner sc) {
 
 
 		String titulo;
@@ -54,8 +54,11 @@ public class RellenarLibro {
 		notas = sc.next();
 		}while(!v.validador("{a-z}(0-9)[30]", (notas)));
 	
-		System.out.println("Introduce una isbn ");
-		isbn = sc.next();
+		do {
+			System.out.println("Introduce una isbn ");
+			isbn = sc.next();
+		}while(!v.validarIsbn(isbn));
+		
 		
 		do{
 		System.out.println("Introduce una materias ");

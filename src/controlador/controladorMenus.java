@@ -300,6 +300,9 @@ public class controladorMenus {
 	 * @return retorna un 1 para comprobar que termina correctamente
 	 * 
 	 */
+	
+	public static boolean EsWindows;
+	
 	public int opcionElegida(Scanner sc) {
 
 		int opcion = 0;
@@ -309,6 +312,10 @@ public class controladorMenus {
 		File Fichero=null;
 		FileChooser Fc;
 		ArrayList<Libro> libros = new ArrayList<Libro>();
+		ValidadorSO VSo= new ValidadorSO();
+		
+		EsWindows=VSo.isWindows();
+		
 		
 		do {
 			opcion = this.menu(sc);
