@@ -20,97 +20,93 @@ public class Permisos {
 	}
 
 	public boolean cambiarPermisoLinux(File file, String aQueUsuario, int permiso, int darOquitar) {
-	//"Para Control Total pulse 1, para Lectura y Ejecución pulse 2, para Lectura pulse 3, para Escritura pulse 4);
-		boolean control=false;
-		final String msgError="ERROR al cambiar permisos";
-		final String comando = "chmod";
-		final String opcionEscritura = "w";
-		final String opcionLectura = "r";
-		final String opcionEjecucion = "x";
-		final String opcionUsuario = "u";
-		final String opcionGrupos = "g";
-		final String opcionOtros = "o";
-		String masOmenos="";
-		String[] comandoEscritura = {comando,"",file.getName()};
-		String[] comandoLectura = {comando,"",file.getName()};
-		String[] comandoEjecucion = {comando,"",file.getName()};
-		
-		//Editamos añadir o quitar permisos en el comando
-		if(darOquitar==1) {
-			masOmenos="+";
-		}else {
-			masOmenos="-";
-		}
-		
-		//Añadimos a quien se le cambian los permisos en el comando
-		switch (aQueUsuario) {
-		case opcionUsuario:
-			comandoEscritura[1] = opcionUsuario;
-			comandoLectura[1] = opcionUsuario;
-			comandoEjecucion[1] = opcionUsuario;
-			break;
-		case opcionGrupos:
-			comandoEscritura[1] = opcionGrupos;
-			comandoLectura[1] = opcionGrupos;
-			comandoEjecucion[1] = opcionGrupos;	
-			break;
-		case opcionOtros:
-			comandoEscritura[1] = opcionOtros;
-			comandoLectura[1] = opcionOtros;
-			comandoEjecucion[1] = opcionOtros;
-			break;
-		}
-		
-		//Añadimos el resto del comando
-		comandoEscritura[1] = comandoEscritura[1]+masOmenos+opcionEscritura;
-		comandoLectura[1] = comandoLectura[1]+masOmenos+opcionLectura;
-		comandoEjecucion[1] = comandoEjecucion[1]+masOmenos+opcionEjecucion;
-		
-		//Ejecutamos los comandos en consola segun los permisos elegidos
-		switch (permiso) {
-		case 1:
+		//Para Control Total pulse 1, para Lectura y Ejecuciï¿½n pulse 2, para Lectura pulse 3, para Escritura pulse 4);
+			Process proceso;
+			boolean control=false;
+			final String msgError="ERROR al cambiar permisos";
+			final String comando = "chmod ";
+			final String opcionEscritura = "w";
+			final String opcionLectura = "r";
+			final String opcionEjecucion = "x";
+			final String opcionUsuario = "u";
+			final String opcionGrupos = "g";
+			final String opcionOtros = "o";
+			String masOmenos="";
+			String comandoEscritura = null;
+			String comandoLectura=null;
+			String comandoEjecucion=null;
 			
-			try {
-				Runtime.getRuntime().exec(comandoEscritura);
-				Runtime.getRuntime().exec(comandoLectura);
-				Runtime.getRuntime().exec(comandoEjecucion);
-				control=true;
-			} catch (IOException e) {
-				System.out.println(msgError);
+			//Editamos aï¿½adir o quitar permisos en el comando
+			if(darOquitar==1) {
+				masOmenos="+";
+			}else {
+				masOmenos="-";
 			}
-			break;
-		case 2:
-			try {
-				Runtime.getRuntime().exec(comandoLectura);
-				Runtime.getRuntime().exec(comandoEjecucion);
-				control=true;
-			} catch (IOException e) {
-				System.out.println(msgError);
+			
+			//Aï¿½adimos a quien se le cambian los permisos en el comando
+			switch (aQueUsuario) {
+			case opcionUsuario:
+				comandoEscritura = comando+opcionUsuario;
+				comandoLectura = comando+opcionUsuario;
+				comandoEjecucion = comando+opcionUsuario;
+				break;
+			case opcionGrupos:
+				comandoEscritura = comando+opcionGrupos;
+				comandoLectura = comando+opcionGrupos;
+				comandoEjecucion = comando+opcionGrupos;	
+				break;
+			case opcionOtros:
+				comandoEscritura = comando+opcionOtros;
+				comandoLectura = comando+opcionOtros;
+				comandoEjecucion = comando+opcionOtros;
+				break;
 			}
-			break;
-		case 3:
-			try {
-				Runtime.getRuntime().exec(comandoLectura);
+			
+			//Aï¿½adimos el resto del comando
+			comandoEscritura = comandoEscritura+masOmenos+opcionEscritura+" "+file.getAbsolutePath();
+			comandoLectura= comandoLectura+masOmenos+opcionLectura+" "+file.getAbsolutePath();
+			comandoEjecucion = comandoEjecucion+masOmenos+opcionEjecucion+" "+file.getAbsolutePath();
+			
+			//Ejecutamos los comandos en consola segun los permisos elegidos
+			switch (permiso) {
+			case 1:
+				try {
+				proceso=Runtime.getRuntime().exec(comandoEscritura);
+				proceso=Runtime.getRuntime().exec(comandoLectura);
+				proceso=Runtime.getRuntime().exec(comandoEjecucion);
+				}catch(IOException e){
+					e.printStackTrace();
+				}
 				control=true;
-			} catch (IOException e) {
-				System.out.println(msgError);
+				break;
+			case 2:
+				try {
+				proceso=Runtime.getRuntime().exec(comandoLectura);
+				proceso=Runtime.getRuntime().exec(comandoEjecucion);
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+				break;
+			case 3:
+				try {
+				proceso=Runtime.getRuntime().exec(comandoLectura);
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+				break;
+			case 4:
+				try {
+				proceso=Runtime.getRuntime().exec(comandoEjecucion);
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+				break;
 			}
-			break;
-		case 4:
-			try {
-				Runtime.getRuntime().exec(comandoEjecucion);
-				control=true;
-			} catch (IOException e) {
-				System.out.println(msgError);
-			}
-			break;
-		}
-		
-		//Devuelve un true si se han cambiado los permisos correctamente
-		return control;
+			
+			//Devuelve un true si se han cambiado los permisos correctamente
+			return control;
 
-	}
-	
+		}
 	
 	
 }
