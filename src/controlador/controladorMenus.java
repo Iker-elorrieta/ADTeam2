@@ -47,13 +47,13 @@ public class controladorMenus {
 		do {
 			try {
 				System.out.println(
-						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.-Modificar Archivo \n 5.-Info cambiar permisos \n 6.- Salir");
+						"Elija una opcion:\n\n 1.-Leer ficheros \n 2.-Escribir Ficheros \n 3.-Buscar en Fichero \n 4.-Modificar Archivo \n 5.- Salir");
 				opcion = sc.nextInt();
 				System.out.println();
 				// Comprobacion de que se intoduce un numero del 1 al 2
-				if (opcion < 1 || opcion > 6) {
+				if (opcion < 1 || opcion > 5) {
 					System.out.println("\n NUMERO INEXISTENTE\n");
-					System.out.println(" Debe introducir una de las siguientes opciones (1-6):\n");
+					System.out.println(" Debe introducir una de las siguientes opciones (1-5):\n");
 				} else {
 					error = false;
 				}
@@ -561,7 +561,7 @@ public class controladorMenus {
 				}
 
 			}
-		} while (opcion != 6);
+		} while (opcion != 5);
 		return 1;
 
 	}
