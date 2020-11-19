@@ -19,7 +19,6 @@ import metodosComunes.Permisos;
 import metodosComunes.Validador;
 import metodosComunes.ValidadorSO;
 import objetos.Libro;
-import sun.nio.ch.FileKey;
 
 public class controladorMenus {
 	LeerFicheroCsv LFC = new LeerFicheroCsv();
@@ -522,31 +521,48 @@ public class controladorMenus {
 							break;
 						case 2:
 							Permisos p = new Permisos();
-
-							ValidadorSO validadorSistema=new ValidadorSO();
-
+							Fichero = Fc.getFile();
+							Fc.dispose();
 							System.out.println("Para dar permisos pulse 1, para quitar permisos pulse 2");
 
 							int permiso1 = sc.nextInt();
 							
-							if(validadorSistema.isWindows()) {
+							if(EsWindows) {
 								System.out.println("Para Control Total pulse 1, para Modificar pulse 2, para Lectura y Ejecución pulse 3, para Lectura pulse 4, para Escritura pulse 5, para Permisos Especiales pulse 6  ");
-							}else if(validadorSistema.isUnix()) {
+							}else {
 								System.out.println("Para Control Total pulse 1, para Lectura y Ejecución pulse 2, para Lectura pulse 3, para Escritura pulse 4");
 							}
 							
 							int permiso2 = sc.nextInt();
-
+							
+							if(EsWindows) {
+							}else {
+								System.out.println("Para Usuario propietario pulse 1, para Grupos de usuario pulse 2, para Otros pulse 3");
+							}
+							int permiso3 = sc.nextInt();
+							String letra="";
+							switch (permiso3) {
+							case 1: 
+								letra="u";
+								break;
+							case 2:
+								letra="g";
+								break;
+							case 3:
+								letra="o";
+								break;
+							}
+							
 							if (permiso1 == 1) {
 
-								if (System.getProperty("os.name").contains("Windows")) {
+								if (EsWindows) {
 
 								} else {
-
+									p.cambiarPermisoLinux(Fichero, letra, permiso2, permiso1);
 								}
 
 							} else {
-								if (System.getProperty("os.name").contains("Windows")) {
+								if (EsWindows) {
 
 								}
 								else {
