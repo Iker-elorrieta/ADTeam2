@@ -352,7 +352,7 @@ public class controladorMenus {
 					int busqueda;
 					int tipoDeBusqueda = 1;
 					opcionSubMenu = this.subMenuBuscador(sc);
-					if (opcionSubMenu != 3 && opcionSubMenu != 4) {
+					if (opcionSubMenu != 3 && opcionSubMenu != 4 && opcionSubMenu !=8) {
 						tipoDeBusqueda = this.subMenuTipoDeBusqueda(sc);
 					}
 					final String simbolo = "\\*";
