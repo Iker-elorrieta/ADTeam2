@@ -19,6 +19,7 @@ import metodosComunes.Permisos;
 import metodosComunes.Validador;
 import metodosComunes.ValidadorSO;
 import objetos.Libro;
+import sun.nio.ch.FileKey;
 
 public class controladorMenus {
 	LeerFicheroCsv LFC = new LeerFicheroCsv();
@@ -513,7 +514,7 @@ public class controladorMenus {
 					opcionSubMenu = this.SubmenuModificar(sc);
 					// Comprobacion de que el usuario no haya elegido la opcion 4.- Salir
 					if (opcionSubMenu != 4) {
-
+						Fc = new FileChooser();
 						switch (opcionSubMenu) {
 						case 1:
 							MF.moverFicheroWindows();
