@@ -22,3 +22,19 @@ Notas : 888
 Isbn : 978-987-1565-34-4
 Materias : Terror
 *******************************
+Titulo : txt
+Editorial : txt
+Paginas : 3
+Altura : 3.0
+Notas :  3
+Isbn : 978-846-097-172-6
+Materias : txt
+*******************************
+Titulo : txt
+Editorial : txt
+Paginas : 3
+Altura : 3.0
+Notas :  3
+Isbn : 978-846-097-172-6
+Materias : txt
+*******************************

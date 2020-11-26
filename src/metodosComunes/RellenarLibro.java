@@ -12,7 +12,7 @@ public class RellenarLibro {
 	 * @return Retorna un objeto Libro
 	 */
 
-	public static Libro rellenarLibro(Scanner sc) {
+	public Libro rellenarLibro(Scanner sc) {
 
 
 		String titulo;
@@ -25,41 +25,46 @@ public class RellenarLibro {
 		String isbn;
 		String materias;
 		Validador v = new Validador();
+		sc.nextLine();
 		do{
+			
 		System.out.println("Introduce un titulo de libro ");
-		titulo = sc.next();
+		titulo = sc.nextLine();
 		// *sdfjbvkn*{a-z}(0-9)[0-30] ]
 		}while(!v.validador("{a-z}(0-9)[30]", titulo)) ;
 		
 		do{
 		System.out.println("Introduce una editorial ");
-		editorial = sc.next();
+		editorial = sc.nextLine();
 		}while(!v.validador("{a-z}(0-9)[30]", editorial)) ;
 
 		
 		do{
 		System.out.println("Introduce un numero de paginas ");
-		paginasSinParse = sc.next();
-		}while(!v.validador("(0-9)[4]", (paginasSinParse)));
+		paginasSinParse = sc.nextLine();
+		}while(!v.validador("(0-9)[5]", (paginasSinParse)));
 		paginas = Integer.parseInt(paginasSinParse);
 
 		do{
 		System.out.println("Introduce un altura ");
-		alturaSinParse = sc.next();
+		alturaSinParse = sc.nextLine();
 		}while(!v.validador("(0-9)[6]", (alturaSinParse)));
 		altura = Float.parseFloat(alturaSinParse);
 		
 		do{
 		System.out.println("Introduce un notas ");
-		notas = sc.next();
+		notas = sc.nextLine();
 		}while(!v.validador("{a-z}(0-9)[30]", (notas)));
 	
-		System.out.println("Introduce una isbn ");
-		isbn = sc.next();
+		do {
+			System.out.println("Introduce una isbn ");
+			isbn = sc.nextLine();
+		}while(!v.validarIsbn(isbn));
+		
 		
 		do{
 		System.out.println("Introduce una materias ");
-		materias = sc.next();
+		materias = sc.nextLine();
 		}while(!v.validador("{a-z}(0-9)[30]", (materias)));
 
 		Libro libro = new Libro(titulo, editorial, paginas, altura, notas, isbn, materias);

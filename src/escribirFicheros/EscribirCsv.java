@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import metodosComunes.RellenarLibro;
 import objetos.Libro;
 
 public class EscribirCsv {
@@ -17,25 +19,26 @@ public class EscribirCsv {
 	 * @return Retorna un booleano true para saber si se ha terminado de escribir o crear el fichero
 	 * 
 	 */
-	final static String cvsSplitBy = ";";
+	final String cvsSplitBy = ";";
 
 	static Scanner sc = new Scanner(System.in);
 	
-	public static boolean EscribeFichero(String nombreFichero, Scanner sc) {
+	public boolean EscribeFichero(File fichero, Scanner sc) {
 
 	//static Scanner sc = new Scanner(System.in);
 		
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		Libro libro = new Libro();
+		RellenarLibro RL=new RellenarLibro();
 		try {
 
-			File file = new File(nombreFichero + ".csv");
+			File file = (fichero);
 			// Si el archivo no existe, se crea!
 			if (!file.exists()) {
 				fw = new FileWriter(file.getAbsoluteFile(), true);
 				bw = new BufferedWriter(fw);
-				libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
+				libro = RL.rellenarLibro(sc);
 				bw.write("Titulo" + cvsSplitBy + "Editorial" + cvsSplitBy + "Paginas" + cvsSplitBy + "Altura"
 						+ cvsSplitBy + "Notas" + cvsSplitBy + "Isbn" + cvsSplitBy + "Materias" + "\n");
 				file.createNewFile();
@@ -48,7 +51,7 @@ public class EscribirCsv {
 				
 				fw = new FileWriter(file.getAbsoluteFile(), true);
 				bw = new BufferedWriter(fw);
-				libro = metodosComunes.RellenarLibro.rellenarLibro(sc);
+				libro = RL.rellenarLibro(sc);
 				bw.write(libro.getTitulo() + cvsSplitBy + libro.getEditorial() + cvsSplitBy + libro.getPaginas()
 						+ cvsSplitBy + libro.getAltura() + cvsSplitBy + libro.getNotas() + cvsSplitBy + libro.getIsbn()
 						+ cvsSplitBy + libro.getMaterias() + "\n");

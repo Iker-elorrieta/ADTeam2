@@ -27,28 +27,27 @@ public class EscribirXml {
 	 * 
 	 * @throws Exception clase general de excepciones.
 	 */
-	static Scanner sc = new Scanner(System.in);
-
+	Scanner sc = new Scanner(System.in);
+	LeerFicheroXml LFX = new LeerFicheroXml();
+	RellenarLibro RL=new RellenarLibro();
 	public EscribirXml() {
 
 	}
 
-	public ArrayList<Libro> generarXml(String name, Scanner sc) {
+	public ArrayList<Libro> generarXml(File name, Scanner sc) {
 
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-		LeerFicheroXml.leerXml(name, libros, sc);
+		LFX.leerXml(name, libros, sc);
 
-		libros.add(RellenarLibro.rellenarLibro(sc));
+		libros.add(RL.rellenarLibro(sc));
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.newDocument();
-
 			// definimos el elemento raíz del documento
 			Element eBiblioteca = doc.createElement("biblioteca");
 			doc.appendChild(eBiblioteca);
-
 			for (Libro libro : libros) {
 
 				// definimos el nodo que contendrá los elementos
@@ -97,7 +96,7 @@ public class EscribirXml {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = (Transformer) transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(name + ".xml"));
+			StreamResult result = new StreamResult(name);
 
 			((javax.xml.transform.Transformer) transformer).transform(source, result);
 		} catch (Exception e) {
